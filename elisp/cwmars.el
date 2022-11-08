@@ -136,11 +136,16 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
                     (concat (tuesday-or-thursday) "_CHANGEME.sql"))))
   (find-file (expand-file-name filename cwmars-db-updates-local-path)))
 
-(defun cwmars-deploy-db-updates ()
-  "Deploy db-updates on production via SSH."
-  (interactive)
-  (start-process "cwdeploy-updates" "cwdeploy-updates" "ssh" "mossdb" "cd /mnt/evergreen/db-updates && git pull")
-  (switch-to-buffer-other-window "cwdeploy-updates"))
+(defun cwmars-deploy (what)
+  "Deploy code on production via SSH."
+  (interactive "sDeploy what repository? ")
+  (let ((varsym (intern-soft (format "cwmars-%s-remote-path" what))))
+    (if varsym
+        (let ((bufname (format "cwdeploy-%s" what))
+              (command (format "cd %s && git pull" (symbol-value varsym))))
+          (start-process bufname bufname "ssh" "mossdb" command)
+          (switch-to-buffer-other-window bufname))
+      (message "No remote path variable for %s." what))))
 
 (defun cwmars-lib-notices-dates (lib bday bmonth byear eday emonth eyear)
   "Writes a bash script to get backdated notices for a given library between begin and end dates, inclusive."
@@ -288,8 +293,11 @@ quotes/apostrophes should be doubled, etc."
 (define-key cwmars-map (kbd "d") 'cwmars-db-update)
 (define-key cwmars-map (kbd "f") 'cwmars-find-db-update)
 (define-key cwmars-map (kbd "l") 'cwmars-make-acn-label-update)
+(define-key cwmars-map (kbd "pa") (lambda () (interactive) (cwmars-deploy "apps")))
+(define-key cwmars-map (kbd "pd") (lambda () (interactive) (cwmars-deploy "apps-dev")))
+(define-key cwmars-map (kbd "pu") (lambda () (interactive) (cwmars-deploy "utilities")))
 (define-key cwmars-map (kbd "s") 'cwmars-make-sql-updates)
-(define-key cwmars-map (kbd "u") 'cwmars-deploy-db-updates)
+(define-key cwmars-map (kbd "u") (lambda () (interactive) (cwmars-deploy "db-updates")))
 ;; Key bindings to open files and directories that I commonly use.
 (define-key cwmars-map (kbd "A") (make-find-file-command cwmars-apps-local-path))
 (define-key cwmars-map (kbd "B") (make-find-file-command cwmars-apps-dev-local-path))
