@@ -29,16 +29,16 @@
   "Path to the local MOBIUS apps repository."
   :type 'directory :group 'cwmars :require 'cwmars)
 
-(defcustom cwmars-utilities-local-path "~/CWMARS/moss/utilities/"
-  "Path to the local MOBIUS utilities repository."
-  :type 'directory :group 'cwmars :require 'cwmars)
-
 (defcustom cwmars-apps-remote-path "/mnt/evergreen/apps/"
   "Path to the remote MOBIUS apps repository."
   :type 'directory :group 'cwmars :require 'cwmars)
 
 (defcustom cwmars-apps-dev-local-path "~/CWMARS/moss/apps_dev/"
   "Path to the local MOBIUS apps_dev repository."
+  :type 'directory :group 'cwmars :require 'cwmars)
+
+(defcustom cwmars-apps-dev-remote-path "/mnt/evergreen/apps_dev/"
+  "Path to the remote MOBIUS apps_dev repository."
   :type 'directory :group 'cwmars :require 'cwmars)
 
 (defcustom cwmars-utilities-local-path "~/CWMARS/moss/utilities/"
