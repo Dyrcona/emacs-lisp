@@ -23,13 +23,14 @@
 ;; Byte-recompile the libraries, if needed:
 (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 
-;; Load machine-specific customizations
-(load-file
- (customize-set-variable
-  'custom-file
-  (expand-file-name
-   (downcase (format "%s-custom.el" (system-name)))
-   user-emacs-directory)))
+;; Load my libraries that I want all the time.
+(require 'buffer-advice)
+(require 'my-funcs)
+(require 'my-commands)
+(require 'cwmars)
+(require 'my-skeletons)
+(require 'funcall-region)
+(require 'unscroll)
 
 ;; Start emacs server process so we can use emacsclient as the editor
 ;; for other programs.
@@ -44,15 +45,6 @@
 (put 'narrow-to-region 'disabled nil)
 ;; Enable erase-buffer for interactive use.
 (put 'erase-buffer 'disabled nil)
-
-;; Load my libraries that I want all the time.
-(require 'buffer-advice)
-(require 'my-funcs)
-(require 'my-commands)
-(require 'cwmars)
-(require 'my-skeletons)
-(require 'funcall-region)
-(require 'unscroll)
 
 ;; Unset global keys
 ;; Turn off Ctrl-z.  I almost never mean to use it.
@@ -275,3 +267,11 @@
 ;; Add a hook to make scripts executable when they are saved.
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
+
+;; Load machine-specific customizations
+(load-file
+ (customize-set-variable
+  'custom-file
+  (expand-file-name
+   (downcase (format "%s-custom.el" (system-name)))
+   user-emacs-directory)))
