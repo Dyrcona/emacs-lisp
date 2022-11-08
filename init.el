@@ -18,6 +18,11 @@
              (cons "melpa-stable" "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+;; Setup load path for finding my files:
+(add-to-list 'load-path "~/.emacs.d/elisp")
+;; Byte-recompile the libraries, if needed:
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+
 ;; Load machine-specific customizations
 (load-file
  (customize-set-variable
@@ -40,10 +45,6 @@
 ;; Enable erase-buffer for interactive use.
 (put 'erase-buffer 'disabled nil)
 
-;; Setup load path for finding my files:
-(add-to-list 'load-path "~/.emacs.d/elisp")
-;; Byte-recompile the libraries, if needed:
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 ;; Load my libraries that I want all the time.
 (require 'buffer-advice)
 (require 'my-funcs)
