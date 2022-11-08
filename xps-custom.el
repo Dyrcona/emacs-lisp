@@ -32,7 +32,9 @@
 (require 'tramp)
 (add-to-list 'tramp-connection-properties
              (list "/ssh:\\(jason@\\|store@\\|root@\\)?mail"
-                   "remote-shell" "/usr/local/bin/bash")
+                   "remote-shell" "/usr/local/bin/bash"))
+;; Ditto for the host beastie:
+(add-to-list 'tramp-connection-properties
              (list "/ssh:\\(jason@\\|root@\\)?beastie"
                    "remote-shell" "/usr/local/bin/bash"))
 
