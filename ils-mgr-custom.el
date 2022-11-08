@@ -129,3 +129,9 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(user-mail-address "jstephenson@cwmars.org"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(region ((t (:background "light gray" :distant-foreground "gtk_selection_fg_color")))))
