@@ -19,97 +19,113 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(tool-bar-mode nil)
- '(current-language-environment "UTF-8")
- '(major-mode 'text-mode)
- '(indent-tabs-mode nil)
- '(tab-width 4)
  '(auto-save-default t)
- '(make-backup-files nil)
- '(require-final-newline t)
+ '(current-language-environment "UTF-8")
+ '(cwmars-apps-dev-local-path "~/src/apps_dev/" nil (cwmars))
+ '(cwmars-apps-local-path "~/src/apps/" nil (cwmars))
+ '(cwmars-db-updates-local-path "~/src/db-updates/" nil (cwmars))
+ '(cwmars-evergreen-path "~/src/Evergreen/" nil (cwmars))
+ '(cwmars-files-path "~/Documents/" nil (cwmars))
+ '(cwmars-ncipserver-path "~/src/NCIPServer/" nil (cwmars))
+ '(cwmars-one-offs-path "~/src/one-offs/" nil (cwmars))
+ '(cwmars-opensrf-path "~/src/OpenSRF/" nil (cwmars))
+ '(cwmars-sipserver-path "~/src/SIPServer/" nil (cwmars))
+ '(cwmars-sql-path "~/src/sql/" nil (cwmars))
+ '(cwmars-utilities-local-path "~/src/utilities" nil (cwmars))
  '(diff-switches "-u")
- '(user-mail-address "jstephenson@cwmars.org")
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
- '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
+ '(major-mode (quote text-mode))
+ '(make-backup-files nil)
+ '(my-vms-list
+   (quote
+    (("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr"))))
+ '(require-final-newline t)
+ '(safe-local-variable-values (quote ((nxml-child-indent . 4) (indent-tab-mode))))
  '(sql-connection-alist
-   '(("dumbo"
-      (sql-product 'postgres)
+   (quote
+    (("dumbo"
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5432))
      ("jasontest"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "jasontest"))
      ("util"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "util"))
      ("pg11"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5433))
      ("pg12"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5434))
      ("pg13"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5435))
      ("pg14"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5436))
      ("pg15"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5437))
      ("db1"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35432))
      ("db2"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35433))
      ("training"
-      (sql-product 'postgres)
+      (sql-product
+       (quote postgres))
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
-      (sql-port 35434))))
+      (sql-port 35434)))))
  '(sql-postgres-options
-   '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
- '(sql-product 'postgres)
- '(cwmars-db-updates-local-path "~/src/db-updates/")
- '(cwmars-apps-local-path "~/src/apps/")
- '(cwmars-apps-dev-local-path "~/src/apps_dev/")
- '(cwmars-utilities-local-path "~/src/utilities")
- '(cwmars-files-path "~/Documents/")
- '(cwmars-sql-path "~/src/sql/")
- '(cwmars-one-offs-path "~/src/one-offs/")
- '(cwmars-evergreen-path "~/src/Evergreen/")
- '(cwmars-ncipserver-path "~/src/NCIPServer/")
- '(cwmars-opensrf-path "~/src/OpenSRF/")
- '(cwmars-sipserver-path "~/src/SIPServer/"))
+   (quote
+    ("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3")))
+ '(sql-product (quote postgres))
+ '(tab-width 4)
+ '(tool-bar-mode nil)
+ '(user-mail-address "jstephenson@cwmars.org"))

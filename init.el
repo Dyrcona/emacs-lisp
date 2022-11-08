@@ -268,7 +268,7 @@
 ;; and save /etc/hosts.
 (add-hook 'conf-space-mode-hook
           (lambda ()
-            (if (and (buffer-file-name) (string-match *hosts-file* (buffer-file-name)))
+            (if (and (buffer-file-name) (string-match my-hosts-file (buffer-file-name)))
                 (add-hook 'after-save-hook 'make-hosts-sedscripts nil t))))
 
 ;; Add a hook to make scripts executable when they are saved.

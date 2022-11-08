@@ -14,18 +14,22 @@
 
 ;; A collection of useful functions.
 
-(defvar *vms-list*
+(defcustom my-vms-list
   '(("# My VMs" . "/home/jason/Src/other/hosts-vms.sedscr")
     ("# C/W MARS VMs" . "/home/jason/Src/other/hosts-cwmars.sedscr"))
-  "Assoc list of hosts files comments and output file for sed commands.")
+  "Assoc list of hosts files comments and output file for sed commands."
+  :type '(alist :key-type string :value-type file)
+  :group 'local)
 
-(defvar *hosts-file* "/sudo:root@localhost:/etc/hosts")
+(defcustom my-hosts-file "/sudo:root@localhost:/etc/hosts"
+  "Path used to open the hosts file."
+  :type 'string :group 'local)
 
 (defun make-hosts-sedscripts ()
   "Function to copy blocks from my /etc/hosts file and write sed
 commands to files to append the blocks to a file."
   (save-excursion
-    (dolist (elem *vms-list*)
+    (dolist (elem my-vms-list)
       (let ((regexp (concat "^" (car elem) "\n\\([^\n]+\n\\)+")))
         (goto-char (point-min))
         (if (re-search-forward regexp (point-max) t)
