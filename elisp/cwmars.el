@@ -49,7 +49,7 @@
   "Path to the remote MOBIUS utilities repository."
   :type 'directory :group 'cwmars :require 'cwmars)
 
-(defcustom cwmars-files-path "~/CWMARS/"
+(defcustom cwmars-files-path "~/CWMARS/files/"
   "Path to the root where CWMARS' files are stored."
   :type 'directory :group 'cwmars :require 'cwmars)
 
