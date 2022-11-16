@@ -121,7 +121,19 @@
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
-      (sql-port 35434)))))
+      (sql-port 35434))
+    ("focal"
+     (sql-product 'postgres)
+     (sql-user "evergreen")
+     (sql-server "focal")
+     (sql-database "evergreen")
+     (sql-port 5432))
+    ("jammy"
+     (sql-product 'postgres)
+     (sql-user "evergreen")
+     (sql-server "jammy")
+     (sql-database "evergreen")
+     (sql-port 5432)))))
  '(sql-postgres-options
    (quote
     ("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3")))
