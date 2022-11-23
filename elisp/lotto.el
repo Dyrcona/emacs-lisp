@@ -37,7 +37,7 @@
 Lottery Commission website."
   (let ((header-string (if (string= lotto-name "Powerball") "Date,WB1,WB2,WB3,WB4,WB5,PB,PP\n"
                          "Date,WB1,WB2,WB3,WB4,WB5,MB,MP\n"))
-        (main-regexp (concat "^" lotto-name ",\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)\\([^\r]+\\)\r")))
+        (main-regexp (concat "^" lotto-name ",\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)\\([^\r]+?\\)\r?$")))
     (when (re-search-forward main-regexp (point-max) nil 1)
       (delete-region (point-min) (match-beginning 0)))
     (goto-char (point-min))
