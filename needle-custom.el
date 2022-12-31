@@ -43,20 +43,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(tool-bar-mode nil)
- '(current-language-environment "UTF-8")
- '(major-mode 'text-mode)
- '(indent-tabs-mode nil)
- '(tab-width 4)
  '(auto-save-default t)
- '(make-backup-files nil)
- '(require-final-newline t)
+ '(current-language-environment "UTF-8")
  '(diff-switches "-u")
- '(user-mail-address "jason@sigio.com")
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
  '(ispell-program-name "/bin/enchant-2")
+ '(major-mode 'text-mode)
+ '(make-backup-files nil)
  '(package-selected-packages
-   '(ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode magit csv-mode csv))
+   '(ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
+ '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(sql-connection-alist
    '(("dumbo"
@@ -127,7 +124,10 @@
       (sql-port 35434))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
- '(sql-product 'postgres))
+ '(sql-product 'postgres)
+ '(tab-width 4)
+ '(tool-bar-mode nil)
+ '(user-mail-address "jason@sigio.com"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
