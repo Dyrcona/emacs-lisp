@@ -124,12 +124,6 @@
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35434))
-     ("bionic"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "bionic")
-      (sql-database "evergreen")
-      (sql-port 5432))
      ("focal"
       (sql-product 'postgres)
       (sql-user "evergreen")
