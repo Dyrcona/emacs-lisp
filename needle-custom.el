@@ -16,7 +16,7 @@
 
 ;; Now have to set the SSH_AUTH_SOCK environment variable for git push
 ;; and tramp with ssh to work properly.
-(setenv "SSH_AUTH_SOCK" "/run/user/1000/ssh-agent.sock")
+(setenv "SSH_AUTH_SOCK" "/run/user/1000/ssh-agent.socket")
 
 ;; Setup for SLIME
 (require 'auto-complete)
