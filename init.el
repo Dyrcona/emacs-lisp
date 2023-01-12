@@ -269,9 +269,9 @@
           'executable-make-buffer-file-executable-if-script-p)
 
 ;; Load machine-specific customizations
-(load-file
+(load
  (customize-set-variable
   'custom-file
   (expand-file-name
-   (downcase (format "%s-custom.el" (system-name)))
+   (downcase (format "%s-custom" (system-name)))
    user-emacs-directory)))
