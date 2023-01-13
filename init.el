@@ -273,5 +273,5 @@
  (customize-set-variable
   'custom-file
   (expand-file-name
-   (downcase (format "%s-custom" (system-name)))
+   (downcase (format "%s-custom.el" (system-name)))
    user-emacs-directory)))
