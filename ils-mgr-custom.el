@@ -41,6 +41,7 @@
  '(my-vms-list
    (quote
     (("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr"))))
+ '(package-selected-packages (quote (csv yaml-mode)))
  '(require-final-newline t)
  '(safe-local-variable-values (quote ((nxml-child-indent . 4) (indent-tab-mode))))
  '(sql-connection-alist
@@ -122,18 +123,20 @@
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35434))
-    ("focal"
-     (sql-product 'postgres)
-     (sql-user "evergreen")
-     (sql-server "focal")
-     (sql-database "evergreen")
-     (sql-port 5432))
-    ("jammy"
-     (sql-product 'postgres)
-     (sql-user "evergreen")
-     (sql-server "jammy")
-     (sql-database "evergreen")
-     (sql-port 5432)))))
+     ("focal"
+      (sql-product
+       (quote postgres))
+      (sql-user "evergreen")
+      (sql-server "focal")
+      (sql-database "evergreen")
+      (sql-port 5432))
+     ("jammy"
+      (sql-product
+       (quote postgres))
+      (sql-user "evergreen")
+      (sql-server "jammy")
+      (sql-database "evergreen")
+      (sql-port 5432)))))
  '(sql-postgres-options
    (quote
     ("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3")))
