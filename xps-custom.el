@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -38,6 +38,9 @@
              (list "/ssh:\\(jason@\\|root@\\)?beastie"
                    "remote-shell" "/usr/local/bin/bash"))
 
+;; Bind Super-w to open my personal Wesnoth 1.16 data directory installed from Flatpak.
+(global-set-key (kbd "s-w") (make-find-file-command
+                             (expand-file-name "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
