@@ -55,7 +55,7 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(bbcode-mode yaml-mode ac-slime lua-mode sqlup-mode csv-mode geiser))
+   '(dokuwiki-mode bbcode-mode yaml-mode ac-slime lua-mode sqlup-mode csv-mode geiser))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(sql-connection-alist
