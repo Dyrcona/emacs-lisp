@@ -52,7 +52,7 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
+   '(bbcode-mode dokuwiki-mode ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(sql-connection-alist
