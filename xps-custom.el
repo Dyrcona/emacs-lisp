@@ -41,7 +41,6 @@
 ;; Bind Super-w to open my personal Wesnoth 1.16 data directory installed from Flatpak.
 (global-set-key (kbd "s-w") (make-find-file-command
                              (expand-file-name "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16")))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -55,7 +54,8 @@
  '(ispell-program-name "/usr/bin/enchant-2")
  '(major-mode 'text-mode)
  '(make-backup-files nil)
- '(package-selected-packages '(yaml-mode ac-slime lua-mode sqlup-mode csv-mode geiser))
+ '(package-selected-packages
+   '(bbcode-mode yaml-mode ac-slime lua-mode sqlup-mode csv-mode geiser))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(sql-connection-alist
