@@ -14,6 +14,9 @@
 
 ;; Customization for my personal Dell XPS 13.
 
+;; Add my local INFOPATH for my own texinfo documentation
+(add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
+
 ;; Setup for SLIME
 (require 'auto-complete)
 (require 'slime)
