@@ -27,7 +27,7 @@
 (add-to-list 'auto-mode-alist '("\\.cfg\\'" . wesnoth-mode))
 
 ;; Setup yet another keymap for Wesnoth.
-(defvar my-wesnoth-map "Prefix map for my Wesnoth commands")
+(defvar my-wesnoth-map nil "Prefix map for my Wesnoth commands")
 (define-prefix-command 'my-wesnoth-map)
 (global-set-key (kbd "s-w") 'my-wesnoth-map)
 (define-key my-wesnoth-map (kbd "d")
