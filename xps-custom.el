@@ -44,6 +44,8 @@
 ;; Add wesnoth-mode for editing WML files.
 (require 'wesnoth-mode)
 (add-to-list 'auto-mode-alist '("\\.cfg\\'" . wesnoth-mode))
+
+;; Mostly managed by custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
