@@ -41,12 +41,8 @@
              (list "/ssh:\\(jason@\\|root@\\)?beastie"
                    "remote-shell" "/usr/local/bin/bash"))
 
-;; Bind Super-w to open my personal Wesnoth 1.16 data directory installed from Flatpak.
-(global-set-key (kbd "s-w") (make-find-file-command
-                             (expand-file-name "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16")))
-;; Add wesnoth-mode for editing WML files.
-(require 'wesnoth-mode)
-(add-to-list 'auto-mode-alist '("\\.cfg\\'" . wesnoth-mode))
+;; Load my configuration for working on Battle for Wesnoth maps and code.
+(require 'my-wesnoth)
 
 ;; Mostly managed by custom
 (custom-set-variables
