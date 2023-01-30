@@ -41,7 +41,9 @@
  '(my-vms-list
    (quote
     (("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr"))))
- '(package-selected-packages (quote (csv yaml-mode)))
+ '(package-selected-packages
+   (quote
+    (bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode)))
  '(require-final-newline t)
  '(safe-local-variable-values (quote ((nxml-child-indent . 4) (indent-tab-mode))))
  '(sql-connection-alist
