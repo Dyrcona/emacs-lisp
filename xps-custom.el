@@ -81,36 +81,12 @@
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "util"))
-     ("pg11"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5433))
-     ("pg12"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5434))
-     ("pg13"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5435))
-     ("pg14"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5436))
      ("pg15"
       (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
-      (sql-port 5437))
+      (sql-port 5433))
      ("db1"
       (sql-product 'postgres)
       (sql-user "evergreen")
