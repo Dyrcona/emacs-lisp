@@ -62,13 +62,6 @@
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "jasontest"))
-     ("util"
-      (sql-product
-       (quote postgres))
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-port 5432)
-      (sql-database "util"))
      ("pg15"
       (sql-product
        (quote postgres))

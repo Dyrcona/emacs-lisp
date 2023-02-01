@@ -113,7 +113,6 @@
 (define-key super-k-map (kbd "j") (lambda () (interactive) (sql-connect "jasontest")))
 (define-key super-k-map (kbd "s") 'sql-set-sqli-buffer)
 (define-key super-k-map (kbd "t") (lambda () (interactive) (sql-connect "training")))
-(define-key super-k-map (kbd "u") (lambda () (interactive) (sql-connect "util")))
 
 ;; Add git to VC backends.
 (add-to-list 'vc-handled-backends 'Git)
