@@ -10,7 +10,7 @@ GNU Emacs for programming and other text editing chores.  They not
 only set up the work environment on 3 different systems but also
 provide commands and skeletons to automate the drudgery of working
 with certain kinds of programs.  They were recently spiffed up and
-paired down for sharing with the public.
+pared down for sharing with the public.
 
 Perhaps you'll find some inspiration for improving your GNU Emacs
 experience and automating some of your routine chores?
