@@ -34,5 +34,7 @@
 (global-set-key (kbd "s-w") 'my-wesnoth-map)
 (define-key my-wesnoth-map (kbd "d")
   (make-find-file-command (expand-file-name my-wesnoth-data-dir)))
+(define-key my-wesnoth-map (kbd "s")
+  (make-find-file-command (expand-file-name "saves" my-wesnoth-data-dir)))
 
 (provide 'my-wesnoth)
