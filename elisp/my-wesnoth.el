@@ -17,9 +17,11 @@
 
 ;; Make some variables modifiable by custom in case paths are
 ;; different on my other computers.
+(defgroup my-wesnoth nil "My Wesnoth utilities"
+  :group 'local :prefix "my-wesnoth-")
 (defcustom my-wesnoth-data-dir "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16/"
   "Path to my personal Wesnoth 1.16 data directory installed from Flatpak."
-  :type 'directory :group 'local :require 'my-wesnoth)
+  :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 
 ;; Add wesnoth-mode for editing WML files.  Some keybindings below
 ;; here may depend on this one day.
