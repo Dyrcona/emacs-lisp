@@ -214,4 +214,21 @@ for the commits in HEAD that are not in UPSTREAM."
     (goto-char (point-min))
     (forward-line (random lines))))
 
+;; close-and-kill-this-pane taken from EmacsWiki: https://www.emacswiki.org/emacs/KillingBuffers#h5o-5
+(defun close-and-kill-this-pane ()
+  "If there are multiple windows, then close this pane and kill the buffer in it also."
+  (interactive)
+  (kill-this-buffer)
+  (if (not (one-window-p))
+      (delete-window)))
+
+;; close-and-kill-next-pane taken from EmacsWiki: https://www.emacswiki.org/emacs/KillingBuffers#h5o-5
+(defun close-and-kill-next-pane ()
+  "If there are multiple windows, then close the other pane and kill the buffer in it also."
+  (interactive)
+  (other-window 1)
+  (kill-this-buffer)
+  (if (not (one-window-p))
+      (delete-window)))
+
 (provide 'my-commands)

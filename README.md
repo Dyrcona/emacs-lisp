@@ -65,3 +65,6 @@ The `funcall-region` function in
 Code for moving within skeletons was taken from [Emacs
 Wiki](https://www.emacswiki.org/emacs/SkeletonMode#h5o-15) as
 indicated in the comments of [my-skeletons.el](elisp/my-skeletons.el).
+
+Additional code taken from EmacsWiki, see code comments for
+attribution.

@@ -89,6 +89,8 @@
 (defvar super-j-map)
 (define-prefix-command 'super-j-map)
 (global-set-key (kbd "s-j") 'super-j-map)
+(define-key super-j-map (kbd "0") 'close-and-kill-this-pane)
+(define-key super-j-map (kbd "1") 'close-and-kill-next-pane)
 (define-key super-j-map (kbd "!") 'erase-buffer)
 (define-key super-j-map (kbd "$") 'urldecode-region)
 (define-key super-j-map (kbd "%") 'urlencode-region)
