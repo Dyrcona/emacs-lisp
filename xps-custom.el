@@ -62,6 +62,7 @@
  '(make-backup-files nil)
  '(package-selected-packages
    '(markdown-mode dokuwiki-mode bbcode-mode yaml-mode ac-slime sqlup-mode csv-mode geiser))
+ '(python-shell-extra-pythonpaths '("/home/jason/Src/python"))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(sql-connection-alist

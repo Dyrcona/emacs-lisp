@@ -249,10 +249,6 @@
 (add-hook 'python-mode-hook
           (lambda ()
             (setq tab-width python-indent-offset)))
-;; Setup for python interpreter.
-(setq python-shell-interpreter "python3"
-      python-shell-interpreter-args "-i"
-      python-shell-extra-pythonpaths '("/home/jason/Src/python"))
 
 ;; Add a hook for conf-mode[Space] to make sed scripts whenever I edit
 ;; and save /etc/hosts.
