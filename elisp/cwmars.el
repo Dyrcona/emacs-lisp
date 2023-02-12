@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -15,7 +15,7 @@
 ;; Functions and Macros Developed for Use at CW MARS.
 
 (defgroup cwmars nil "Customizable settings for my CW MARS code."
-  :group 'local)
+  :group 'local :prefix "cwmars-")
 
 (defcustom cwmars-db-updates-remote-path "/mnt/evergreen/db-updates/"
   "Path to the db-updates git repository on the MOBIUS servers."
