@@ -27,7 +27,7 @@
 ;; entry in the powerball.csv file.
 (defconst powerball-current-csv-line 594)
 
-;; The curren Mega Millions format (choose 5 from 1 to 70 and 1 from
+;; The current Mega Millions format (choose 5 from 1 to 70 and 1 from
 ;; 25) began on 10/31/2017.  The following value is the line for that
 ;; entry in the megamillions.csv file.
 (defconst megamillions-current-csv-line 1453)
