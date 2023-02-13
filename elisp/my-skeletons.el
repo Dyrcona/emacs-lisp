@@ -618,7 +618,7 @@ _
 the code here.
 
 ## License\n\n"
-      str "is licensed  under the terms of the " (skeleton-read "License: ")
+      str " is licensed  under the terms of the " (skeleton-read "License: ")
       " - see [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments\n\n"
