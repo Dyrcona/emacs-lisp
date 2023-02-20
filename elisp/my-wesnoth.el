@@ -33,7 +33,7 @@
 ;; Set up wesnoth-update for Wesnoth installed from source code.
 (setq wesnoth-root-directory "/usr/local/share/wesnoth/"
       wesnoth-update-output-directory "~/.emacs.d/elisp/"
-      wesnoth-additions-file "~/.emacs.d/elisp/wesnoth-wml-additions.cfg")
+      wesnoth-addition-file "~/.emacs.d/elisp/wesnoth-wml-additions.cfg")
 
 ;; Setup yet another keymap for Wesnoth.
 (defvar my-wesnoth-map nil "Prefix map for my Wesnoth commands")
