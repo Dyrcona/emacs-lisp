@@ -19,8 +19,11 @@
 ;; different on my other computers.
 (defgroup my-wesnoth nil "My Wesnoth utilities"
   :group 'local :prefix "my-wesnoth-")
-(defcustom my-wesnoth-data-dir "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16/"
+(defcustom my-wesnoth-stable-data-dir "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16/"
   "Path to my personal Wesnoth 1.16 data directory installed from Flatpak."
+  :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
+(defcustom my-wesnoth-dev-data-dir "~/.local/share/wesnoth/1.17/"
+  "Path to my personal Wesnoth 1.17 data directory installed from source."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 
 ;; Add wesnoth-mode for editing WML files.  Some keybindings below
@@ -33,8 +36,12 @@
 (define-prefix-command 'my-wesnoth-map)
 (global-set-key (kbd "s-w") 'my-wesnoth-map)
 (define-key my-wesnoth-map (kbd "d")
-  (make-find-file-command (expand-file-name my-wesnoth-data-dir)))
+  (make-find-file-command (expand-file-name my-wesnoth-stable-data-dir)))
 (define-key my-wesnoth-map (kbd "s")
-  (make-find-file-command (expand-file-name "saves" my-wesnoth-data-dir)))
+  (make-find-file-command (expand-file-name "saves" my-wesnoth-stable-data-dir)))
+(define-key my-wesnoth-map (kbd "D")
+  (make-find-file-command (expand-file-name my-wesnoth-dev-data-dir)))
+(define-key my-wesnoth-map (kbd "S")
+  (make-find-file-command (expand-file-name "saves" my-wesnoth-dev-data-dir)))
 
 (provide 'my-wesnoth)
