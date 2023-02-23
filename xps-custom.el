@@ -14,8 +14,6 @@
 
 ;; Customization for my personal Dell XPS 13.
 
-(setenv "SSH_AUTH_SOCK" "/run/user/1000/keyring/ssh")
-
 ;; Add my local INFOPATH for my own texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
 
