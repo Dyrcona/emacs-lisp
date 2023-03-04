@@ -25,6 +25,13 @@
 (defcustom my-wesnoth-dev-data-dir "~/.local/share/wesnoth/1.17/"
   "Path to my personal Wesnoth 1.17 data directory installed from source."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
+(defcustom my-wesnoth-flatpak-share-dir
+  "/var/lib/flatpak/app/org.wesnoth.Wesnoth/current/active/files/share/wesnoth/"
+  "Path to Wesnoth shared data files installed from Flatpak."
+  :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
+(defcustom my-wesnoth-source-share-dir "/usr/local/share/wesnoth/"
+  "Path to Wesnoth shared data files installed from source."
+  :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 
 ;; Add wesnoth-mode for editing WML files.  Some keybindings below
 ;; here may depend on this one day.
@@ -47,5 +54,9 @@
   (make-find-file-command (expand-file-name my-wesnoth-dev-data-dir)))
 (define-key my-wesnoth-map (kbd "S")
   (make-find-file-command (expand-file-name "saves" my-wesnoth-dev-data-dir)))
+(define-key my-wesnoth-map (kbd "f")
+  (make-find-file-command my-wesnoth-flatpak-share-dir))
+(define-key my-wesnoth-map (kbd "F")
+  (make-find-file-command my-wesnoth-source-share-dir))
 
 (provide 'my-wesnoth)
