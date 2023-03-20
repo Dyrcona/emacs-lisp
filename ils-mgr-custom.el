@@ -31,6 +31,7 @@
  '(cwmars-opensrf-path "~/src/OpenSRF/" nil (cwmars))
  '(cwmars-sipserver-path "~/src/SIPServer/" nil (cwmars))
  '(cwmars-sql-path "~/src/sql/" nil (cwmars))
+ '(cwmars-tickets-path "/home/jstephenson/Documents/Tickets/" nil (cwmars))
  '(cwmars-utilities-local-path "~/src/utilities" nil (cwmars))
  '(diff-switches "-u")
  '(indent-tabs-mode nil)
