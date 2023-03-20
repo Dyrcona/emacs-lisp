@@ -77,6 +77,11 @@
   "Path to my local SIPServer source code repository."
   :type 'directory :group 'cwmars :require 'cwmars)
 
+(defcustom cwmars-tickets-path
+  (expand-file-name "Tickets/" cwmars-files-path)
+  "Path to my local Tickets data directories."
+  :type 'directory :group 'cwmars :require 'cwmars)
+
 (defun tuesday-or-thursday ()
   "Find the next Tuesday or Thursday (including today) and return
 the date as a string in the format of YYYYMMDD."
@@ -311,7 +316,7 @@ quotes/apostrophes should be doubled, etc."
 (define-key cwmars-map (kbd "P") (make-find-file-command cwmars-sipserver-path))
 (define-key cwmars-map (kbd "Q") (make-find-file-command cwmars-sql-path))
 (define-key cwmars-map (kbd "S") (make-find-file-command (expand-file-name "scripts" cwmars-utilities-local-path)))
-(define-key cwmars-map (kbd "T") (make-find-file-command (expand-file-name "Tickets" cwmars-files-path)))
+(define-key cwmars-map (kbd "T") (make-find-file-command cwmars-tickets-path))
 (define-key cwmars-map (kbd "U") (make-find-file-command cwmars-utilities-local-path))
 (define-key cwmars-map (kbd "V") (make-find-file-command (expand-file-name "overdue" cwmars-utilities-local-path)))
 (define-key cwmars-map (kbd "Z") (make-find-file-command cwmars-one-offs-path))
