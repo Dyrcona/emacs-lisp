@@ -94,6 +94,7 @@
 (define-key super-j-map (kbd "!") 'erase-buffer)
 (define-key super-j-map (kbd "$") 'urldecode-region)
 (define-key super-j-map (kbd "%") 'urlencode-region)
+(define-key super-j-map (kbd "b") 'ispell-buffer)
 (define-key super-j-map (kbd "cd") 'copy-directory)
 (define-key super-j-map (kbd "cf") 'copy-file)
 (define-key super-j-map (kbd "dc") 'desktop-clear)
@@ -102,6 +103,7 @@
 (define-key super-j-map (kbd "i") 'insert-buffer)
 (define-key super-j-map (kbd "m") 'emerge-files)
 (define-key super-j-map (kbd "n") 'insert-names)
+(define-key super-j-map (kbd "r") 'ispell-region)
 (define-key super-j-map (kbd "s") 'signed-off-by)
 (define-key super-j-map (kbd "u") 'unfill-region)
 
