@@ -54,7 +54,7 @@ commands to files to append the blocks to a file."
       ((get-backup-version
         ()
         (let ((regexp "bash_aliases\\.\\([[:digit:]]+\\)\\'") (version 0))
-          (dolist (inpath (directory-files my-bash-aliases-backup-dir t regexp))
+          (dolist (inpath (directory-files my-bash-aliases-backup-dir nil regexp))
             (when (string-match regexp inpath)
               (let ((v (string-to-number (match-string 1 inpath))))
                 (when (> v version)
