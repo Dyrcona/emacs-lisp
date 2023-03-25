@@ -25,8 +25,8 @@
   "Path used to open the hosts file."
   :type 'string :group 'local)
 
-(defcustom my-bash-aliases-backup-dir "/home/jason/Src/other"
-  "Directory where to save my .bash_aliases backup files."
+(defcustom my-dotfile-backup-dir "/home/jason/Src/other"
+  "Directory where to save my dotfile backup files."
   :type 'directory :group 'local)
 
 (defun make-hosts-sedscripts ()
@@ -47,22 +47,26 @@ commands to files to append the blocks to a file."
                   (replace-match "\\\\")
                   (beginning-of-line)))))))))
 
-(defun backup-bash-aliases (arg)
-  "Function to get name of .bash_aliases backup file."
-  ;; We ignore the arg since this function is specific to 1 file.
-  (cl-labels
-      ((get-backup-version
-        ()
-        (let ((regexp "bash_aliases\\.\\([[:digit:]]+\\)\\'") (version 0))
-          (dolist (inpath (directory-files my-bash-aliases-backup-dir nil regexp))
-            (when (string-match regexp inpath)
-              (let ((v (string-to-number (match-string 1 inpath))))
-                (when (> v version)
-                  (setq version v)))))
-          (1+ version))))
+(defun my-get-backup-version (backup-dir filename)
+  "Find the next backup version number for files matching the
+filename in backup-dir.  Backup filenames are expected to follow
+the pattern of filename.[0-9]+."
+  (let ((regexp (concat filename "\\.\\([[:digit:]]+\\)\\'"))
+        (version 0))
+    (dolist (inpath (directory-files backup-dir nil regexp))
+      (when (string-match regexp inpath)
+        (let ((v (string-to-number (match-string 1 inpath))))
+          (when (> v version)
+            (setq version v)))))
+    (1+ version)))
+
+(defun my-dotfile-backup-name (arg)
+  "Function to get name of dotifle backup file."
+  (let ((filename (string-trim-left (file-name-nondirectory arg) "\\.")))
     (expand-file-name
-     (format "bash_aliases.%d" (get-backup-version))
-     my-bash-aliases-backup-dir)))
+     (format "%s.%d" filename
+             (my-get-backup-version my-dotfile-backup-dir filename))
+     my-dotfile-backup-dir)))
 
 (defmacro make-find-file-command (arg)
   "A shortcut to bind keys to find-file with an argument."

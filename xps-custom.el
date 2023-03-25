@@ -63,7 +63,7 @@
  '(python-shell-extra-pythonpaths '("/home/jason/Src/python"))
  '(require-final-newline t)
  '(safe-local-variable-values
-   '((make-backup-file-name-function . backup-bash-aliases)
+   '((make-backup-file-name-function . my-dotfile-backup-name)
      (make-backup-files . t)
      (nxml-child-indent . 4)
      (indent-tab-mode)))
