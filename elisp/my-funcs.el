@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -25,6 +25,10 @@
   "Path used to open the hosts file."
   :type 'string :group 'local)
 
+(defcustom my-bash-aliases-backup-dir "/home/jason/Src/other"
+  "Directory where to save my .bash_aliases backup files."
+  :type 'directory :group 'local)
+
 (defun make-hosts-sedscripts ()
   "Function to copy blocks from my /etc/hosts file and write sed
 commands to files to append the blocks to a file."
@@ -42,6 +46,23 @@ commands to files to append the blocks to a file."
                 (while (re-search-backward "$" (point-min) t)
                   (replace-match "\\\\")
                   (beginning-of-line)))))))))
+
+(defun backup-bash-aliases (arg)
+  "Function to get name of .bash_aliases backup file."
+  ;; We ignore the arg since this function is specific to 1 file.
+  (cl-labels
+      ((get-backup-version
+        ()
+        (let ((regexp "bash_aliases\\.\\([[:digit:]]+\\)\\'") (version 0))
+          (dolist (inpath (directory-files my-bash-aliases-backup-dir t regexp))
+            (when (string-match regexp inpath)
+              (let ((v (string-to-number (match-string 1 inpath))))
+                (when (> v version)
+                  (setq version v)))))
+          (1+ version))))
+    (expand-file-name
+     (format "bash_aliases.%d" (get-backup-version))
+     my-bash-aliases-backup-dir)))
 
 (defmacro make-find-file-command (arg)
   "A shortcut to bind keys to find-file with an argument."
