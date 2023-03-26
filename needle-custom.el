@@ -47,11 +47,16 @@
  '(ispell-program-name "/bin/enchant-2")
  '(major-mode 'text-mode)
  '(make-backup-files nil)
+ '(my-dotfile-backup-dir "/home/jason/Src/other/needle")
  '(package-selected-packages
    '(bbcode-mode dokuwiki-mode ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
  '(python-shell-extra-pythonpaths '("/home/jason/Src/python"))
  '(require-final-newline t)
- '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
+ '(safe-local-variable-values
+   '((nxml-child-indent . 4)
+     (indent-tab-mode)
+     (make-backup-files . t)
+     (make-backup-file-name-function . my-dotfile-backup-name)))
  '(sql-connection-alist
    '(("dumbo"
       (sql-product 'postgres)
