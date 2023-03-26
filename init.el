@@ -263,7 +263,7 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-# Copy .bashrc or .bash_aliases after save
+;; Copy .bashrc or .bash_aliases after save
 (add-hook 'sh-mode-hook
           (lambda ()
             (if (and (buffer-file-name)
