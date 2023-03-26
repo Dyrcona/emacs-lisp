@@ -47,6 +47,11 @@ commands to files to append the blocks to a file."
                   (replace-match "\\\\")
                   (beginning-of-line)))))))))
 
+(defun my-copy-dotfile ()
+  "Copy a dotfile to my-dotfile-backup-dir."
+  (let ((newfile (string-trim-left (file-name-nondirectory (buffer-file-name)) "\\.")))
+    (copy-file (buffer-file-name) (expand-file-name newfile my-dotfile-backup-dir) t t)))
+
 (defun my-get-backup-version (backup-dir filename)
   "Find the next backup version number for files matching the
 filename in backup-dir.  Backup filenames are expected to follow

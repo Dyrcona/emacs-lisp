@@ -263,6 +263,14 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+# Copy .bashrc or .bash_aliases after save
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (if (and (buffer-file-name)
+                     (or (string= (buffer-file-name) "/home/jason/.bash_aliases")
+                         (string= (buffer-file-name) "/home/jason/.bashrc")))
+                (add-hook 'after-save-hook 'my-copy-dotfile nil t))))
+
 ;; Load machine-specific customizations
 (load
  (customize-set-variable
