@@ -105,7 +105,18 @@
   "Signed-off-by: " (read-string "User name? " nil 'sob-name-history user-full-name)
   " <" (read-string "Email address? " nil 'sob-email-history user-mail-address) ">")
 
-(defalias 'sob 'signed-off-by)
+(defalias 'sob 'co-authored-by)
+
+(defvar cab-name-history nil "History list of co-authored-by names.")
+(defvar cab-email-history nil "History list of co-authored-by emails.")
+
+(define-skeleton co-authored-by
+  "Prompts for user name and email to add a co-authored-by."
+  nil
+  "Co-authored-by: " (read-string "User name? " nil 'cab-name-history)
+  " <" (read-string "Email address? " nil 'cab-email-history) ">")
+
+(defalias 'cab 'co-authored-by)
 
 (define-skeleton egdbi
   "Inserts a typical set of code to start a Perl DBI script for Evergreen."
