@@ -100,9 +100,9 @@
 (defvar sob-email-history nil "History list of signed-off-by emails.")
 
 (define-skeleton signed-off-by
-  "Prompts for user name and email to add a signed-off-by."
+  "Prompts for name and email to add a signed-off-by."
   nil
-  "Signed-off-by: " (read-string "User name? " nil 'sob-name-history user-full-name)
+  "Signed-off-by: " (read-string "Name? " nil 'sob-name-history user-full-name)
   " <" (read-string "Email address? " nil 'sob-email-history user-mail-address) ">")
 
 (defalias 'sob 'signed-off-by)
@@ -111,9 +111,9 @@
 (defvar cab-email-history nil "History list of co-authored-by emails.")
 
 (define-skeleton co-authored-by
-  "Prompts for user name and email to add a co-authored-by."
+  "Prompts for name and email to add a co-authored-by."
   nil
-  "Co-authored-by: " (read-string "User name? " nil 'cab-name-history)
+  "Co-authored-by: " (read-string "Name? " nil 'cab-name-history)
   " <" (read-string "Email address? " nil 'cab-email-history) ">")
 
 (defalias 'cab 'co-authored-by)
