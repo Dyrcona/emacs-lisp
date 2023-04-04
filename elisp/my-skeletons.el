@@ -105,7 +105,7 @@
   "Signed-off-by: " (read-string "User name? " nil 'sob-name-history user-full-name)
   " <" (read-string "Email address? " nil 'sob-email-history user-mail-address) ">")
 
-(defalias 'sob 'co-authored-by)
+(defalias 'sob 'signed-off-by)
 
 (defvar cab-name-history nil "History list of co-authored-by names.")
 (defvar cab-email-history nil "History list of co-authored-by emails.")
