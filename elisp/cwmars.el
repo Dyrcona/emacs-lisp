@@ -242,15 +242,13 @@ quotes/apostrophes should be doubled, etc."
   "    parent_id INTEGER;\n"
   "    ou_id INTEGER;\n"
   "    addr_id INTEGER;\n"
-  "BEGIN\n"
-  "\n"
+  "BEGIN\n\n"
   "INSERT INTO actor.org_unit\n"
   "(name, shortname, ou_type, parent_ou, opac_visible)\n"
   "VALUES\n"
   "('" (skeleton-read "System name: ") "', '" (upcase (skeleton-read "System shortname: "))
   "', 3, " (read-string "Region: " nil 'cwmars-regions "146") ", FALSE)\n"
-  "RETURNING id INTO parent_id;\n"
-  "\n"
+  "RETURNING id INTO parent_id;\n\n"
   "INSERT INTO actor.org_unit\n"
   "(name, shortname, ou_type, parent_ou, phone)\n"
   "VALUES\n"
@@ -258,7 +256,7 @@ quotes/apostrophes should be doubled, etc."
   "', 4, parent_id, '" (skeleton-read "Library phone: ") "')\n"
   "RETURNING id INTO ou_id;\n\n"
   '(let ((street1 (upcase (read-string "Library street1: ")))
-         (street2 (or (upcase (read-string "Library street2: ")) "NULL"))
+         (street2 (upcase (read-string "Library street2: ")))
          (town (upcase (read-string "Library town: ")))
          (county (upcase (read-string "Library county: ")))
          (zip (read-string "Library zip code: ")))
@@ -279,11 +277,9 @@ quotes/apostrophes should be doubled, etc."
   "UPDATE actor.org_unit_custom_tree_node\n"
   "SET sibling_order = sibling_order + 1\n"
   "WHERE parent_node = 10722\n"
-  "AND sibling_order >= " v1 ";\n"
-  "\n"
+  "AND sibling_order >= " v1 ";\n\n"
   "INSERT INTO actor.org_unit_custom_tree_node\n"
-  "(tree, org_unit, parent_node, sibling_order)\n"
-  "VALUES\n"
+  "(tree, org_unit, parent_node, sibling_order)\nVALUES\n"
   "(1, ou_id, 10722, " v1 ");\n\n"
   '(setq v1 (skeleton-read "Barcode prefix: ")
          v2 (skeleton-read "Ecard prefix: "))
