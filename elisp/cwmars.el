@@ -229,6 +229,72 @@ quotes/apostrophes should be doubled, etc."
     (replace-match cwmars-replace-labels-str t))
   (insert "\nEND\n$$;"))
 
+(defconst cwmars-regions '("146" "2" "324")
+  "List of CW MARS region ids as strings to use in read-string for skeletons.")
+
+(define-skeleton cwmars-new-library
+  "Write SQL to create a new CW MARS single branch member library."
+  "Library name: "
+  "\\qecho Add " str "\n"
+  "DO\n"
+  "$$\n"
+  "DECLARE\n"
+  "    parent_id INTEGER;\n"
+  "    ou_id INTEGER;\n"
+  "    addr_id INTEGER;\n"
+  "BEGIN\n"
+  "\n"
+  "INSERT INTO actor.org_unit\n"
+  "(name, shortname, ou_type, parent_ou, opac_visible)\n"
+  "VALUES\n"
+  "('" (skeleton-read "System name: ") "', '" (upcase (skeleton-read "System shortname: "))
+  "', 3, " (read-string "Region: " nil 'cwmars-regions "146") ", FALSE)\n"
+  "RETURNING id INTO parent_id;\n"
+  "\n"
+  "INSERT INTO actor.org_unit\n"
+  "(name, shortname, ou_type, parent_ou, phone)\n"
+  "VALUES\n"
+  "('" str "', '" (upcase (skeleton-read "Library shortname: "))
+  "', 4, parent_id, '" (skeleton-read "Library phone: ") "')\n"
+  "RETURNING id INTO ou_id;\n\n"
+  '(let ((street1 (upcase (read-string "Library street1: ")))
+         (street2 (or (upcase (read-string "Library street2: ")) "NULL"))
+         (town (upcase (read-string "Library town: ")))
+         (county (upcase (read-string "Library county: ")))
+         (zip (read-string "Library zip code: ")))
+     (dolist (e '(("PHYSICAL ADDRESS" . "billing_address")
+                  ("HOLDS ADDRESS" . "holds_address")
+                  ("MAILING ADDRESS" . "mailing_address")
+                  ("ILL ADDRESS" . "ill_address")))
+       (insert "INSERT INTO actor.org_address\n")
+       (insert "(valid,address_type,org_unit,street1,street2,city,county,state,country,post_code)\n")
+       (insert "VALUES\n")
+       (insert (format "('t','%s',ou_id,'%s'," (car e) street1))
+       (insert (if (string= street2 "") "NULL" (format "'%s'" street2)))
+       (insert (format ",'%s','%s','MA','US','%s')\n" town county zip))
+       (insert "RETURNING id INTO addr_id;\n\n")
+       (insert (format "UPDATE actor.org_unit\nSET %s = addr_id\nWHERE id = ou_id;\n\n"
+                       (cdr e)))))
+  '(setq v1 (skeleton-read "Sibling order: "))
+  "UPDATE actor.org_unit_custom_tree_node\n"
+  "SET sibling_order = sibling_order + 1\n"
+  "WHERE parent_node = 10722\n"
+  "AND sibling_order >= " v1 ";\n"
+  "\n"
+  "INSERT INTO actor.org_unit_custom_tree_node\n"
+  "(tree, org_unit, parent_node, sibling_order)\n"
+  "VALUES\n"
+  "(1, ou_id, 10722, " v1 ");\n\n"
+  '(setq v1 (skeleton-read "Barcode prefix: ")
+         v2 (skeleton-read "Ecard prefix: "))
+  "INSERT INTO cwmars_dashboard.barcode_prefix (org_unit, prefix, prefix_stub)\n"
+  "VALUES\n"
+  "(parent_id, '" v1 "', '" v1 "'),\n"
+  "(parent_id, '" v2 "', '" v2 "');\n\n"
+  "INSERT INTO actor.org_unit_setting\n(org_unit, name, value)\nVALUES\n"
+  "(parent_id, 'lib.ecard_barcode_prefix', '\"" v2 "\"');\n\n"
+  "END\n$$;\n")
+
 (define-skeleton cwmars-db-update
   "Wrapper for a PostgreSQL database update script."
   nil
