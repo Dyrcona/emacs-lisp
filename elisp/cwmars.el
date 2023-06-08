@@ -312,8 +312,7 @@ quotes/apostrophes should be doubled, etc."
 
 (define-skeleton cwmars-default-phone-upsert
   "Write SQL to update the default phone notify usr setting for a library's patrons."
-  nil
-  '(setq str (skeleton-read "Enter org. unit id: "))
+  "Enter org. unit id: "
   "DO $$\n"
   "DECLARE\n"
   "    data RECORD;\n"
@@ -331,10 +330,10 @@ quotes/apostrophes should be doubled, etc."
   "        AND (phone IS NULL OR phone.value = '\"\"')\n"
   "        AND (notify IS NULL OR notify.value ILIKE '%phone%')\n"
   "        AND usr.home_ou "
-  (format (if current-prefix-arg
+  `(format (if current-prefix-arg
               "IN (SELECT id FROM actor.org_unit_descendants(%s))"
             "= %s")
-          str)
+          ,str)
   ?\n
   "    LOOP\n"
   "        INSERT INTO actor.usr_setting\n"
