@@ -271,8 +271,7 @@ quotes/apostrophes should be doubled, etc."
        (insert (if (string= street2 "") "NULL" (format "'%s'" street2)))
        (insert (format ",'%s','%s','MA','US','%s')\n" town county zip))
        (insert "RETURNING id INTO addr_id;\n\n")
-       (insert (format "UPDATE actor.org_unit\nSET %s = addr_id\nWHERE id = ou_id;\n\n"
-                       (cdr e)))))
+       (insert (format "UPDATE actor.org_unit\nSET %s = addr_id\nWHERE id = ou_id;\n\n" (cdr e)))))
   '(setq v1 (skeleton-read "Sibling order: "))
   "UPDATE actor.org_unit_custom_tree_node\n"
   "SET sibling_order = sibling_order + 1\n"
