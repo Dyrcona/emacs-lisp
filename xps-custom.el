@@ -67,6 +67,7 @@
      (make-backup-files . t)
      (nxml-child-indent . 4)
      (indent-tab-mode)))
+ '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
    '(("dumbo"
       (sql-product 'postgres)

@@ -57,6 +57,7 @@
      (indent-tab-mode)
      (make-backup-files . t)
      (make-backup-file-name-function . my-dotfile-backup-name)))
+ '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
    '(("dumbo"
       (sql-product 'postgres)

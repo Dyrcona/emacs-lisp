@@ -47,6 +47,7 @@
     (bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode)))
  '(require-final-newline t)
  '(safe-local-variable-values (quote ((nxml-child-indent . 4) (indent-tab-mode))))
+ '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
    (quote
     (("dumbo"
