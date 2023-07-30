@@ -69,6 +69,8 @@
                 (lambda ()
                   (interactive)
                   (insert (format "%c." (+ (random 26) 65)))))
+;; Run join-line.
+(global-set-key [?\C-&] 'join-line)
 
 ;; Bind unfill-paragraph from Stefan Monnier.
 (global-set-key "\M-Q" 'unfill-paragraph)
