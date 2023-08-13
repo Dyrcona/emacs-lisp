@@ -381,4 +381,15 @@ quotes/apostrophes should be doubled, etc."
 (define-key cwmars-map (kbd "V") (make-find-file-command (expand-file-name "overdue" cwmars-utilities-local-path)))
 (define-key cwmars-map (kbd "Z") (make-find-file-command cwmars-one-offs-path))
 
+;; Super-k prefix for database connection bindings.
+(defvar super-k-map)
+(define-prefix-command 'super-k-map)
+(global-set-key (kbd "s-k") 'super-k-map)
+(define-key super-k-map (kbd "1") (lambda () (interactive) (sql-connect "db1")))
+(define-key super-k-map (kbd "2") (lambda () (interactive) (sql-connect "db2")))
+(define-key super-k-map (kbd "3") (lambda () (interactive) (sql-connect "pg15")))
+(define-key super-k-map (kbd "j") (lambda () (interactive) (sql-connect "jasontest")))
+(define-key super-k-map (kbd "s") 'sql-set-sqli-buffer)
+(define-key super-k-map (kbd "t") (lambda () (interactive) (sql-connect "training")))
+
 (provide 'cwmars)
