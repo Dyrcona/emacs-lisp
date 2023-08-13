@@ -17,6 +17,9 @@
 ;; Add my local INFOPATH for my own texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
 
+;; Set up for CW MARS
+(require 'cwmars)
+
 ;; Setup for SLIME
 (require 'auto-complete)
 (require 'slime)

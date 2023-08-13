@@ -58,46 +58,6 @@
      (make-backup-files . t)
      (make-backup-file-name-function . my-dotfile-backup-name)))
  '(set-mark-command-repeat-pop t)
- '(sql-connection-alist
-   '(("dumbo"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5432))
-     ("jasontest"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-port 5432)
-      (sql-database "jasontest"))
-     ("pg15"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5433))
-     ("db1"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
-      (sql-port 35432))
-     ("db2"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
-      (sql-port 35433))
-     ("training"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
-      (sql-port 35434))))
- '(sql-postgres-options
-   '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
- '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(user-mail-address "jason@sigio.com"))

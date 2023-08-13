@@ -27,7 +27,6 @@
 (require 'buffer-advice)
 (require 'my-funcs)
 (require 'my-commands)
-(require 'cwmars)
 (require 'my-skeletons)
 (require 'funcall-region)
 (require 'unscroll)
