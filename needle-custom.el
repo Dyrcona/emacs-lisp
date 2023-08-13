@@ -49,7 +49,7 @@
  '(make-backup-files nil)
  '(my-dotfile-backup-dir "/home/jason/Src/other/needle")
  '(package-selected-packages
-   '(bbcode-mode dokuwiki-mode ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
+   '(rust-playground cargo rust-mode bbcode-mode dokuwiki-mode ac-slime auto-complete lua-mode yaml-mode sqlup-mode markdown-mode csv-mode csv))
  '(python-shell-extra-pythonpaths '("/home/jason/Src/python"))
  '(require-final-newline t)
  '(safe-local-variable-values
