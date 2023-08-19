@@ -14,8 +14,14 @@
 
 ;; Customization for my personal Dell XPS 13.
 
-;; Add my local INFOPATH for my own texinfo documentation
-(add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
+;; Set up for Lua
+(setq auto-mode-alist (cons '("\\.lua\\'" . lua-mode) auto-mode-alist))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+
+;; Set up for PHP
+(autoload 'php-mode "php-mode.el" "Php mode." t)
+(setq auto-mode-alist (append '(("\\.php[345]?\\'" . php-mode)) auto-mode-alist))
+(add-to-list 'interpreter-mode-alist '("php" . php-mode))
 
 ;; Set up for CW MARS
 (require 'cwmars)
@@ -34,125 +40,71 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-;; Use bash on mail.sigio.com:
-(require 'tramp)
-(add-to-list 'tramp-connection-properties
-             (list "/ssh:\\(jason@\\|store@\\|root@\\)?mail"
-                   "remote-shell" "/usr/local/bin/bash"))
-;; Ditto for the host beastie:
-(add-to-list 'tramp-connection-properties
-             (list "/ssh:\\(jason@\\|root@\\)?beastie"
-                   "remote-shell" "/usr/local/bin/bash"))
-
-;; Load my configuration for working on Battle for Wesnoth maps and code.
-(require 'my-wesnoth)
-
 ;; Mostly managed by custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-save-default t)
  '(current-language-environment "UTF-8")
- '(diff-switches "-u")
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(markdown-mode dokuwiki-mode bbcode-mode yaml-mode ac-slime sqlup-mode csv-mode geiser))
- '(python-shell-extra-pythonpaths '("/home/jason/Src/python"))
+   '(ac-slime bbcode-mode csv-mode dokuwiki-mode geiser geiser-guile markdown-mode sqlup-mode yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values
    '((make-backup-file-name-function . my-dotfile-backup-name)
      (make-backup-files . t)
      (nxml-child-indent . 4)
-     (indent-tab-mode)))
+     (indent-tab-mode . t)))
  '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
-   '(("dumbo"
+   '(("db1"
       (sql-product 'postgres)
       (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5432))
-     ("jasontest"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-port 5432)
-      (sql-database "jasontest"))
-     ("pg15"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5433))
-     ("db1"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
       (sql-server "localhost")
+      (sql-database "evergreen")
       (sql-port 35432))
      ("db2"
       (sql-product 'postgres)
       (sql-user "evergreen")
-      (sql-database "evergreen")
       (sql-server "localhost")
+      (sql-database "evergreen")
       (sql-port 35433))
      ("training"
       (sql-product 'postgres)
       (sql-user "evergreen")
-      (sql-database "evergreen")
       (sql-server "localhost")
+      (sql-database "evergreen")
       (sql-port 35434))
-     ("focal"
+     ("jasontest"
       (sql-product 'postgres)
       (sql-user "evergreen")
-      (sql-server "focal")
-      (sql-database "evergreen")
+      (sql-server "dumbo")
+      (sql-database "jasontest")
       (sql-port 5432))
-     ("jammy"
+     ("pg15"
       (sql-product 'postgres)
       (sql-user "evergreen")
-      (sql-server "jammy")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("buster"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "buster")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("bullseye"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "bullseye")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("beowulf"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "beowulf")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("chimaera"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "chimaera")
-      (sql-database "evergreen")
-      (sql-port 5432))))
+      (sql-server "dumbo")
+      (sql-database "postgres")
+      (sql-port 5433))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
+ '(tramp-connection-properties
+   '(("/ssh:\\(jason@\\|root@\\)?beastie" "remote-shell" "/usr/local/bin/bash")
+     ("/ssh:\\(jason@\\|store@\\|root@\\)?mail\\(\\.sigio\\.com\\)?" "remote-shell" "/usr/local/bin/bash")
+     ("/sshfs:" "direct-async-process" t)))
  '(user-mail-address "jason@sigio.com"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(region ((t (:background "light gray" :distant-foreground "gtk_selection_fg_color")))))
+ '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :height 120 :width normal)))))
