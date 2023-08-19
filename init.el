@@ -254,12 +254,12 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;; Copy .bashrc or .bash_aliases after save
+;; Copy .bash_profile, .bashrc, or .bash_aliases after save
 (add-hook 'sh-mode-hook
           (lambda ()
             (if (and (buffer-file-name)
-                     (or (string= (buffer-file-name) "/home/jason/.bash_aliases")
-                         (string= (buffer-file-name) "/home/jason/.bashrc")))
+                     (string-match-p "\\.bash\\(_profile\\|_aliases\\|rc\\)"
+                                     (buffer-file-name)))
                 (add-hook 'after-save-hook 'my-copy-dotfile nil t))))
 
 ;; Load machine-specific customizations
