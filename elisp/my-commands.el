@@ -36,7 +36,7 @@
 ;; names.txt on my laptop.
 (defun get-names-search-path ()
   "Return a search path to find names.txt based on the local system name. (I should find a way to customize this.)"
-  (cond ((string-equal (system-name) "XPS")
+  (cond ((string-equal (system-name) "xps")
          '("~/Documents/Writing/Fiction/Miscellaneous/"))
         ((string-equal (system-name) "needle")
          (cl-loop for component in '("Chip" "Stuff")
