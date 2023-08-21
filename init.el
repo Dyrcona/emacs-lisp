@@ -255,12 +255,13 @@
           'executable-make-buffer-file-executable-if-script-p)
 
 ;; Copy .bash_profile, .bashrc, or .bash_aliases after save
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (if (and (buffer-file-name)
-                     (string-match-p "\\.bash\\(_profile\\|_aliases\\|rc\\)"
-                                     (buffer-file-name)))
-                (add-hook 'after-save-hook 'my-copy-dotfile nil t))))
+(unless (string-equal (system-name) "ILS-MGR")
+  (add-hook 'sh-mode-hook
+            (lambda ()
+              (if (and (buffer-file-name)
+                       (string-match-p "\\.bash\\(_profile\\|_aliases\\|rc\\)"
+                                       (buffer-file-name)))
+                  (add-hook 'after-save-hook 'my-copy-dotfile nil t)))))
 
 ;; Load machine-specific customizations
 (load
