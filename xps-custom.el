@@ -86,7 +86,7 @@
       (sql-server "dumbo")
       (sql-database "jasontest")
       (sql-port 5432))
-     ("pg15"
+     ("pg10"
       (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "dumbo")
