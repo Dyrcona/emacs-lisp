@@ -29,6 +29,9 @@
 ;; Set up for CW MARS
 (require 'cwmars)
 
+;; Set up for wesnoth-mode
+(require 'my-wesnoth)
+
 ;; Setup for SLIME
 (require 'auto-complete)
 (require 'slime)
