@@ -333,6 +333,13 @@ skeleton output around the use statements."
   ?\n
   "done_testing();\n")
 
+(define-skeleton text-csv-headers
+  "Insert Perl code to read headers from first line of a csv using Text::CSV."
+  "Filehandle: "
+  > "my @cols = @{$csv->getline(" str ")};\n"
+  > "my $row = {};\n"
+  > "$csv->bind_columns(\\@{$row}{@cols});\n")
+
 (define-skeleton pqxx+boost
   "Insert a skeleton for a C++ program using libpqxx and boost to connect to PostgreSQL for Evergreen."
   ""
