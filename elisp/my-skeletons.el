@@ -340,6 +340,13 @@ skeleton output around the use statements."
   > "my $row = {};\n"
   > "$csv->bind_columns(\\@{$row}{@cols});\n")
 
+(define-skeleton text-csv-readloop
+  "Insert Perl code to read from a CSV opened with Text::CSV."
+  "Filehandle: "
+  > "while ($csv->getline(" str ")) {\n"
+  @ _ ?\n
+  > "}\n")
+
 (define-skeleton pqxx+boost
   "Insert a skeleton for a C++ program using libpqxx and boost to connect to PostgreSQL for Evergreen."
   ""
