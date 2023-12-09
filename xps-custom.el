@@ -103,6 +103,7 @@
  '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
+ '(tramp-auto-save-directory "~/.emacs.d/tramp-autosave")
  '(tramp-connection-properties
    '(("/ssh:\\(jason@\\|root@\\)?beastie" "remote-shell" "/usr/local/bin/bash")
      ("/ssh:\\(jason@\\|store@\\|root@\\)?mail\\(\\.sigio\\.com\\)?" "remote-shell" "/usr/local/bin/bash")
