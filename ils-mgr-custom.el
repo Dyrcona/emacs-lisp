@@ -117,6 +117,20 @@
       (sql-user "evergreen")
       (sql-server "jammy")
       (sql-database "evergreen")
+      (sql-port 5432))
+     ("bullseye"
+      (sql-product
+       (quote postgres))
+      (sql-user "evergreen")
+      (sql-server "bullseye")
+      (sql-database "evergreen")
+      (sql-port 5432))
+     ("bookworm"
+      (sql-product
+       (quote postgres))
+      (sql-user "evergreen")
+      (sql-server "bookworm")
+      (sql-database "evergreen")
       (sql-port 5432)))))
  '(sql-postgres-options
    (quote
