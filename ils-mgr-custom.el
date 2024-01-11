@@ -76,13 +76,6 @@
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5433))
-     ("pg16"
-      (sql-product
-       (quote postgres))
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5434))
      ("db1"
       (sql-product
        (quote postgres))

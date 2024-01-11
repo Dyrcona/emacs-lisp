@@ -97,13 +97,7 @@
       (sql-user "evergreen")
       (sql-server "dumbo")
       (sql-database "postgres")
-      (sql-port 5433))
-     ("pg16"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-database "postgres")
-      (sql-port 5434))))
+      (sql-port 5433))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
