@@ -153,7 +153,8 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
       (message "No remote path variable for %s." what))))
 
 (defun cwmars-lib-notices-dates (lib bday bmonth byear eday emonth eyear)
-  "Writes a bash script to get backdated notices for a given library between begin and end dates, inclusive."
+  "Writes a bash script to get backdated notices for a given
+ library between begin and end dates, inclusive."
   (interactive "sLibrary Code: \nnBegin Day: \nn Begin Month: \nnBegin Year: \nnEnd Day: \nnEnd Month: \nnEnd Year: ")
   (let ((current-date (decode-time (encode-time 0 0 0 bday bmonth byear)))
         (stop-date (decode-time (encode-time 0 0 0 (1+ eday) emonth eyear))))
@@ -310,7 +311,8 @@ quotes/apostrophes should be doubled, etc."
   "COMMIT;")
 
 (define-skeleton cwmars-default-phone-upsert
-  "Write SQL to update the default phone notify usr setting for a library's patrons."
+  "Write SQL to update the default phone notify usr setting for a
+ library's patrons."
   "Enter org. unit id: "
   "DO $$\n"
   "DECLARE\n"

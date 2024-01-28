@@ -63,7 +63,8 @@
 (defalias 'gs 'guile-scheme)
 
 (define-skeleton emacs-batch-script
-  "Insert skeleton code for an Emacs batch script to be run from the command line."
+  "Insert skeleton code for an Emacs batch script to be run from
+ the command line."
   nil
   ":;exec emacs --no-site-file --batch \"$@\" -l \"$0\" -f main\n"
   @ ?\n
@@ -289,7 +290,8 @@ skeleton output around the use statements."
   @ _)
 
 (define-skeleton egcronscript-auth
-  "Insert a skeleton for a Conscript.pm-based Perl script that requires authentication."
+  "Insert a skeleton for a Conscript.pm-based Perl script that
+ requires authentication."
   nil
   "#!/usr/bin/perl\n"
   "use strict;\n"
@@ -348,7 +350,8 @@ skeleton output around the use statements."
   > "}\n")
 
 (define-skeleton pqxx+boost
-  "Insert a skeleton for a C++ program using libpqxx and boost to connect to PostgreSQL for Evergreen."
+  "Insert a skeleton for a C++ program using libpqxx and boost to
+ connect to PostgreSQL for Evergreen."
   ""
   > "#include <boost/program_options.hpp>\n"
   > "#include <boost/optional.hpp>\n"
@@ -440,7 +443,8 @@ skeleton output around the use statements."
   > "}\n")
 
 (define-skeleton pqxx+getopt
-  "Skeleton for a C++ main program to connect to PostgreSQL using getopt_long and getenv."
+  "Skeleton for a C++ main program to connect to PostgreSQL using
+ getopt_long and getenv."
   ""
   "#include <pqxx/pqxx>
 #include <iostream>

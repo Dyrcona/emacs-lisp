@@ -35,7 +35,7 @@
 ;; Get the entries from names.txt on the server and add them to
 ;; names.txt on my laptop.
 (defun get-names-search-path ()
-  "Return a search path to find names.txt based on the local system name. (I should find a way to customize this.)"
+  "Return a search path to find names.txt based on the local system name."
   (cond ((string-equal (system-name) "xps")
          '("~/Documents/Writing/Fiction/Miscellaneous/"))
         ((string-equal (system-name) "needle")
@@ -216,7 +216,8 @@ for the commits in HEAD that are not in UPSTREAM."
 
 ;; close-and-kill-this-pane taken from EmacsWiki: https://www.emacswiki.org/emacs/KillingBuffers#h5o-5
 (defun close-and-kill-this-pane ()
-  "If there are multiple windows, then close this pane and kill the buffer in it also."
+  "If there are multiple windows, then close this pane and kill
+ the buffer in it also."
   (interactive)
   (kill-this-buffer)
   (if (not (one-window-p))
@@ -224,7 +225,8 @@ for the commits in HEAD that are not in UPSTREAM."
 
 ;; close-and-kill-next-pane taken from EmacsWiki: https://www.emacswiki.org/emacs/KillingBuffers#h5o-5
 (defun close-and-kill-next-pane ()
-  "If there are multiple windows, then close the other pane and kill the buffer in it also."
+  "If there are multiple windows, then close the other pane and
+ kill the buffer in it also."
   (interactive)
   (other-window 1)
   (kill-this-buffer)
