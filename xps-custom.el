@@ -59,7 +59,7 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(cargo rust-mode cmake-mode ac-slime bbcode-mode csv-mode dokuwiki-mode geiser geiser-guile markdown-mode sqlup-mode yaml-mode))
+   '(pg cargo rust-mode cmake-mode ac-slime bbcode-mode csv-mode dokuwiki-mode geiser geiser-guile markdown-mode sqlup-mode yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values
    '((make-backup-file-name-function . my-dotfile-backup-name)
