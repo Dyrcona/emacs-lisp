@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -42,98 +42,83 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
- '(major-mode (quote text-mode))
+ '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(my-vms-list
-   (quote
-    (("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr"))))
+   '(("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   (quote
-    (bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode)))
+   '(cargo rust-mode ac-slime slime auto-complete bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
  '(require-final-newline t)
- '(safe-local-variable-values (quote ((nxml-child-indent . 4) (indent-tab-mode))))
+ '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
-   (quote
-    (("dumbo"
-      (sql-product
-       (quote postgres))
+   '(("dumbo"
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5432))
      ("jasontest"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "jasontest"))
      ("pg10"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "postgres")
       (sql-server "dumbo")
       (sql-port 5433))
      ("db1"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35432))
      ("db2"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35433))
      ("training"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-database "evergreen")
       (sql-server "localhost")
       (sql-port 35434))
      ("focal"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "focal")
       (sql-database "evergreen")
       (sql-port 5432))
      ("jammy"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "jammy")
       (sql-database "evergreen")
       (sql-port 5432))
      ("bullseye"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "bullseye")
       (sql-database "evergreen")
       (sql-port 5432))
      ("bookworm"
-      (sql-product
-       (quote postgres))
+      (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "bookworm")
       (sql-database "evergreen")
-      (sql-port 5432)))))
+      (sql-port 5432))))
  '(sql-postgres-options
-   (quote
-    ("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3")))
- '(sql-product (quote postgres))
+   '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
+ '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(tramp-connection-properties
-   (quote
-    (("/ssh:\\(jason\\|root\\|store\\)@mail\\.sigio\\.com" "remote-shell" "/usr/local/bin/bash"))))
+   '(("/ssh:\\(jason\\|root\\|store\\)@mail\\.sigio\\.com" "remote-shell" "/usr/local/bin/bash")))
  '(user-mail-address "jstephenson@cwmars.org"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
