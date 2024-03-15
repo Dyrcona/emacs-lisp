@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -32,20 +32,6 @@
 ;; Set up for wesnoth-mode
 (require 'my-wesnoth)
 
-;; Setup for SLIME
-(require 'auto-complete)
-(require 'slime)
-(require 'slime-autoloads)
-(load (expand-file-name "~/quicklisp/slime-helper"))
-(setq inferior-lisp-program "/usr/bin/sbcl --noinform"
-      slime-net-coding-system 'utf-8-unix
-      common-lisp-hyperspec-root "file:///home/jason/Documents/Programming%20Documentation/Lisp/HyperSpec/")
-(slime-setup '(slime-fancy))
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
-
 ;; Mostly managed by custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -54,6 +40,7 @@
  ;; If there is more than one, they won't work right.
  '(current-language-environment "UTF-8")
  '(indent-tabs-mode nil)
+ '(inferior-lisp-program "/usr/bin/sbcl --noinform")
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
  '(major-mode 'text-mode)

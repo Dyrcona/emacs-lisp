@@ -40,6 +40,7 @@
  '(cwmars-utilities-local-path "~/src/utilities" nil (cwmars))
  '(diff-switches "-u")
  '(indent-tabs-mode nil)
+ '(inferior-lisp-program "/usr/bin/sbcl --noinform")
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
  '(major-mode 'text-mode)

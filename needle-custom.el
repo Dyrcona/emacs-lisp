@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -13,20 +13,6 @@
 ;; ---------------------------------------------------------------
 
 ;; Customizations for needle.
-
-;; Setup for SLIME
-(require 'auto-complete)
-(require 'slime)
-(require 'slime-autoloads)
-(load (expand-file-name "~/quicklisp/slime-helper"))
-(setq inferior-lisp-program "/bin/sbcl --noinform"
-      slime-net-coding-system 'utf-8-unix
-      common-lisp-hyperspec-root "file:///home/jason/Documents/Programming%20Documentation/Lisp/HyperSpec/")
-(slime-setup '(slime-fancy))
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
 
 ;; Use bash on mail.sigio.com:
 (require 'tramp)
@@ -43,6 +29,7 @@
  '(current-language-environment "UTF-8")
  '(diff-switches "-u")
  '(indent-tabs-mode nil)
+ '(inferior-lisp-program "/bin/sbcl --noinform")
  '(inhibit-startup-screen t)
  '(ispell-program-name "/bin/enchant-2")
  '(major-mode 'text-mode)

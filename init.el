@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -262,6 +262,20 @@
                        (string-match-p "\\.bash\\(_profile\\|_aliases\\|rc\\)"
                                        (buffer-file-name)))
                   (add-hook 'after-save-hook 'my-copy-dotfile nil t)))))
+
+;; Setup for SLIME
+(require 'auto-complete)
+(require 'slime)
+(require 'slime-autoloads)
+(load (expand-file-name "~/quicklisp/slime-helper"))
+(setq slime-net-coding-system 'utf-8-unix
+      common-lisp-hyperspec-root
+      (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
+(slime-setup '(slime-fancy))
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
 
 ;; Load machine-specific customizations
 (load
