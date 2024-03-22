@@ -351,6 +351,24 @@ quotes/apostrophes should be doubled, etc."
   "    RAISE NOTICE '% Rows Affected', count;\n"
   "END $$;")
 
+(define-skeleton cwmars-copy-rows
+  "Write SQL code to copy a row from production to a test
+database."
+  nil
+  '(setq str (skeleton-read "Enter table name: ")
+         v1  (skeleton-read "Enter key column name: ")
+         v2  (skeleton-read "Enter key value(s): "))
+  "\\t\n\\pset format csv\n"
+  "\\o " str ".csv\n"
+  "SELECT *\n"
+  "FROM " str "\n"
+  "WHERE " v1 " IN (" v2 ");\n"
+  "\\o\n\n"
+  "\\pset format unaligned\n"
+  "\\o " str "_copy.sql\n"
+  "SELECT '\\copy " str " from ''" str ".csv'' with (format csv)';\n"
+  "\\o\n")
+
 ;; Create a prefix map for CW MARS commands and bind them.
 (require 'my-funcs)                     ; For make-find-file-command macro
 (defvar cwmars-map)
