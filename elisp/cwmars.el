@@ -357,12 +357,14 @@ database."
   nil
   '(setq str (skeleton-read "Enter table name: ")
          v1  (skeleton-read "Enter key column name: ")
-         v2  (skeleton-read "Enter key value(s): "))
+         v2  (cl-loop for e = (skeleton-read "Enter key value(s): ")
+                      while (not (string= e ""))
+                      collect e))
   "\\t\n\\pset format csv\n"
   "\\o " str ".csv\n"
   "SELECT *\n"
   "FROM " str "\n"
-  "WHERE " v1 " IN (" v2 ");\n"
+  "WHERE " v1 " IN (" (combine-and-quote-strings v2 ",") ");\n"
   "\\o\n\n"
   "\\pset format unaligned\n"
   "\\o " str "_copy.sql\n"
