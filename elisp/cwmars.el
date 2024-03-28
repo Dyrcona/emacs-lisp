@@ -369,13 +369,13 @@ database."
   "\\pset format unaligned\n"
   "\\pset fieldsep '\\n'\n"
   "\\o " str "_copy.sql\n"
-  "SELECT '\\copy " str " from ''" str ".csv'' with (format csv)';\n"
-  "SELECT CASE WHEN EXISTS(SELECT pg_get_serial_sequence('" str "', '" v1
+  "SELECT '\\copy " str " from ''" str ".csv'' with (format csv)',\n"
+  "       CASE WHEN EXISTS(SELECT pg_get_serial_sequence('" str "', '" v1
   "')) THEN\n"
   "       'SELECT setval(''' || pg_get_serial_sequence('" str "', '" v1
   "') ||''', max(id), true) FROM " str ";'\n"
   "       ELSE ''\n"
-  "       END CASE;\n"
+  "       END;\n"
   "\\o\n")
 
 ;; Create a prefix map for CW MARS commands and bind them.
