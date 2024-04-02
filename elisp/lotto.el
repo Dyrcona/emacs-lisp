@@ -74,12 +74,12 @@ command."
   (interactive "r")
   (unless (= (point) end)
     (goto-char end))
-  (reverse-region start end)
   (while (re-search-backward "^\\([0-9-]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)" start t)
-    (replace-match (format "%s  %02d  %02d  %02d  %02d  %02d  %02d  %d" (match-string 1)
-                           (string-to-number (match-string 2)) (string-to-number (match-string 3))
-                           (string-to-number (match-string 4)) (string-to-number (match-string 5))
-                           (string-to-number (match-string 6)) (string-to-number (match-string 7))
-                           (string-to-number (match-string 8))))))
+    (replace-match
+     (format "%s  %02d  %02d  %02d  %02d  %02d  %02d  %d" (match-string 1)
+             (string-to-number (match-string 2)) (string-to-number (match-string 3))
+             (string-to-number (match-string 4)) (string-to-number (match-string 5))
+             (string-to-number (match-string 6)) (string-to-number (match-string 7))
+             (string-to-number (match-string 8))))))
 
 (provide 'lotto)
