@@ -267,7 +267,6 @@
 (require 'auto-complete)
 (require 'slime)
 (require 'slime-autoloads)
-(load (expand-file-name "~/quicklisp/slime-helper"))
 (setq slime-net-coding-system 'utf-8-unix
       common-lisp-hyperspec-root
       (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
