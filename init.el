@@ -277,6 +277,9 @@
   '(add-to-list 'ac-modes 'slime-repl-mode))
 (global-set-key [(f7)] 'slime-hyperspec-lookup)
 
+;; dokuwiki-mode
+(add-to-list 'auto-mode-alist '("\\.dokuwiki\\'" . dokuwiki-mode))
+
 ;; Load machine-specific customizations
 (load
  (customize-set-variable
