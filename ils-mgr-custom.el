@@ -40,7 +40,7 @@
  '(cwmars-utilities-local-path "~/src/utilities" nil (cwmars))
  '(diff-switches "-u")
  '(indent-tabs-mode nil)
- '(inferior-lisp-program "/usr/bin/sbcl --noinform")
+ '(inferior-lisp-program "/usr/bin/sbcl --noinform" t)
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
  '(major-mode 'text-mode)
@@ -48,7 +48,7 @@
  '(my-vms-list
    '(("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   '(cargo rust-mode ac-slime slime auto-complete bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
+   '(xml-rpc cargo rust-mode ac-slime slime auto-complete bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
