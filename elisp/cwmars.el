@@ -364,14 +364,14 @@ database."
   "\\o " str ".csv\n"
   "SELECT *\n"
   "FROM " str "\n"
-  "WHERE " v1
-  '(if (> (length v2) 1)
-       (let ((one (substring (car v2) 0 1)))
-         (setq v2 (if (or (string= "=" one) (string= "<" one) (string= ">" one))
-                      (combine-and-quote-strings v2 " ")
-                    (concat "IN (" (combine-and-quote-strings v2 ",") ")"))))
-     (setq v2 (concat "= " (car v2))))
-  " " v2 ";\n"
+  "WHERE " v1 " "
+  (if (> (length v2) 1)
+      (let ((one (substring (car v2) 0 1)))
+        (if (or (string= "=" one) (string= "<" one) (string= ">" one))
+            (combine-and-quote-strings v2 " ")
+          (concat "IN (" (combine-and-quote-strings v2 ",") ")")))
+    (concat "= " (car v2)))
+  ";\n"
   "\\o\n\n"
   "\\pset format unaligned\n"
   "\\pset fieldsep '\\n'\n"
