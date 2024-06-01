@@ -130,6 +130,19 @@ result."
   "Return the CDR of the cons returned by ASSOC of KEY on ALIST."
   (cdr (assoc key alist)))
 
+;; My own implementation of string-pad for use with Emacs 27.2 that
+;; does not have this function.
+(unless (fboundp 'string-pad)
+  (defun string-pad (string length &optional padding start)
+    "Pad STRING to LENGTH using PADDING."
+    (if (< (length string) length)
+        (let ((padstr (make-string (- length (length string))
+                                   (if padding padding ?\ ))))
+          (if start
+              (concat padstr string)
+            (concat string padstr)))
+      string)))
+
 ;; Conversion Functions
 (defun f->c (f)
   "Convert Fahrenheit to Centrigrade."
