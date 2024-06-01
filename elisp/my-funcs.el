@@ -126,6 +126,10 @@ result."
             pt (- pt size)))
     str))
 
+(defun acdr (key alist)
+  "Return the CDR of the cons returned by ASSOC of KEY on ALIST."
+  (cdr (assoc key alist)))
+
 ;; Conversion Functions
 (defun f->c (f)
   "Convert Fahrenheit to Centrigrade."
