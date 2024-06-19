@@ -137,7 +137,7 @@ result."
     "Pad STRING to LENGTH using PADDING."
     (if (< (length string) length)
         (let ((padstr (make-string (- length (length string))
-                                   (if padding padding ?\ ))))
+                                   (if padding padding ?\s))))
           (if start
               (concat padstr string)
             (concat string padstr)))
