@@ -264,18 +264,19 @@
                   (add-hook 'after-save-hook 'my-copy-dotfile nil t)))))
 
 ;; Setup for SLIME
-(require 'auto-complete)
-(require 'slime)
-(require 'slime-autoloads)
-(setq slime-net-coding-system 'utf-8-unix
-      common-lisp-hyperspec-root
-      (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
-(slime-setup '(slime-fancy))
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
-(global-set-key [(f7)] 'slime-hyperspec-lookup)
+(unless (string-equal-ignore-case "ILS-MGR" (system-name))
+  (require 'auto-complete)
+  (require 'slime)
+  (require 'slime-autoloads)
+  (setq slime-net-coding-system 'utf-8-unix
+        common-lisp-hyperspec-root
+        (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
+  (slime-setup '(slime-fancy))
+  (add-hook 'slime-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+  (eval-after-load "auto-complete"
+    '(add-to-list 'ac-modes 'slime-repl-mode))
+  (global-set-key [(f7)] 'slime-hyperspec-lookup))
 
 ;; dokuwiki-mode
 (add-to-list 'auto-mode-alist '("\\.dokuwiki\\'" . dokuwiki-mode))
