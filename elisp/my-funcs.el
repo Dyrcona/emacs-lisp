@@ -112,7 +112,7 @@ result."
   "Format NUM as string grouped to SIZE with CHAR."
   ;; Based on code for `math-group-float' in calc-ext.el
   (let* ((size (or size 3))
-         (char (or char ","))
+         (separator (if char (make-string 1 char) ","))
          (str (if (stringp num)
                   num
                 (number-to-string num)))
@@ -121,7 +121,7 @@ result."
          (pt (or (string-match "[^0-9a-zA-Z]" str) (length str))))
     (while (> pt size)
       (setq str (concat (substring str 0 (- pt size))
-                        char
+                        separator
                         (substring str (- pt size)))
             pt (- pt size)))
     str))
