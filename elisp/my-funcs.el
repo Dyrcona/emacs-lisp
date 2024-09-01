@@ -121,7 +121,7 @@ letters."
                (m (mod (length str) w)))
            (if (> 0 m)
                (1+ s)
-             s))))
+             (1- s)))))
     (let* ((str (if (stringp num) num (number-to-string num)))
            (punct (make-string 1 char))
            (sizes (if (= (length sizes) 1)
