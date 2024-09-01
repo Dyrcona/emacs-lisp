@@ -136,7 +136,7 @@ letters."
 
 (defun group-number (num &optional size char)
   "Format NUM as string grouped to SIZE with CHAR."
-  (punctuate-number num (if size '(size) '(3)) (if char char ?,)))
+  (punctuate-number num (if size (list size) (list 3)) (if char char ?,)))
 
 (defun acdr (key alist)
   "Return the CDR of the cons returned by ASSOC of KEY on ALIST."
