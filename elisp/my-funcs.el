@@ -106,25 +106,37 @@ result."
         (1+ avg)
       avg)))
 
-;; Group-number taken from EmacsWiki:
-;; https://www.emacswiki.org/emacs/ElispCookbook#h5o-23
+(defun punctuate-number (num sizes char)
+  "Format NUM as a string punctuated by CHAR in arbitrary width
+groups from the SIZES list.  If SIZES list has only 1 member,
+then the string is grouped by that width.
+
+It is useful for phone numbers, US Social Security Numbers, and
+other numbers that have arbitray punctuation.  It can also be
+used with serial numbers or sequences that include digits and
+letters."
+  (cl-labels
+      ((get-size (str w)
+         (let ((s (/ (length str) w))
+               (m (mod (length str) w)))
+           (if (> 0 m)
+               (1+ s)
+             s))))
+    (let* ((str (if (stringp num) num (number-to-string num)))
+           (punct (make-string 1 char))
+           (sizes (if (= (length sizes) 1)
+                      (make-list (get-size str (car sizes)) (car sizes))
+                    (butlast (reverse sizes))))
+           (pt (or (string-match "[^0-9a-zA-Z]" str) (length str))))
+      (dolist (size sizes str)
+        (setq str (concat (substring str 0 (- pt size))
+                          punct
+                          (substring str (- pt size)))
+              pt (- pt size))))))
+
 (defun group-number (num &optional size char)
   "Format NUM as string grouped to SIZE with CHAR."
-  ;; Based on code for `math-group-float' in calc-ext.el
-  (let* ((size (or size 3))
-         (separator (if char (make-string 1 char) ","))
-         (str (if (stringp num)
-                  num
-                (number-to-string num)))
-         ;; omitting any trailing non-digit chars
-         ;; NOTE: Calc supports BASE up to 36 (26 letters and 10 digits ;)
-         (pt (or (string-match "[^0-9a-zA-Z]" str) (length str))))
-    (while (> pt size)
-      (setq str (concat (substring str 0 (- pt size))
-                        separator
-                        (substring str (- pt size)))
-            pt (- pt size)))
-    str))
+  (punctuate-number num (if size '(size) '(3)) (if char char ?,)))
 
 (defun acdr (key alist)
   "Return the CDR of the cons returned by ASSOC of KEY on ALIST."
