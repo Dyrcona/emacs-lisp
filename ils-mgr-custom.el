@@ -21,7 +21,7 @@
           (lambda (frame)
             (run-with-timer 0.05 nil
                             (lambda (frame) (set-frame-size frame 80 36))
-                              frame)))
+                            frame)))
 
 ;; Set up for CW MARS
 (require 'cwmars)
