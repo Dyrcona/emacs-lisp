@@ -19,7 +19,7 @@
 ;; https://emacs.stackexchange.com/questions/77667/emacs-starts-in-extremely-tiny-window)
 (add-hook 'after-make-frame-functions
           (lambda (frame)
-            (run-with-timer 0.3 nil
+            (run-with-timer 0.05 nil
                             (lambda (frame) (set-frame-size frame 80 36))
                               frame)))
 
