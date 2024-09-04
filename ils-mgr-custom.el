@@ -14,6 +14,15 @@
 
 ;; Customizations for the Dell XPS13 from CW MARS, Inc..
 
+;; Upgraded to Ubuntu 24.04 and new Emacs frames open in a small
+;; window.  This is an attempt to rectify that.  (See
+;; https://emacs.stackexchange.com/questions/77667/emacs-starts-in-extremely-tiny-window)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (run-with-timer 0.3 nil
+                            (lambda (frame) (set-frame-size frame 80 36))
+                              frame)))
+
 ;; Set up for CW MARS
 (require 'cwmars)
 
