@@ -22,6 +22,10 @@
             (run-with-timer 0.05 nil
                             (lambda (frame) (set-frame-size frame 80 36))
                             frame)))
+;; The initial frame also opens very small.
+(setopt
+ initial-frame-alist
+ '((width 80) (height 36)))
 
 ;; Set up for CW MARS
 (require 'cwmars)
