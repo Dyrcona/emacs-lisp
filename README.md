@@ -19,7 +19,8 @@ experience and automating some of your routine chores?
 
 ### Dependencies
 
-You will need a recent version of GNU Emacs.
+You will need a recent version of GNU Emacs.  The author currently
+uses these scripts with versions 27.2 and 29.4.
 
 You might need a few other packages and programs such as slime, Steel
 Bank Common Lisp, Guile, Python 3, etc.
