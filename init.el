@@ -264,7 +264,7 @@
                   (add-hook 'after-save-hook 'my-copy-dotfile nil t)))))
 
 ;; Setup for SLIME
-(unless (string-equal-ignore-case "ILS-MGR" (system-name))
+(unless (string-equal (system-name) "ILS-MGR")
   (require 'auto-complete)
   (require 'slime)
   (require 'slime-autoloads)
