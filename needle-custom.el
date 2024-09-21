@@ -32,6 +32,7 @@
  '(inferior-lisp-program "/bin/sbcl --noinform")
  '(inhibit-startup-screen t)
  '(ispell-program-name "/bin/enchant-2")
+ '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(my-dotfile-backup-dir "/home/jason/Src/other/needle")

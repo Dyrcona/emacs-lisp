@@ -40,9 +40,10 @@
  ;; If there is more than one, they won't work right.
  '(current-language-environment "UTF-8")
  '(indent-tabs-mode nil)
- '(inferior-lisp-program "/usr/bin/sbcl --noinform")
+ '(inferior-lisp-program "/usr/bin/sbcl --noinform" t)
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
+ '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages

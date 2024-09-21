@@ -42,6 +42,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ispell-program-name "/usr/bin/enchant-2")
+ '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(my-vms-list
