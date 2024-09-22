@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2023, 2024 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -19,11 +19,11 @@
 ;; different on my other computers.
 (defgroup my-wesnoth nil "My Wesnoth utilities"
   :group 'local :prefix "my-wesnoth-")
-(defcustom my-wesnoth-stable-data-dir "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.16/"
-  "Path to my personal Wesnoth 1.16 data directory installed from Flatpak."
+(defcustom my-wesnoth-stable-data-dir "~/.var/app/org.wesnoth.Wesnoth/data/wesnoth/1.18/"
+  "Path to my personal Wesnoth 1.18 data directory installed from Flatpak."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
-(defcustom my-wesnoth-dev-data-dir "~/.local/share/wesnoth/1.17/"
-  "Path to my personal Wesnoth 1.17 data directory installed from source."
+(defcustom my-wesnoth-dev-data-dir "~/.local/share/wesnoth/1.19/"
+  "Path to my personal Wesnoth 1.19 data directory installed from source."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 (defcustom my-wesnoth-flatpak-share-dir
   "/var/lib/flatpak/app/org.wesnoth.Wesnoth/current/active/files/share/wesnoth/"
