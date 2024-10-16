@@ -48,7 +48,7 @@
  '(my-vms-list
    '(("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   '(xml-rpc cargo rust-mode bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
+   '(adoc-mode xml-rpc cargo rust-mode bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
