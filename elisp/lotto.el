@@ -67,10 +67,10 @@ and modify it for my own use.  Write the results to
     (munge-lottery-csv "Mega Millions")
     (write-file megamillions-csv-file-path)))
 
-(defun fix-powerball-numbers (start end)
-  "Fix powerball-numbers.txt entries that were downloaded from
-the State of Texas lottery site using my get-powerball-results
-command."
+(defun fix-lotto-numbers (start end)
+  "Fix {powerball,megamillions}-numbers.txt entries that were
+downloaded from the State of Texas lottery site using my
+get-{powerball,megamillions}-results commands."
   (interactive "r")
   (unless (= (point) end)
     (goto-char end))
