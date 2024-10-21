@@ -259,8 +259,10 @@
   (add-hook 'sh-mode-hook
             (lambda ()
               (if (and (buffer-file-name)
-                       (string-match-p "\\.bash\\(_profile\\|_aliases\\|rc\\)"
-                                       (buffer-file-name)))
+                       (string-match-p
+                        (concat "^" (getenv "HOME") "/"
+                                "\\.bash\\(_profile\\|_aliases\\|rc\\)")
+                        (buffer-file-name)))
                   (add-hook 'after-save-hook 'my-copy-dotfile nil t)))))
 
 ;; Setup for SLIME
