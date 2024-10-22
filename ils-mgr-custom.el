@@ -45,6 +45,7 @@
  '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
+ '(my-dotfile-backup-dir "/home/jstephenson/Documents")
  '(my-vms-list
    '(("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
