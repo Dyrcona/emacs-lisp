@@ -96,6 +96,7 @@
 (define-key super-j-map (kbd "$") 'urldecode-region)
 (define-key super-j-map (kbd "%") 'urlencode-region)
 (define-key super-j-map (kbd "b") 'ispell-buffer)
+(define-key super-j-map (kbd "C") 'toggle-case-fold-search)
 (define-key super-j-map (kbd "cd") 'copy-directory)
 (define-key super-j-map (kbd "cf") 'copy-file)
 (define-key super-j-map (kbd "dc") 'desktop-clear)
