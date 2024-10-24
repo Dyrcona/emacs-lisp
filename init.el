@@ -99,7 +99,7 @@
 (define-key super-j-map (kbd "C") 'toggle-case-fold-search)
 (define-key super-j-map (kbd "cd") 'copy-directory)
 (define-key super-j-map (kbd "cf") 'copy-file)
-(define-key super-j-map (kbd "dc") 'desktop-clear)
+(define-key super-j-map (kbd "d") 'desktop-clear)
 (define-key super-j-map (kbd "f") 'fill-region)
 (define-key super-j-map (kbd "g") 'get-url)
 (define-key super-j-map (kbd "i") 'insert-buffer)
