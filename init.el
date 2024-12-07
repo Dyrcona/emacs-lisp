@@ -266,8 +266,13 @@
                         (buffer-file-name)))
                   (add-hook 'after-save-hook 'my-copy-dotfile nil t))))
 
-;; Setup for SLIME
+;; dokuwiki-mode
+(add-to-list 'auto-mode-alist '("\\.dokuwiki\\'" . dokuwiki-mode))
+
+;; Only on my personal laptops (needle and XPS):
 (unless (string-equal (system-name) "ILS-MGR")
+  (require 'lotto)
+  ;; SLIME Setup
   (require 'auto-complete)
   (require 'slime)
   (require 'slime-autoloads)
@@ -280,9 +285,6 @@
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'slime-repl-mode))
   (global-set-key [(f7)] 'slime-hyperspec-lookup))
-
-;; dokuwiki-mode
-(add-to-list 'auto-mode-alist '("\\.dokuwiki\\'" . dokuwiki-mode))
 
 ;; Load machine-specific customizations
 (load
