@@ -82,4 +82,9 @@ get-{powerball,megamillions}-results commands."
              (string-to-number (match-string 6)) (string-to-number (match-string 7))
              (string-to-number (match-string 8))))))
 
+;; Bind keys for powerball commands
+(define-key super-j-map "lf" 'fix-lotto-numbers)
+(define-key super-j-map "lm" 'get-megamillions-results)
+(define-key super-j-map "lp" 'get-powerball-results)
+
 (provide 'lotto)
