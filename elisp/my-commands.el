@@ -45,8 +45,9 @@
         ((string-equal (system-name) "ILS-MGR")
          '("/media/jstephenson/Stuff/Documents/Writing/Fiction/Miscellaneous/"))))
 
-(defvar names-remote-path "/ssh:mail:names.txt"
-  "TRAMP path to the file of names on the remote node.")
+(defcustom my-names-remote-path
+  "TRAMP path to the file of names on the remote node."
+  "/ssh:mail:names.txt")
 
 (defun insert-names (arg)
   "Interactive command to fetch a file of names from a remote
@@ -62,7 +63,7 @@ the current buffer."
     (with-current-buffer names-buff
       (goto-char (point-min))                ; To avoid messes.
         ;; Do the actual work.
-        (let ((numbytes (cadr (insert-file-contents names-remote-path))))
+        (let ((numbytes (cadr (insert-file-contents my-names-remote-path))))
           (if (> numbytes 0)
               (progn
                 (fix-initials)
