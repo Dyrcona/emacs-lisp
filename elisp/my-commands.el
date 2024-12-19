@@ -45,9 +45,9 @@
         ((string-equal (system-name) "ILS-MGR")
          '("/media/jstephenson/Stuff/Documents/Writing/Fiction/Miscellaneous/"))))
 
-(defcustom my-names-remote-path
+(defcustom my-names-remote-path "/ssh:mail:names.txt"
   "TRAMP path to the file of names on the remote node."
-  "/ssh:mail:names.txt")
+  :type 'file :group 'local)
 
 (defun insert-names (arg)
   "Interactive command to fetch a file of names from a remote
