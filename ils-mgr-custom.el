@@ -15,16 +15,17 @@
 ;; Customizations for the Dell XPS13 from CW MARS, Inc..
 
 ;; Fix small frame size on Ubuntu 24.04
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (run-with-timer 0.05 nil
-                            (lambda (frame)
-                              (let ((width (frame-parameter frame 'width))
-                                    (height (frame-parameter frame 'height)))
-                                (set-frame-size frame
-                                                (if (< width 80) 80 width)
-                                                (if (< height 36) 36 height))))
-                            frame)))
+(add-hook
+ 'after-make-frame-functions
+ (lambda (frame)
+   (run-with-timer
+    0.05 nil
+    (lambda (frame)
+      (let ((width (frame-parameter frame 'width))
+            (height (frame-parameter frame 'height)))
+        (set-frame-size frame (if (< width 80) 80 width)
+                        (if  (< height 36) 36 height))))
+    frame)))
 
 ;; Set up for CW MARS
 (require 'cwmars)
