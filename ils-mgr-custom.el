@@ -27,11 +27,7 @@
 
 (add-hook
  'after-make-frame-functions
- (lambda (frame)
-   (run-with-timer
-    0.05 nil
-    'my-resize-frame
-    frame)))
+ (lambda (frame) (run-with-timer 0.05 nil 'my-resize-frame frame)))
 
 ;; Set up for CW MARS
 (require 'cwmars)
