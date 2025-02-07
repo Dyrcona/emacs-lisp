@@ -15,16 +15,22 @@
 ;; Customizations for the Dell XPS13 from CW MARS, Inc..
 
 ;; Fix small frame size on Ubuntu 24.04
+(defun my-resize-frame (frame)
+  "Resize frames to work around Ubuntu 24.04 Gnome bug."
+  (let ((width (frame-parameter frame 'width))
+        (height (frame-parameter frame 'height))
+        (title (frame-parameter frame 'title)))
+    (if (string-equal title "Ediff")
+        (set-frame-size frame 40 1)
+      (set-frame-size frame (if (< width 80) 80 width)
+                      (if  (< height 36) 36 height)))))
+
 (add-hook
  'after-make-frame-functions
  (lambda (frame)
    (run-with-timer
     0.05 nil
-    (lambda (frame)
-      (let ((width (frame-parameter frame 'width))
-            (height (frame-parameter frame 'height)))
-        (set-frame-size frame (if (< width 80) 80 width)
-                        (if  (< height 36) 36 height))))
+    'my-resize-frame
     frame)))
 
 ;; Set up for CW MARS
