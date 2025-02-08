@@ -16,19 +16,16 @@
 
 ;; Ediff frames are oddly sized on Emacs 29.4 on Arch with
 ;; Gnome/Wayland.
+(defun xps-resize-frame (frame)
+  "Make Ediff frames legible on Wayland."
+  (let ((title (frame-parameter frame 'title)))
+    (if (and title (string-equal-ignore-case title "ediff"))
+        (set-frame-size frame 18 3)))) ; 18x3 picked after experimentation
+
 (add-hook
  'after-make-frame-functions
  (lambda (frame)
-   (run-with-timer
-    0.05
-    nil
-    (lambda (frame)
-      "Make Ediff frames legible on Wayland."
-      (if (and
-           (frame-parameter frame 'title)
-           (string-equal-ignore-case (frame-parameter frame 'title) "ediff"))
-          (set-frame-size frame 18 3))) ; 18x3 picked after experimentation
-    frame)))
+   (run-with-timer 0.05 nil 'xps-resize-frame frame)))
 
 ;; Add my local INFOPATH for texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
