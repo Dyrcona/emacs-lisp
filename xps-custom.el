@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -13,6 +13,20 @@
 ;; ---------------------------------------------------------------
 
 ;; Customization for my personal Dell XPS 13.
+
+;; Ediff frames are oddly sized on Emacs 29.4 on Arch with
+;; Gnome/Wayland.
+(add-hook
+ 'after-make-frame-functions
+ (lambda (frame)
+   (run-with-timer
+    0.05
+    nil
+    (lambda (frame)
+      "Make Ediff frames legible on Wayland."
+      (if (string-equal-ignore-case (frame-parameter frame 'title) "ediff")
+          (set-frame-size frame 18 3))) ; 18x3 picked after experimentation
+    frame)))
 
 ;; Add my local INFOPATH for texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
