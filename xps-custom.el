@@ -24,7 +24,9 @@
     nil
     (lambda (frame)
       "Make Ediff frames legible on Wayland."
-      (if (string-equal-ignore-case (frame-parameter frame 'title) "ediff")
+      (if (and
+           (frame-parameter frame 'title)
+           (string-equal-ignore-case (frame-parameter frame 'title) "ediff"))
           (set-frame-size frame 18 3))) ; 18x3 picked after experimentation
     frame)))
 
