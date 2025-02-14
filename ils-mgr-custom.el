@@ -21,7 +21,7 @@
         (height (frame-parameter frame 'height))
         (title (frame-parameter frame 'title)))
     (if (string-equal title "Ediff")
-        (set-frame-size frame 40 1)
+        (set-frame-size frame 20 1)
       (set-frame-size frame (if (< width 80) 80 width)
                       (if  (< height 36) 36 height)))))
 
