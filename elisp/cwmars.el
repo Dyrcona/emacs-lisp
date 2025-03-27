@@ -401,6 +401,7 @@ database."
 (global-set-key (kbd "s-m") 'cwmars-map)
 (define-key cwmars-map (kbd "a") 'cwmars-make-aris-inserts)
 (define-key cwmars-map (kbd "b") 'cwmars-drop-backstage)
+(define-key cwmars-map (kbd "c") 'cwmars-copy-rows)
 (define-key cwmars-map (kbd "d") 'cwmars-db-update)
 (define-key cwmars-map (kbd "f") 'cwmars-find-db-update)
 (define-key cwmars-map (kbd "l") 'cwmars-make-acn-label-update)
