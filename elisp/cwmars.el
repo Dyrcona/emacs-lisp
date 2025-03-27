@@ -385,12 +385,22 @@ database."
   "       END;\n"
   "\\o\n")
 
+(define-skeleton cwmars-drop-backstage
+  "Write SQL to drop Backstage tables for YYYYMM."
+  "Enter year & month as YYYYMM: "
+  "\\qecho Drop Backstage tables for " str
+  "\n\nBEGIN;\n\n"
+  "SET search_path TO backstage;\n\n"
+  "DROP TABLE auths_bibs_" str ", bibs_" str ";\n\n"
+  "COMMIT;\n")
+
 ;; Create a prefix map for CW MARS commands and bind them.
 (require 'my-funcs)                     ; For make-find-file-command macro
 (defvar cwmars-map)
 (define-prefix-command 'cwmars-map)
 (global-set-key (kbd "s-m") 'cwmars-map)
 (define-key cwmars-map (kbd "a") 'cwmars-make-aris-inserts)
+(define-key cwmars-map (kbd "b") 'cwmars-drop-backstage)
 (define-key cwmars-map (kbd "d") 'cwmars-db-update)
 (define-key cwmars-map (kbd "f") 'cwmars-find-db-update)
 (define-key cwmars-map (kbd "l") 'cwmars-make-acn-label-update)
