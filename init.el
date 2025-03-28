@@ -1,5 +1,6 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2024 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -167,13 +168,6 @@
 ;; lisp-interaction-mode
 (add-hook 'lisp-interaction-mode-hook 'my-lisp-modes-hook)
 
-;; scheme-mode
-(add-hook 'scheme-mode-hook 'my-lisp-modes-hook) ;Reuse lisp-mode-hook, for now.
-;; Use guile with run-scheme.
-(setq scheme-program-name "guile")
-;; Use guile with geiser.
-(setq geiser-active-implementations '(guile))
-
 ;; Setup for erlang mode.
 (add-hook 'erlang-mode-hook
           (lambda ()
@@ -268,23 +262,6 @@
 
 ;; dokuwiki-mode
 (add-to-list 'auto-mode-alist '("\\.dokuwiki\\'" . dokuwiki-mode))
-
-;; Only on my personal laptops (needle and XPS):
-(unless (string-equal (system-name) "ILS-MGR")
-  (require 'lotto)
-  ;; SLIME Setup
-  (require 'auto-complete)
-  (require 'slime)
-  (require 'slime-autoloads)
-  (setq slime-net-coding-system 'utf-8-unix
-        common-lisp-hyperspec-root
-        (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
-  (slime-setup '(slime-fancy))
-  (add-hook 'slime-mode-hook 'set-up-slime-ac)
-  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-  (eval-after-load "auto-complete"
-    '(add-to-list 'ac-modes 'slime-repl-mode))
-  (global-set-key [(f7)] 'slime-hyperspec-lookup))
 
 ;; Load machine-specific customizations
 (load

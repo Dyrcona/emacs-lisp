@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
 ;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
@@ -117,7 +118,7 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
      (list
       (read-string "Date for file search: " default-pattern nil default-pattern t))))
   (let* ((file-name (concat cwmars-db-updates-local-path pattern "_updates.sql"))
-         (buffer (find-file file-name)))
+         (_buffer (find-file file-name)))
     (save-excursion
       (let ((skip (list (file-name-nondirectory buffer-file-name)))
             (start-str (format "\\i %s" cwmars-db-updates-remote-path)))
@@ -125,7 +126,7 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
             (let ((search-regexp (format "^\\%s\\(.+\\)$" start-str)))
               (goto-char (point-min))
               (while (re-search-forward search-regexp (point-max) t)
-                (add-to-list 'skip (match-string 1)))
+                (push (match-string 1) skip))
               (goto-char (point-max))))
         (dolist (elt (directory-files cwmars-db-updates-local-path nil pattern))
           (unless (member elt skip)

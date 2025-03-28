@@ -1,17 +1,18 @@
+;; -*- lexical-binding: t; -*-
 ;; Copyright © 1997 O'Reilly Media & Associates, Inc.
 ;;
 ;; The following code is taken from WRITING GNU EMACS EXTENSIONS by
 ;; Bob Glickstein, published 1997 by O'Reilly Media & Associates,
 ;; Inc., Sebastopol, CA.
 
-(defun maybe-switch-to-buffer (&rest args)
+(defun maybe-switch-to-buffer (&rest _args)
   "When interactive, switch to existing buffers only, unless
 given a prefix argument."
   (interactive
    (list (read-buffer "Switch to buffer: " (other-buffer)
                       (null current-prefix-arg)))))
 
-(defun maybe-pop-to-buffer (&rest args)
+(defun maybe-pop-to-buffer (&rest _args)
   "When interactive, pop to existing buffers only, unless given a
 prefix argument."
   (interactive

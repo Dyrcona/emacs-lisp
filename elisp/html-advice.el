@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
 ;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
 ;;
@@ -19,6 +20,8 @@
 
 ;; Constants and variables used in the code below.
 ;; I put these at the top to keep the compiler quiet.
+
+(require 'sgml-mode)                    ;For html-list-item function.
 
 (defconst blank-line "^\\s *$" "Regexp to match line that's either
 empty or all whitespace.")

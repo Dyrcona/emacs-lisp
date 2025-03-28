@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
 ;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
 ;;
@@ -190,7 +191,7 @@ for the commits in HEAD that are not in UPSTREAM."
      (list (read-string "URL: ") nil nil)))
   (if (not url)
       (setq url (buffer-substring-no-properties start end)))
-  (url-retrieve url (lambda (status) (switch-to-buffer (current-buffer)))))
+  (url-retrieve url (lambda (_status) (switch-to-buffer (current-buffer)))))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 (defun unfill-paragraph (&optional region)

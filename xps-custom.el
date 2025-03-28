@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
 ;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
@@ -29,6 +30,28 @@
 
 ;; Add my local INFOPATH for texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
+
+(require 'lotto)
+;; SLIME Setup
+(require 'auto-complete)
+(require 'slime)
+(require 'slime-autoloads)
+(setq slime-net-coding-system 'utf-8-unix
+      common-lisp-hyperspec-root
+      (concat "file://" (getenv "HOME") "/Documents/Programming%20Documentation/Lisp/HyperSpec/"))
+(slime-setup '(slime-fancy))
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+(global-set-key [(f7)] 'slime-hyperspec-lookup)
+
+;; scheme-mode
+(add-hook 'scheme-mode-hook 'my-lisp-modes-hook) ;Reuse lisp-mode-hook, for now.
+;; Use guile with run-scheme.
+(setq scheme-program-name "guile")
+;; Use guile with geiser.
+(setq geiser-active-implementations '(guile))
 
 ;; Set up for Lua
 (setq auto-mode-alist (cons '("\\.lua\\'" . lua-mode) auto-mode-alist))

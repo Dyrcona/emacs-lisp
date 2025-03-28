@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
 ;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
 ;;

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; Copyright © 1997 O'Reilly Media & Associates, Inc.
 ;;
 ;; The following code is taken from WRITING GNU EMACS EXTENSIONS by
@@ -22,7 +23,7 @@
   (set-window-start nil unscroll-window-start)
   (set-window-hscroll nil unscroll-hscroll))
 
-(defun unscroll-maybe-remember (&rest args)
+(defun unscroll-maybe-remember (&rest _args)
   (if (not (and (symbolp last-command)
                 (get last-command 'unscrollable)))
       (progn
