@@ -75,13 +75,13 @@ get-{powerball,megamillions}-results commands."
   (interactive "r")
   (unless (= (point) end)
     (goto-char end))
-  (while (re-search-backward "^\\([0-9-]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)" start t)
+  (while (re-search-backward "^\\([0-9-]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)?" start t)
     (replace-match
      (format "%s  %02d  %02d  %02d  %02d  %02d  %02d  %d" (match-string 1)
              (string-to-number (match-string 2)) (string-to-number (match-string 3))
              (string-to-number (match-string 4)) (string-to-number (match-string 5))
              (string-to-number (match-string 6)) (string-to-number (match-string 7))
-             (string-to-number (match-string 8))))))
+             (string-to-number (or (match-string 8) "0"))))))
 
 ;; Bind keys for powerball commands
 (define-key super-j-map "lf" 'fix-lotto-numbers)
