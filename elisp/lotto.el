@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
