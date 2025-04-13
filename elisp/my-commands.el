@@ -33,49 +33,6 @@
           (re-search-forward regexp nil t)
           (replace-match "" nil nil)))))
 
-;; Get the entries from names.txt on the server and add them to
-;; names.txt on my laptop.
-(defun get-names-search-path ()
-  "Return a search path to find names.txt based on the local system name."
-  (cond ((string-equal (system-name) "xps")
-         '("~/Documents/Writing/Fiction/Miscellaneous/"))
-        ((string-equal (system-name) "needle")
-         (cl-loop for component in '("Chip" "Stuff")
-                  for path = (format "/run/media/jason/%s/Documents/Writing/Fiction/Miscellaneous/" component)
-                  collecting path))
-        ((string-equal (system-name) "ILS-MGR")
-         '("/media/jstephenson/Stuff/Documents/Writing/Fiction/Miscellaneous/"))))
-
-(defcustom my-names-remote-path "/ssh:mail:names.txt"
-  "TRAMP path to the file of names on the remote node."
-  :type 'file :group 'local)
-
-(defun insert-names (arg)
-  "Interactive command to fetch a file of names from a remote
-server and insert them into a buffer containing a local file of
-names.  The results are then sorted and duplicate entries
-removed.
-
-If a prefix arg is used, the names.txt buffer is displayed below
-the current buffer."
-  (interactive "P")
-  ;; Make sure the buffer/file is open.
-  (let ((names-buff (find-file-noselect (locate-file "names.txt" (get-names-search-path)))))
-    (with-current-buffer names-buff
-      (goto-char (point-min))                ; To avoid messes.
-        ;; Do the actual work.
-        (let ((numbytes (cadr (insert-file-contents my-names-remote-path))))
-          (if (> numbytes 0)
-              (progn
-                (fix-initials)
-                (sort-fields 1 (point-min) (point-max))
-                (sort-fields -1 (point-min) (point-max))
-                (goto-char (point-min))
-                (while (re-search-forward "^\\([^\n]+\n\\)\\1+" (point-max) t)
-                  (replace-match "\\1"))
-                (save-buffer)))))
-    (if arg (display-buffer-below-selected names-buff nil))))
-
 (defun count-names (beginning end)
   "Count the last names in selected region of names.txt buffer
 and print results sorted in another buffer that replaces the
