@@ -254,7 +254,7 @@ quotes/apostrophes should be doubled, etc."
   "INSERT INTO actor.org_unit\n"
   "(name, shortname, ou_type, parent_ou, phone)\n"
   "VALUES\n"
-  "('" str "', '" (upcase (skeleton-read "Library shortname: "))
+  "('" str "', '" (setq shortname (upcase (skeleton-read "Library shortname: ")))
   "', 4, parent_id, '" (skeleton-read "Library phone: ") "')\n"
   "RETURNING id INTO ou_id;\n\n"
   '(let ((street1 (upcase (read-string "Library street1: ")))
@@ -290,6 +290,12 @@ quotes/apostrophes should be doubled, etc."
   "(parent_id, '" v2 "', '" v2 "');\n\n"
   "INSERT INTO actor.org_unit_setting\n(org_unit, name, value)\nVALUES\n"
   "(parent_id, 'lib.ecard_barcode_prefix', '\"" v2 "\"');\n\n"
+  "INSERT INTO permission.usr_work_ou_map (usr, work_ou)\n"
+  "SELECT usr.id, ou_id\n"
+  "FROM actor.usr\n"
+  "WHERE usrname = 'cwdeleter';\n\n"
+  "INSERT INTO actor.workstation (name, owning_lib)\n"
+  "VALUES ('" shortname "-cwdeleter', ou_id);\n\n"
   "END\n$$;\n")
 
 (define-skeleton cwmars-db-update
