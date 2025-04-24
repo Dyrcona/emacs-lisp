@@ -123,12 +123,12 @@
 (define-skeleton egdbi
   "Inserts a typical set of code to start a Perl DBI script for Evergreen."
   nil
-  > "#!/usr/bin/perl\n\n"
+  > "#!/usr/bin/env perl\n\n"
   > "use strict;\n"
   > "use warnings;\n"
   > "use Getopt::Long qw(:config no_ignore_case no_auto_abbrev);\n"
   > "use DBI;\n"
-  > "use DBD::Pg qw(:pg_types);\n\n"
+  > "use DBD::Pg qw(:pg_types);\n"
   > @ _ ?\n?\n
   > "# DBI options with defaults:\n"
   > "my $db_user = $ENV{PGUSER} || 'evergreen';\n"
@@ -281,7 +281,7 @@ skeleton output around the use statements."
 (define-skeleton egcronscript
   "Insert a basic skeleton for a Cronscript.pm-based Perl script."
   nil
-  "#!/usr/bin/perl\n"
+  "#!/usr/bin/env perl\n"
   "use strict;\n"
   "use warnings;\n"
   "use OpenILS::Utils::Cronscript;\n"
@@ -294,7 +294,7 @@ skeleton output around the use statements."
   "Insert a skeleton for a Conscript.pm-based Perl script that
  requires authentication."
   nil
-  "#!/usr/bin/perl\n"
+  "#!/usr/bin/env perl\n"
   "use strict;\n"
   "use warnings;\n"
   "use OpenILS::Utils::Cronscript;\n"
