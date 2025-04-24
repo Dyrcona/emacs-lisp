@@ -128,7 +128,7 @@
   > "use warnings;\n"
   > "use Getopt::Long qw(:config no_ignore_case no_auto_abbrev);\n"
   > "use DBI;\n"
-  > "use DBD::Pg qw(:pg_types);\n"
+  > "use DBD::Pg qw(:pg_types);\n\n"
   > @ _ ?\n?\n
   > "# DBI options with defaults:\n"
   > "my $db_user = $ENV{PGUSER} || 'evergreen';\n"
