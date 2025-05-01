@@ -441,7 +441,6 @@ database."
 (global-set-key (kbd "s-k") 'super-k-map)
 (define-key super-k-map (kbd "1") (lambda () (interactive) (sql-connect "db1")))
 (define-key super-k-map (kbd "2") (lambda () (interactive) (sql-connect "db2")))
-(define-key super-k-map (kbd "3") (lambda () (interactive) (sql-connect "pg10")))
 (define-key super-k-map (kbd "j") (lambda () (interactive) (sql-connect "jasontest")))
 (define-key super-k-map (kbd "s") 'sql-set-sqli-buffer)
 (define-key super-k-map (kbd "t") (lambda () (interactive) (sql-connect "training")))

@@ -82,12 +82,6 @@
       (sql-server "dumbo")
       (sql-port 5432)
       (sql-database "jasontest"))
-     ("pg10"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5433))
      ("db1"
       (sql-product 'postgres)
       (sql-user "evergreen")
