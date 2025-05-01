@@ -222,7 +222,11 @@
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 ;; Do initialization for SQL Mode.
+(require 'sql)
 (add-to-list 'auto-mode-alist '("\\.pg\\'" . sql-mode))
+(push
+ (sql-font-lock-keywords-builder 'font-lock-builtin-face nil "refresh" "materialized")
+ sql-mode-postgres-font-lock-keywords)
 
 ;; Do initialization for HTML Mode.
 (add-hook 'html-mode-hook
