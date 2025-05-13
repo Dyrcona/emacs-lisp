@@ -117,7 +117,7 @@
       (sql-database "jasontest")
       (sql-port 5432))))
  '(sql-postgres-options
-   '("-P" "pager=off" "-v" "PROMPT1" "-v" "PROMPT2" "-v" "PROMPT3"))
+   '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
