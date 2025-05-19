@@ -104,7 +104,7 @@
       (sql-server "localhost")
       (sql-database "evergreen")
       (sql-port 35433))
-     ("training"
+     ("dev"
       (sql-product 'postgres)
       (sql-user "evergreen")
       (sql-server "localhost")
