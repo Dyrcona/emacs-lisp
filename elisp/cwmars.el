@@ -293,9 +293,10 @@ quotes/apostrophes should be doubled, etc."
   "INSERT INTO permission.usr_work_ou_map (usr, work_ou)\n"
   "SELECT usr.id, ou_id\n"
   "FROM actor.usr\n"
-  "WHERE usrname = 'cwdeleter';\n\n"
+  "WHERE (usrname = 'cwdeleter' OR usrname = 'jstephenson');\n\n"
   "INSERT INTO actor.workstation (name, owning_lib)\n"
-  "VALUES ('" shortname "-cwdeleter', ou_id);\n\n"
+  "VALUES\n('" shortname "-cwdeleter', ou_id),\n"
+  "('" shortname "-jstephenson', ou_id);\n\n"
   "END\n$$;\n")
 
 (define-skeleton cwmars-db-update
