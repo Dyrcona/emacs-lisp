@@ -402,11 +402,17 @@ database."
   "DROP TABLE auths_bibs_" str ", bibs_" str ";\n\n"
   "COMMIT;\n")
 
+(define-skeleton cwmars-copy-status-zero
+  "Write SQL snippet to set copy status 0 to some other value."
+  "Enter the new copy status value: "
+  "status = case when status = 0 then " str " else status end")
+
 ;; Create a prefix map for CW MARS commands and bind them.
 (require 'my-funcs)                     ; For make-find-file-command macro
 (defvar cwmars-map)
 (define-prefix-command 'cwmars-map)
 (global-set-key (kbd "s-m") 'cwmars-map)
+(define-key cwmars-map (kbd "0") 'cwmars-copy-status-zero)
 (define-key cwmars-map (kbd "a") 'cwmars-make-aris-inserts)
 (define-key cwmars-map (kbd "b") 'cwmars-drop-backstage)
 (define-key cwmars-map (kbd "c") 'cwmars-copy-rows)
