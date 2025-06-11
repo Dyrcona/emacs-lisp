@@ -124,7 +124,6 @@
  '(tramp-auto-save-directory "~/.emacs.d/tramp-autosave")
  '(tramp-connection-properties
    '(("/ssh:\\(jason@\\|root@\\)?beastie" "remote-shell" "/usr/local/bin/bash")
-     ("/ssh:\\(jason@\\|store@\\|root@\\)?mail\\(\\.sigio\\.com\\)?" "remote-shell" "/usr/local/bin/bash")
      ("/sshfs:" "direct-async-process" t)))
  '(user-mail-address "jason@sigio.com"))
 (custom-set-faces

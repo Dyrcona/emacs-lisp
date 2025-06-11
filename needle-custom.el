@@ -15,12 +15,6 @@
 
 ;; Customizations for needle.
 
-;; Use bash on mail.sigio.com:
-(require 'tramp)
-(add-to-list 'tramp-connection-properties
-             (list "/ssh:\\(jason@\\|store@\\|root@\\)?mail"
-                   "remote-shell" "/usr/local/bin/bash"))
-
 (require 'lotto)
 ;; SLIME Setup
 (require 'auto-complete)

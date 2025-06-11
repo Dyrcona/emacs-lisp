@@ -100,9 +100,6 @@
  '(sql-product 'postgres)
  '(tab-width 4)
  '(tool-bar-mode nil)
- '(tramp-connection-properties
-   '(("/ssh:\\(jason\\|root\\|store\\)@mail\\.sigio\\.com" "remote-shell"
-      "/usr/local/bin/bash")))
  '(user-mail-address "jstephenson@cwmars.org"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
