@@ -63,66 +63,37 @@
  '(make-backup-files nil)
  '(my-dotfile-backup-dir "/home/jstephenson/Documents")
  '(my-vms-list
-   '(("# C/W MARS VMs" . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
+   '(("# C/W MARS VMs"
+      . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   '(adoc-mode xml-rpc cargo rust-mode bbcode-mode dokuwiki-mode markdown-mode csv yaml-mode))
+   '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
+               php-mode rust-mode xml-rpc yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
-   '(("dumbo"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "postgres")
-      (sql-server "dumbo")
-      (sql-port 5432))
-     ("jasontest"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-port 5432)
-      (sql-database "jasontest"))
-     ("db1"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
+   '(("dumbo" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-database "postgres") (sql-server "dumbo") (sql-port 5432))
+     ("jasontest" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "dumbo") (sql-port 5432) (sql-database "jasontest"))
+     ("db1" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-database "evergreen") (sql-server "localhost")
       (sql-port 35432))
-     ("db2"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
+     ("db2" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-database "evergreen") (sql-server "localhost")
       (sql-port 35433))
-     ("dev"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-database "evergreen")
-      (sql-server "localhost")
+     ("dev" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-database "evergreen") (sql-server "localhost")
       (sql-port 35434))
-     ("focal"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "focal")
-      (sql-database "evergreen")
+     ("focal" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "focal") (sql-database "evergreen") (sql-port 5432))
+     ("jammy" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "jammy") (sql-database "evergreen") (sql-port 5432))
+     ("bullseye" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "bullseye") (sql-database "evergreen")
       (sql-port 5432))
-     ("jammy"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "jammy")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("bullseye"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "bullseye")
-      (sql-database "evergreen")
-      (sql-port 5432))
-     ("bookworm"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "bookworm")
-      (sql-database "evergreen")
+     ("bookworm" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "bookworm") (sql-database "evergreen")
       (sql-port 5432))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
@@ -130,7 +101,8 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(tramp-connection-properties
-   '(("/ssh:\\(jason\\|root\\|store\\)@mail\\.sigio\\.com" "remote-shell" "/usr/local/bin/bash")))
+   '(("/ssh:\\(jason\\|root\\|store\\)@mail\\.sigio\\.com" "remote-shell"
+      "/usr/local/bin/bash")))
  '(user-mail-address "jstephenson@cwmars.org"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
