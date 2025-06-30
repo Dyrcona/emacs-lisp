@@ -282,14 +282,13 @@ quotes/apostrophes should be doubled, etc."
   "INSERT INTO actor.org_unit_custom_tree_node\n"
   "(tree, org_unit, parent_node, sibling_order)\nVALUES\n"
   "(1, ou_id, 10722, " v1 ");\n\n"
-  '(setq v1 (skeleton-read "Barcode prefix: ")
-         v2 (skeleton-read "Ecard prefix: "))
+  '(setq bcprefix (skeleton-read "Barcode prefix: "))
   "INSERT INTO cwmars_dashboard.barcode_prefix (org_unit, prefix, prefix_stub)\n"
   "VALUES\n"
-  "(parent_id, '" v1 "', '" v1 "'),\n"
-  "(parent_id, '" v2 "', '" v2 "');\n\n"
+  "(parent_id, '3" bcprefix "', '3" bcprefix "'),\n"
+  "(parent_id, '5" bcprefix "', '5" bcprefix "');\n\n"
   "INSERT INTO actor.org_unit_setting\n(org_unit, name, value)\nVALUES\n"
-  "(parent_id, 'lib.ecard_barcode_prefix', '\"" v2 "\"');\n\n"
+  "(parent_id, 'lib.ecard_barcode_prefix', '\"5" bcprefix "\"');\n\n"
   "INSERT INTO permission.usr_work_ou_map (usr, work_ou)\n"
   "SELECT usr.id, ou_id\n"
   "FROM actor.usr\n"
