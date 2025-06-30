@@ -274,14 +274,14 @@ quotes/apostrophes should be doubled, etc."
        (insert (format ",'%s','%s','MA','US','%s')\n" town county zip))
        (insert "RETURNING id INTO addr_id;\n\n")
        (insert (format "UPDATE actor.org_unit\nSET %s = addr_id\nWHERE id = ou_id;\n\n" (cdr e)))))
-  '(setq v1 (skeleton-read "Sibling order: "))
+  '(setq siblingord (skeleton-read "Sibling order: "))
   "UPDATE actor.org_unit_custom_tree_node\n"
   "SET sibling_order = sibling_order + 1\n"
   "WHERE parent_node = 10722\n"
-  "AND sibling_order >= " v1 ";\n\n"
+  "AND sibling_order >= " siblingord ";\n\n"
   "INSERT INTO actor.org_unit_custom_tree_node\n"
   "(tree, org_unit, parent_node, sibling_order)\nVALUES\n"
-  "(1, ou_id, 10722, " v1 ");\n\n"
+  "(1, ou_id, 10722, " siblingord ");\n\n"
   '(setq bcprefix (skeleton-read "Barcode prefix: "))
   "INSERT INTO cwmars_dashboard.barcode_prefix (org_unit, prefix, prefix_stub)\n"
   "VALUES\n"
