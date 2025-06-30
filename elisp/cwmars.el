@@ -285,7 +285,7 @@ quotes/apostrophes should be doubled, etc."
   '(setq bcprefix (skeleton-read "Barcode prefix: "))
   "INSERT INTO cwmars_dashboard.barcode_prefix (org_unit, prefix, prefix_stub)\n"
   "VALUES\n"
-  "(parent_id, '3" bcprefix "', '3" bcprefix "'),\n"
+  "(parent_id, '2" bcprefix "', '2" bcprefix "'),\n"
   "(parent_id, '5" bcprefix "', '5" bcprefix "');\n\n"
   "INSERT INTO actor.org_unit_setting\n(org_unit, name, value)\nVALUES\n"
   "(parent_id, 'lib.ecard_barcode_prefix', '\"5" bcprefix "\"');\n\n"
