@@ -173,6 +173,15 @@ for the commits in HEAD that are not in UPSTREAM."
     (goto-char (point-min))
     (forward-line (random lines))))
 
+(defun squash-duplicate-lines ()
+  "Replace multiple identical lines in a row with 1.
+
+This works best on a buffer of sorted lines."
+  (interactive)
+  (let ((re "^\\([^\n]+\n\\)\\1+"))
+    (while (re-search-forward re nil t)
+      (replace-match (match-string 1)))))
+
 ;; close-and-kill-this-pane taken from EmacsWiki: https://www.emacswiki.org/emacs/KillingBuffers#h5o-5
 (defun close-and-kill-this-pane ()
   "If there are multiple windows, then close this pane and kill

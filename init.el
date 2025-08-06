@@ -94,6 +94,7 @@
 (define-key super-j-map (kbd "0") 'close-and-kill-this-pane)
 (define-key super-j-map (kbd "1") 'close-and-kill-next-pane)
 (define-key super-j-map (kbd "!") 'erase-buffer)
+(define-key super-j-map (kbd "@") 'squash-duplicate-lines)
 (define-key super-j-map (kbd "$") 'urldecode-region)
 (define-key super-j-map (kbd "%") 'urlencode-region)
 (define-key super-j-map (kbd "b") 'ispell-buffer)
