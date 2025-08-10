@@ -178,7 +178,7 @@ for the commits in HEAD that are not in UPSTREAM."
 
 This works best on a buffer of sorted lines."
   (interactive)
-  (let ((re "^\\([^\n]+\n\\)\\1+"))
+  (let ((re "^\\([^\n]*\n\\)\\1+"))
     (while (re-search-forward re nil t)
       (replace-match (match-string 1)))))
 
