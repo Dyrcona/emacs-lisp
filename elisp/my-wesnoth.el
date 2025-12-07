@@ -33,6 +33,9 @@
 (defcustom my-wesnoth-source-share-dir "/usr/local/share/wesnoth/"
   "Path to Wesnoth shared data files installed from source."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
+(defcustom my-wesnoth-add-ons-dir "~/Src/Wesnoth/add-ons"
+  "Path to source of my Wesnoth add-ons."
+  :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 
 ;; Add wesnoth-mode for editing WML files.  Some keybindings below
 ;; here may depend on this one day.
@@ -47,6 +50,8 @@
 (defvar my-wesnoth-map nil "Prefix map for my Wesnoth commands")
 (define-prefix-command 'my-wesnoth-map)
 (global-set-key (kbd "s-w") 'my-wesnoth-map)
+(define-key my-wesnoth-map (kbd "a")
+  (make-find-file-command (expand-file-name my-wesnoth-add-ons-dir)))
 (define-key my-wesnoth-map (kbd "d")
   (make-find-file-command (expand-file-name my-wesnoth-stable-data-dir)))
 (define-key my-wesnoth-map (kbd "s")
