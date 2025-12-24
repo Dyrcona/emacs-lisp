@@ -30,7 +30,7 @@
   "/var/lib/flatpak/app/org.wesnoth.Wesnoth/current/active/files/share/wesnoth/"
   "Path to Wesnoth shared data files installed from Flatpak."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
-(defcustom my-wesnoth-source-share-dir "/usr/local/share/wesnoth/"
+(defcustom my-wesnoth-source-share-dir "/usr/local/wesnoth/share/wesnoth/"
   "Path to Wesnoth shared data files installed from source."
   :type 'directory :group 'my-wesnoth :require 'my-wesnoth)
 (defcustom my-wesnoth-add-ons-dir "~/Src/Wesnoth/add-ons"
