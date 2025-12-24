@@ -42,7 +42,7 @@
 (require 'wesnoth-mode)
 (add-to-list 'auto-mode-alist '("\\.cfg\\'" . wesnoth-mode))
 ;; Set up wesnoth-update for Wesnoth installed from source code.
-(setq wesnoth-root-directory my-wesnoth-flatpak-share-dir
+(setq wesnoth-root-directory my-wesnoth-source-share-dir
       wesnoth-update-output-directory "~/.emacs.d/elisp/"
       wesnoth-addition-file "~/.emacs.d/elisp/wesnoth-wml-additions.cfg")
 
