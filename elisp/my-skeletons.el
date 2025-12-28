@@ -644,7 +644,7 @@ _
       @ _ ?\n
       "## Authors
 
-[Jason Stephenson](https://www.sigio.com/) is responsible for most of
+[Jason Stephenson](https://github.com/Dyrcona) is responsible for most of
 the code here.
 
 ## License\n\n"
