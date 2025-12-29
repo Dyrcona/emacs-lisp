@@ -20,7 +20,7 @@ experience and automating some of your routine chores?
 ### Dependencies
 
 You will need a recent version of GNU Emacs.  The author currently
-uses these scripts with versions 29.4 and 30.1.
+uses these scripts with versions 30.1.
 
 You might need a few other packages and programs such as slime, Steel
 Bank Common Lisp, Guile, Python 3, etc.
@@ -37,8 +37,8 @@ automate similar kinds of tasks.
 
 ## Authors
 
-[Jason Stephenson](https://www.sigio.com/) is responsible for most of
-the code here.
+[Jason Stephenson](https://github.com/Dyrcona) is responsible for most
+of the code here.
 
 Some portions were taken from, or inspired by, other sources as listed
 in the [Acknowledgments](#acknowledgments) and comments in the code.
