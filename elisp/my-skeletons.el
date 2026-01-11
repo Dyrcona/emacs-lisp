@@ -630,28 +630,28 @@ _
 (define-skeleton readme-md
   "Skeleton for a github flavoerd Markdown README."
   "Project title: "
-  "# " str  & ?\n
+  "# " str " #\n"
   @ _ | ?\n
-  "## Description\n"
+  "## Description ##\n"
   @ _ | ?\n
-  "## Getting Started
+  "## Getting Started ##
 
-### Dependencies\n"
+### Dependencies ###\n"
   @ _ | ?\n
-    "### Installing\n"
-    @ _ | ?\n
-      "### Running the Program\n"
-      @ _ ?\n
-      "## Authors
+  "### Installing ###\n"
+  @ _ | ?\n
+  "### Running the Program ###\n"
+  @ _ ?\n
+  "## Authors ##
 
 [Jason Stephenson](https://github.com/Dyrcona) is responsible for most of
 the code here.
 
-## License\n\n"
+## License ##\n\n"
       str " is licensed  under the terms of the " (skeleton-read "License: ")
       " - see [LICENSE.md](LICENSE.md) file for details.
 
-## Acknowledgments\n\n"
+## Acknowledgments ##\n\n"
       @ _ | ?\n)
 
 (provide 'my-skeletons)
