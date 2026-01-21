@@ -67,7 +67,7 @@
       . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
    '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
-               php-mode rust-mode xml-rpc yaml-mode))
+               php-mode rust-mode typescript-mode xml-rpc yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
