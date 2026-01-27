@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2026 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -230,6 +230,25 @@ quotes/apostrophes should be doubled, etc."
   (while (re-search-forward "^\\([0-9]+\\),\\(.+\\)$" nil t)
     (replace-match cwmars-replace-labels-str t))
   (insert "\nEND\n$$;"))
+
+(defconst cwmars-cko-receipt-settings-replacement-str
+  "INSERT INTO actor.usr_setting
+(usr, name, value)
+VALUES
+(\\1, 'circ.send_email_checkout_receipts', 'true')
+ON CONFLICT ON CONSTRAINT usr_once_per_key DO UPDATE
+SET value = 'true'
+WHERE usr_setting.name = 'circ.send_email_checkout_receipts'
+AND usr_setting.usr = \\1;
+")
+
+(defun cwmars-make-cko-receipt-settings-upsert ()
+  "Modifies a list of user ids into a SQL to upsert usr_settings to send
+email checkout receipts by default."
+  (interactive)
+  (goto-char (point-min))
+  (while (re-search-forward "^\\([0-9]+\\)$" nil t)
+    (replace-match cwmars-cko-receipt-settings-replacement-str t)))
 
 (defconst cwmars-regions '("146" "2" "324")
   "List of CW MARS region ids as strings to use in read-string for skeletons.")
