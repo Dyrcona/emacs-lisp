@@ -468,6 +468,11 @@ database."
 (define-key super-k-map (kbd "2") (lambda () (interactive) (sql-connect "db2")))
 (define-key super-k-map (kbd "d") (lambda () (interactive) (sql-connect "dev")))
 (define-key super-k-map (kbd "j") (lambda () (interactive) (sql-connect "jasontest")))
+(define-key super-k-map (kbd "J") (lambda () (interactive) (sql-connect "jammy")))
+(define-key super-k-map (kbd "n") (lambda () (interactive) (sql-connect "noble")))
+(define-key super-k-map (kbd "b") (lambda () (interactive) (sql-connect "bookworm")))
+(define-key super-k-map (kbd "B") (lambda () (interactive) (sql-connect "bullseye")))
+(define-key super-k-map (kbd "t") (lambda () (interactive) (sql-connect "trixie")))
 (define-key super-k-map (kbd "s") 'sql-set-sqli-buffer)
 
 (provide 'cwmars)

@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2026 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -85,15 +85,18 @@
      ("dev" (sql-product 'postgres) (sql-user "evergreen")
       (sql-database "evergreen") (sql-server "localhost")
       (sql-port 35434))
-     ("focal" (sql-product 'postgres) (sql-user "evergreen")
-      (sql-server "focal") (sql-database "evergreen") (sql-port 5432))
      ("jammy" (sql-product 'postgres) (sql-user "evergreen")
       (sql-server "jammy") (sql-database "evergreen") (sql-port 5432))
+     ("noble" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "noble") (sql-database "evergreen") (sql-port 5432))
      ("bullseye" (sql-product 'postgres) (sql-user "evergreen")
       (sql-server "bullseye") (sql-database "evergreen")
       (sql-port 5432))
      ("bookworm" (sql-product 'postgres) (sql-user "evergreen")
       (sql-server "bookworm") (sql-database "evergreen")
+      (sql-port 5432))
+     ("trixie" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "trixie") (sql-database "evergreen")
       (sql-port 5432))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
