@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022, 2023 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2026 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -122,7 +122,7 @@ letters."
                (m (mod (length str) w)))
            (if (> m 0) s (1- s)))))
     (let* ((str (if (stringp num) num (number-to-string num)))
-           (punct (make-string 1 char))
+           (punct (if (stringp char) char (make-string 1 char)))
            (sizes (if (= (length sizes) 1)
                       (make-list (get-size str (car sizes)) (car sizes))
                     (butlast (reverse sizes))))
