@@ -113,7 +113,7 @@ groups from the SIZES list.  If SIZES list has only 1 member,
 then the string is grouped by that width.
 
 It is useful for phone numbers, US Social Security Numbers, and
-other numbers that have arbitray punctuation.  It can also be
+other numbers that have arbitrary punctuation.  It can also be
 used with serial numbers or sequences that include digits and
 letters."
   (cl-labels
