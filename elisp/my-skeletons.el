@@ -142,10 +142,21 @@
   > "'password|P=s' => \\$db_password,\n"
   > "'port|p=i' => \\$db_port)\n"
   > "or die('Error in command line arguments');\n\n"
-  > "my $dbh = DBI->connect(\"dbi:Pg:database=$db_database;host=$db_host;port=$db_port\",\n"
-  > "$db_user, $db_password,{AutoCommit=>1}) or die('No database connection');\n\n"
+  > "my $dsn = 'dbi:Pg:';\n"
+  > "if ($ARGV[0] =~ /^service=/) {\n"
+  > "$dsn .= shift @ARGV;\n"
+  > "# Assume the service includes username and password.\n"
+  > "undef($db_user);\n"
+  > "undef($db_password);\n"
+  "} else {\n"
+  > "$dsn .= \"database=$db_database;host=$db_host;port=$db_port\";\n"
+  "}\n\n"
+  > "my $dbh = DBI->connect($dsn, $db_user, $db_password, {AutoCommit=>1})\n"
+  > "or die('No database connection');\n\n"
   @ - ?\n
-  > "$dbh->disconnect();")
+  > "END {\n"
+  > "$dbh->disconnect() if ($dbh);\n"
+  "}\n")
 
 (define-skeleton egdbu
   "Inserts boiler plate for an Evergreen database upgrade script."
