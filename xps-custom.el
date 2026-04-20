@@ -83,39 +83,28 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(adoc-mode pg cargo rust-mode cmake-mode ac-slime bbcode-mode csv-mode dokuwiki-mode geiser geiser-guile markdown-mode sqlup-mode yaml-mode))
+   '(ac-slime adoc-mode bbcode-mode cargo cmake-mode csv-mode
+              dokuwiki-mode flyspell-correct geiser geiser-guile
+              markdown-mode pg rust-mode sqlup-mode typescript-mode
+              yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values
    '((make-backup-file-name-function . my-dotfile-backup-name)
-     (make-backup-files . t)
-     (nxml-child-indent . 4)
+     (make-backup-files . t) (nxml-child-indent . 4)
      (indent-tab-mode . t)))
  '(set-mark-command-repeat-pop t)
  '(sql-connection-alist
-   '(("db1"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "localhost")
-      (sql-database "evergreen")
+   '(("db1" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "localhost") (sql-database "evergreen")
       (sql-port 35432))
-     ("db2"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "localhost")
-      (sql-database "evergreen")
+     ("db2" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "localhost") (sql-database "evergreen")
       (sql-port 35433))
-     ("dev"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "localhost")
-      (sql-database "evergreen")
+     ("dev" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "localhost") (sql-database "evergreen")
       (sql-port 35434))
-     ("jasontest"
-      (sql-product 'postgres)
-      (sql-user "evergreen")
-      (sql-server "dumbo")
-      (sql-database "jasontest")
-      (sql-port 5432))))
+     ("jasontest" (sql-product 'postgres) (sql-user "evergreen")
+      (sql-server "dumbo") (sql-database "jasontest") (sql-port 5432))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
@@ -123,7 +112,8 @@
  '(tool-bar-mode nil)
  '(tramp-auto-save-directory "~/.emacs.d/tramp-autosave")
  '(tramp-connection-properties
-   '(("/ssh:\\(jason@\\|root@\\)?beastie" "remote-shell" "/usr/local/bin/bash")
+   '(("/ssh:\\(jason@\\|root@\\)?beastie" "remote-shell"
+      "/usr/local/bin/bash")
      ("/sshfs:" "direct-async-process" t)))
  '(user-mail-address "jason@sigio.com"))
 (custom-set-faces
