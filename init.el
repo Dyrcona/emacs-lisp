@@ -112,7 +112,6 @@
 (define-key super-j-map (kbd "m") 'emerge-files)
 (define-key super-j-map (kbd "r") 'ispell-region)
 (define-key super-j-map (kbd "s") 'signed-off-by)
-(define-key super-j-map (kbd "t") 'open-temp-buffer)
 (define-key super-j-map (kbd "u") 'unfill-region)
 (define-key super-j-map (kbd "v") 'view-file)
 (define-key super-j-map (kbd "w") 'count-words)

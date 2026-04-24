@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2026 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -200,10 +200,5 @@ This works best on a buffer of sorted lines."
   (kill-this-buffer)
   (if (not (one-window-p))
       (delete-window)))
-
-(defun open-temp-buffer (bufname)
-  "Open and switch to a temporary, or scratch, buffer."
-  (interactive "sBuffer name: ")
-  (switch-to-buffer (get-buffer-create bufname)))
 
 (provide 'my-commands)
