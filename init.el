@@ -49,35 +49,35 @@
 ;; Unset global keys
 ;; Turn off Ctrl-z.  I almost never mean to use it.
 (if (display-graphic-p)
-    (global-unset-key "\C-z"))
+    (keymap-global-unset "C-z"))
 
 ;; Set Global keys
 ;; The unscroll command from unscroll.el.
-(global-set-key [?\C-,] 'unscroll)
+(keymap-global-set "C-," 'unscroll)
 ;; hungry-delete-forward in all modes.
-(global-set-key [?\C-*] 'hungry-delete-forward)
+(keymap-global-set "C-*" 'hungry-delete-forward)
 ;; To get length of the selection.
-(global-set-key [?\C-$] 'ilength)
+(keymap-global-set "C-$" 'ilength)
 ;; Been using revert-buffer alot.
-(global-set-key [?\C-!] 'revert-buffer)
+(keymap-global-set "C-!" 'revert-buffer)
 ;; Map describe-char to Ctrl-# because it's quicker.
-(global-set-key [?\C-#] 'describe-char)
+(keymap-global-set "C-#" 'describe-char)
 ;; C-% is bound in my-skeletons.el.
-;; (global-set-key [?\C-%] 'skeleton-next-position)
+;; (keymap-global-set "C-%" 'skeleton-next-position)
 ;; Insert a random letter followed by period.
-(global-set-key [?\C-^]
+(keymap-global-set "C-^"
                 (lambda ()
                   (interactive)
                   (insert (format "%c." (+ (random 26) 65)))))
 ;; Run join-line.
-(global-set-key [?\C-&] 'join-line)
+(keymap-global-set "C-&" 'join-line)
 
 ;; Bind unfill-paragraph from Stefan Monnier.
-(global-set-key "\M-Q" 'unfill-paragraph)
+(keymap-global-set "M-Q" 'unfill-paragraph)
 
 ;; Bind goto-random-line to M-g-r as a complement to M-g-g
 ;; (goto-line).
-(global-set-key "\M-gr" 'goto-random-line)
+(keymap-global-set "M-g r" 'goto-random-line)
 
 ;; Map view-file family of commands.
 (define-key ctl-x-4-map "v" 'view-file-other-window)

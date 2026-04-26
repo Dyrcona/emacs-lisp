@@ -44,7 +44,7 @@
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
-(global-set-key [(f7)] 'slime-hyperspec-lookup)
+(keymap-global-set "<f7>" 'slime-hyperspec-lookup)
 
 ;; scheme-mode
 (add-hook 'scheme-mode-hook 'my-lisp-modes-hook) ;Reuse lisp-mode-hook, for now.

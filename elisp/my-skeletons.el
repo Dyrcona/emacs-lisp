@@ -49,7 +49,7 @@
 ;; End of stolen code.
 
 ;; Use C-% for 'skeleton-next-position.
-(global-set-key [?\C-%] 'skeleton-next-position)
+(keymap-global-set "C-%" 'skeleton-next-position)
 
 (define-skeleton guile-scheme
   "Makes a basic skeleton for a scheme script to run via guile."
