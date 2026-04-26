@@ -73,9 +73,12 @@ get-{powerball,megamillions}-results commands."
              (string-to-number (match-string 6)) (string-to-number (match-string 7))
              (string-to-number (or (match-string 8) "0"))))))
 
-;; Bind keys for powerball commands
-(define-key super-j-map "lf" 'fix-lotto-numbers)
-(define-key super-j-map "lm" 'get-megamillions-results)
-(define-key super-j-map "lp" 'get-powerball-results)
+;; Bind keys for lottery commands
+(defvar-keymap my-lotto-command-map
+  :doc "For binding lottery commands"
+  "f" 'fix-lotto-numbers
+  "m" 'get-megamillions-results
+  "p" 'get-powerball-results)
+(keymap-set mode-specific-map "l" my-lotto-command-map)
 
 (provide 'lotto)

@@ -87,35 +87,38 @@
 (define-key-after (lookup-key global-map [menu-bar edit]) [unfill]
   '(menu-item "Unfill" unfill-region . (:enable (use-region-p))) 'fill)
 
-;; Super-j prefix for more custom bindings.
-(defvar super-j-map)
-(define-prefix-command 'super-j-map)
-(global-set-key (kbd "s-j") 'super-j-map)
-(define-key super-j-map (kbd "0") 'close-and-kill-this-pane)
-(define-key super-j-map (kbd "1") 'close-and-kill-next-pane)
-(define-key super-j-map (kbd "!") 'erase-buffer)
-(define-key super-j-map (kbd "@") 'squash-duplicate-lines)
-(define-key super-j-map (kbd "$") 'urldecode-region)
-(define-key super-j-map (kbd "%") 'urlencode-region)
-(define-key super-j-map (kbd "b") 'ispell-buffer)
-(define-key super-j-map (kbd "C") 'toggle-case-fold-search)
-(define-key super-j-map (kbd "cd") 'copy-directory)
-(define-key super-j-map (kbd "cf") 'copy-file)
-(define-key super-j-map (kbd "d") 'desktop-clear)
-(define-key super-j-map (kbd "E") (make-find-file-command
+;; C-c custom bindings.
+(keymap-set mode-specific-map "0" 'close-and-kill-this-pane)
+(keymap-set mode-specific-map "1" 'close-and-kill-next-pane)
+(keymap-set mode-specific-map "!" 'erase-buffer)
+(keymap-set mode-specific-map "@" 'squash-duplicate-lines)
+(keymap-set mode-specific-map "$" 'urldecode-region)
+(keymap-set mode-specific-map "%" 'urlencode-region)
+(keymap-set mode-specific-map "b" 'ispell-buffer)
+(keymap-set mode-specific-map "C" 'toggle-case-fold-search)
+;; "c" is reserved for copy command map.
+(keymap-set mode-specific-map "d" 'desktop-clear)
+(keymap-set mode-specific-map "E" (make-find-file-command
                                    (expand-file-name "elisp" user-emacs-directory)))
-(define-key super-j-map (kbd "e") (make-find-file-command user-emacs-directory))
-(define-key super-j-map (kbd "f") 'fill-region)
-(define-key super-j-map (kbd "g") 'get-url)
-(define-key super-j-map (kbd "i") 'insert-buffer)
-(define-key super-j-map (kbd "k") 'save-and-kill-current-buffer)
-;; super-j-map l is used in elisp/lotto.el
-(define-key super-j-map (kbd "m") 'emerge-files)
-(define-key super-j-map (kbd "r") 'ispell-region)
-(define-key super-j-map (kbd "s") 'signed-off-by)
-(define-key super-j-map (kbd "u") 'unfill-region)
-(define-key super-j-map (kbd "v") 'view-file)
-(define-key super-j-map (kbd "w") 'count-words)
+(keymap-set mode-specific-map "e" (make-find-file-command user-emacs-directory))
+(keymap-set mode-specific-map "f" 'fill-region)
+(keymap-set mode-specific-map "g" 'get-url)
+(keymap-set mode-specific-map "i" 'insert-buffer)
+(keymap-set mode-specific-map "k" 'save-and-kill-current-buffer)
+;; "l" is used in elisp/lotto.el
+(keymap-set mode-specific-map "m" 'emerge-files)
+(keymap-set mode-specific-map "r" 'ispell-region)
+(keymap-set mode-specific-map "s" 'signed-off-by)
+(keymap-set mode-specific-map "u" 'unfill-region)
+(keymap-set mode-specific-map "v" 'view-file)
+(keymap-set mode-specific-map "w" 'count-words)
+
+;; Copy command map
+(defvar-keymap my-copy-command-map
+  :doc "For mapping copy commands"
+  "d" #'copy-directory
+  "f" #'copy-file)
+(keymap-set mode-specific-map "c" my-copy-command-map)
 
 ;; Add git to VC backends.
 (add-to-list 'vc-handled-backends 'Git)
