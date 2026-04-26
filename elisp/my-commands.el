@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022-2025 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022-2026 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -200,5 +200,12 @@ This works best on a buffer of sorted lines."
   (kill-this-buffer)
   (if (not (one-window-p))
       (delete-window)))
+
+(defun save-and-kill-current-buffer ()
+  "Saves modified contents of the current buffer to its file before killing
+it."
+  (interactive)
+  (basic-save-buffer)
+  (kill-current-buffer))
 
 (provide 'my-commands)

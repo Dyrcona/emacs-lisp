@@ -108,6 +108,7 @@
 (define-key super-j-map (kbd "f") 'fill-region)
 (define-key super-j-map (kbd "g") 'get-url)
 (define-key super-j-map (kbd "i") 'insert-buffer)
+(define-key super-j-map (kbd "k") 'save-and-kill-current-buffer)
 ;; super-j-map l is used in elisp/lotto.el
 (define-key super-j-map (kbd "m") 'emerge-files)
 (define-key super-j-map (kbd "r") 'ispell-region)
