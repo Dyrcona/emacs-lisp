@@ -427,52 +427,57 @@ database."
 
 ;; Create a prefix map for CW MARS commands and bind them.
 (require 'my-funcs)                     ; For make-find-file-command macro
-(defvar cwmars-map)
-(define-prefix-command 'cwmars-map)
-(global-set-key (kbd "s-m") 'cwmars-map)
-(define-key cwmars-map (kbd "0") 'cwmars-copy-status-zero)
-(define-key cwmars-map (kbd "a") 'cwmars-make-aris-inserts)
-(define-key cwmars-map (kbd "b") 'cwmars-drop-backstage)
-(define-key cwmars-map (kbd "c") 'cwmars-copy-rows)
-(define-key cwmars-map (kbd "d") 'cwmars-db-update)
-(define-key cwmars-map (kbd "f") 'cwmars-find-db-update)
-(define-key cwmars-map (kbd "l") 'cwmars-make-acn-label-update)
-(define-key cwmars-map (kbd "pa") (lambda () (interactive) (cwmars-deploy "apps")))
-(define-key cwmars-map (kbd "pd") (lambda () (interactive) (cwmars-deploy "apps-dev")))
-(define-key cwmars-map (kbd "pu") (lambda () (interactive) (cwmars-deploy "utilities")))
-(define-key cwmars-map (kbd "s") 'cwmars-make-sql-updates)
-(define-key cwmars-map (kbd "u") (lambda () (interactive) (cwmars-deploy "db-updates")))
-;; Key bindings to open files and directories that I commonly use.
-(define-key cwmars-map (kbd "A") (make-find-file-command cwmars-apps-local-path))
-(define-key cwmars-map (kbd "B") (make-find-file-command cwmars-apps-dev-local-path))
-(define-key cwmars-map (kbd "C") (make-find-file-command (expand-file-name "cwmars_custom" cwmars-utilities-local-path)))
-(define-key cwmars-map (kbd "D") (make-find-file-command cwmars-db-updates-local-path))
-(define-key cwmars-map (kbd "E") (make-find-file-command cwmars-evergreen-path))
-(define-key cwmars-map (kbd "F") (make-find-file-command cwmars-files-path))
-(define-key cwmars-map (kbd "M") (make-find-file-command (expand-file-name "misc" cwmars-files-path)))
-(define-key cwmars-map (kbd "N") (make-find-file-command cwmars-ncipserver-path))
-(define-key cwmars-map (kbd "O") (make-find-file-command cwmars-opensrf-path))
-(define-key cwmars-map (kbd "P") (make-find-file-command cwmars-sipserver-path))
-(define-key cwmars-map (kbd "Q") (make-find-file-command cwmars-sql-path))
-(define-key cwmars-map (kbd "S") (make-find-file-command (expand-file-name "scripts" cwmars-utilities-local-path)))
-(define-key cwmars-map (kbd "T") (make-find-file-command cwmars-tickets-path))
-(define-key cwmars-map (kbd "U") (make-find-file-command cwmars-utilities-local-path))
-(define-key cwmars-map (kbd "V") (make-find-file-command (expand-file-name "overdue" cwmars-utilities-local-path)))
-(define-key cwmars-map (kbd "Z") (make-find-file-command cwmars-one-offs-path))
 
-;; Super-k prefix for database connection bindings.
-(defvar super-k-map)
-(define-prefix-command 'super-k-map)
-(global-set-key (kbd "s-k") 'super-k-map)
-(define-key super-k-map (kbd "1") (lambda () (interactive) (sql-connect "db1")))
-(define-key super-k-map (kbd "2") (lambda () (interactive) (sql-connect "db2")))
-(define-key super-k-map (kbd "d") (lambda () (interactive) (sql-connect "dev")))
-(define-key super-k-map (kbd "j") (lambda () (interactive) (sql-connect "jasontest")))
-(define-key super-k-map (kbd "J") (lambda () (interactive) (sql-connect "jammy")))
-(define-key super-k-map (kbd "n") (lambda () (interactive) (sql-connect "noble")))
-(define-key super-k-map (kbd "b") (lambda () (interactive) (sql-connect "bookworm")))
-(define-key super-k-map (kbd "B") (lambda () (interactive) (sql-connect "bullseye")))
-(define-key super-k-map (kbd "t") (lambda () (interactive) (sql-connect "trixie")))
-(define-key super-k-map (kbd "s") 'sql-set-sqli-buffer)
+(defvar-keymap cwmars-deploy-command-map
+  :doc "Map cwmars-deploy for certain directories"
+  "a" (lambda () (interactive) (cwmars-deploy "apps"))
+  "d" (lambda () (interactive) (cwmars-deploy "apps-dev"))
+  "u" (lambda () (interactive) (cwmars-deploy "utilities")))
+
+(defvar-keymap cwmars-keymap
+  :doc "Keymap for C/W MARS commands"
+  "0" 'cwmars-copy-status-zero
+  "A" (make-find-file-command cwmars-apps-local-path)
+  "B" (make-find-file-command cwmars-apps-dev-local-path)
+  "C" (make-find-file-command (expand-file-name "cwmars_custom" cwmars-utilities-local-path))
+  "D" (make-find-file-command cwmars-db-updates-local-path)
+  "E" (make-find-file-command cwmars-evergreen-path)
+  "F" (make-find-file-command cwmars-files-path)
+  "M" (make-find-file-command (expand-file-name "misc" cwmars-files-path))
+  "N" (make-find-file-command cwmars-ncipserver-path)
+  "O" (make-find-file-command cwmars-opensrf-path)
+  "P" (make-find-file-command cwmars-sipserver-path)
+  "Q" (make-find-file-command cwmars-sql-path)
+  "S" (make-find-file-command (expand-file-name "scripts" cwmars-utilities-local-path))
+  "T" (make-find-file-command cwmars-tickets-path)
+  "U" (make-find-file-command cwmars-utilities-local-path)
+  "V" (make-find-file-command (expand-file-name "overdue" cwmars-utilities-local-path))
+  "Z" (make-find-file-command cwmars-one-offs-path)
+  "a" 'cwmars-make-aris-inserts
+  "b" 'cwmars-drop-backstage
+  "c" 'cwmars-copy-rows
+  "d" 'cwmars-db-update
+  "f" 'cwmars-find-db-update
+  "l" 'cwmars-make-acn-label-update
+  "p" cwmars-deploy-command-map
+  "s" 'cwmars-make-sql-updates
+  "u" (lambda () (interactive) (cwmars-deploy "db-updates")))
+
+(keymap-set global-map "s-m" cwmars-keymap)
+
+(defvar-keymap super-k-map
+  :doc "Super-k prefix for database connection bindings."
+  "1" (lambda () (interactive) (sql-connect "db1"))
+  "2" (lambda () (interactive) (sql-connect "db2"))
+  "b" (lambda () (interactive) (sql-connect "bookworm"))
+  "B" (lambda () (interactive) (sql-connect "bullseye"))
+  "d" (lambda () (interactive) (sql-connect "dev"))
+  "j" (lambda () (interactive) (sql-connect "jasontest"))
+  "J" (lambda () (interactive) (sql-connect "jammy"))
+  "n" (lambda () (interactive) (sql-connect "noble"))
+  "t" (lambda () (interactive) (sql-connect "trixie"))
+  "s" 'sql-set-sqli-buffer)
+
+(keymap-set global-map "s-k" super-k-map)
 
 (provide 'cwmars)
