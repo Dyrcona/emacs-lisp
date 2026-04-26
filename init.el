@@ -80,8 +80,8 @@
 (keymap-global-set "M-g r" 'goto-random-line)
 
 ;; Map view-file family of commands.
-(define-key ctl-x-4-map "v" 'view-file-other-window)
-(define-key ctl-x-5-map "v" 'view-file-other-frame)
+(keymap-set ctl-x-4-map "v" 'view-file-other-window)
+(keymap-set ctl-x-5-map "v" 'view-file-other-frame)
 
 ;; Add unfill-region to the Edit menu.
 (define-key-after (lookup-key global-map [menu-bar edit]) [unfill]
