@@ -15,13 +15,23 @@
 
 ;; Functions and commands for lotteries and lottery data.
 
-(defconst powerball-csv-url
-  "https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Winning_Numbers/powerball.csv")
-(defconst powerball-csv-file-path "/home/jason/Src/lisp/powerball.csv")
+(defgroup my-lotto nil "My lottery functions"
+  :group 'local :prefix "my-lotto-")
+(defcustom powerball-csv-url
+  "https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Winning_Numbers/powerball.csv"
+  "URL to download the Powerball winning numbers CSV file."
+  :type 'string :group 'my-lotto)
+(defcustom powerball-csv-file-path "/home/jason/Src/lisp/powerball.csv"
+  "Path to the downloaded Powerball winning numbers CSV file."
+  :type 'file :group 'my-lotto)
 
-(defconst megamillions-csv-url
-  "https://www.texaslottery.com/export/sites/lottery/Games/Mega_Millions/Winning_Numbers/megamillions.csv")
-(defconst megamillions-csv-file-path "/home/jason/Src/lisp/megamillions.csv")
+(defcustom megamillions-csv-url
+  "https://www.texaslottery.com/export/sites/lottery/Games/Mega_Millions/Winning_Numbers/megamillions.csv"
+  "URL to download the MegaMillions winning numbers CSV file."
+  :type 'string :group 'my-lotto)
+(defcustom megamillions-csv-file-path "/home/jason/Src/lisp/megamillions.csv"
+  "Path to the downloaded MegaMillions winning numbers CSV file."
+  :type 'file :group 'my-lotto)
 
 (defun munge-lottery-csv (lotto-name)
   "Clean up the lottery CSV files downloaded from the Texas
