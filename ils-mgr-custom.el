@@ -61,6 +61,7 @@
  '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
+ '(megamillions-csv-file-path "/media/jstephenson/Stuff/Src/lisp/megamillions.csv")
  '(my-dotfile-backup-dir "/home/jstephenson/Documents")
  '(my-vms-list
    '(("# C/W MARS VMs"
@@ -68,6 +69,7 @@
  '(package-selected-packages
    '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
                php-mode rust-mode typescript-mode xml-rpc yaml-mode))
+ '(powerball-csv-file-path "/media/jstephenson/Stuff/Src/lisp/powerball.csv")
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
@@ -96,8 +98,7 @@
       (sql-server "bookworm") (sql-database "evergreen")
       (sql-port 5432))
      ("trixie" (sql-product 'postgres) (sql-user "evergreen")
-      (sql-server "trixie") (sql-database "evergreen")
-      (sql-port 5432))))
+      (sql-server "trixie") (sql-database "evergreen") (sql-port 5432))))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
