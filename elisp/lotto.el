@@ -15,6 +15,8 @@
 
 ;; Functions and commands for lotteries and lottery data.
 
+(require 'my-funcs)
+
 (defgroup my-lotto nil "My lottery functions"
   :group 'local :prefix "my-lotto-")
 (defcustom powerball-csv-url
@@ -144,7 +146,9 @@ from a lottery jackpot in MA."
 (defvar-keymap my-lotto-command-map
   :doc "For binding lottery commands"
   "f" 'fix-lotto-numbers
+  "M" (make-find-file-command megamillions-numbers-file-path)
   "m" 'get-megamillions-results
+  "P" (make-find-file-command powerball-numbers-file-path)
   "p" 'get-powerball-results
   "s" 'summarize-winnings)
 (keymap-set mode-specific-map "l" my-lotto-command-map)
