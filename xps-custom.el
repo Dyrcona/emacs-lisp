@@ -31,7 +31,6 @@
 ;; Add my local INFOPATH for texinfo documentation
 (add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
 
-(require 'lotto)
 ;; SLIME Setup
 (require 'auto-complete)
 (require 'slime)

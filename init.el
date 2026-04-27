@@ -31,6 +31,7 @@
 (require 'my-skeletons)
 (require 'funcall-region)
 (require 'unscroll)
+(require 'lotto)
 
 ;; Start emacs server process so we can use emacsclient as the editor
 ;; for other programs.
