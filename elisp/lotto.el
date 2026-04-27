@@ -33,6 +33,20 @@
   "Path to the downloaded MegaMillions winning numbers CSV file."
   :type 'file :group 'my-lotto)
 
+;; For after tax winnings estimation
+(defcustom us-tax-rate 3.7e-1
+  "Highest US marginal tax rate."
+  :type 'float :group 'my-lotto)
+(defcustom state-tax-rate 5.0e-2
+  "Higest state marginal tax rate."
+  :type 'float :group 'my-lotto)
+(defcustom state-surtax-rate 4.0e-2
+  "State surtax on high income, if any."
+  :type 'float :group 'my-lotto)
+(defcustom state-surtax-floor 1.10775e6
+  "Amount where the state surtax kicks in, if any."
+  :type 'float :group 'my-lotto)
+
 (defun munge-lottery-csv (lotto-name)
   "Clean up the lottery CSV files downloaded from the Texas
 Lottery Commission website."
@@ -83,12 +97,51 @@ get-{powerball,megamillions}-results commands."
              (string-to-number (match-string 6)) (string-to-number (match-string 7))
              (string-to-number (or (match-string 8) "0"))))))
 
+(defun lottery-winnings (amount)
+  "Stupid little function to esitmate after tax winnings
+from a lottery jackpot in MA."
+  (let* ((us-tax (* amount us-tax-rate))
+         (state-base-tax (* amount state-tax-rate))
+         (state-surtax
+          (if (and (> state-surtax-rate 0.0) (> amount state-surtax-floor))
+              (* (- amount state-surtax-floor) state-surtax-rate)
+            0.0))
+         (state-tax (+ state-base-tax state-surtax)))
+    `((gross-amount . ,amount)
+      (net-amount . ,(- amount us-tax state-tax))
+      (us-taxes . ,us-tax)
+      (state-taxes . ,state-tax)
+      (total-taxes . ,(+ us-tax state-tax)))))
+
+(defun summarize-winnings (winnings)
+  "Pretty print the results of the lottery-winnings function."
+  (interactive "*nLottery Winnings: ")
+  (cl-flet
+      ((format-symbol (symb)
+         (string-pad
+          (mapconcat
+           (lambda (x)
+             (if (= 2 (length x))
+                 (upcase x)
+               (capitalize x)))
+           (split-string (symbol-name symb) "-")
+           " ")
+          12
+          ?\s
+          t)))
+    (dolist (k (lottery-winnings winnings))
+      (insert (format-symbol (car k)))
+      (insert ": $")
+      (insert (group-number (floor (cdr k))))
+      (insert "\n"))))
+
 ;; Bind keys for lottery commands
 (defvar-keymap my-lotto-command-map
   :doc "For binding lottery commands"
   "f" 'fix-lotto-numbers
   "m" 'get-megamillions-results
-  "p" 'get-powerball-results)
+  "p" 'get-powerball-results
+  "s" 'summarize-winnings)
 (keymap-set mode-specific-map "l" my-lotto-command-map)
 
 (provide 'lotto)
