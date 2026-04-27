@@ -62,6 +62,8 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(megamillions-csv-file-path "/media/jstephenson/Stuff/Src/lisp/megamillions.csv")
+ '(megamillions-numbers-file-path
+   "/media/jstephenson/Stuff/Src/lisp/megamillions-numbers.txt")
  '(my-dotfile-backup-dir "/home/jstephenson/Documents")
  '(my-vms-list
    '(("# C/W MARS VMs"
@@ -70,6 +72,7 @@
    '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
                php-mode rust-mode typescript-mode xml-rpc yaml-mode))
  '(powerball-csv-file-path "/media/jstephenson/Stuff/Src/lisp/powerball.csv")
+ '(powerball-numbers-file-path "/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt")
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
