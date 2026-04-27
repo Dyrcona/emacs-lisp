@@ -20,37 +20,37 @@
 (defcustom powerball-csv-url
   "https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Winning_Numbers/powerball.csv"
   "URL to download the Powerball winning numbers CSV file."
-  :type 'string :group 'my-lotto)
+  :type 'string :group 'my-lotto :require 'lotto)
 (defcustom powerball-csv-file-path "/home/jason/Src/lisp/powerball.csv"
   "Path to the downloaded Powerball winning numbers CSV file."
-  :type 'file :group 'my-lotto)
+  :type 'file :group 'my-lotto :require 'lotto)
 (defcustom powerball-numbers-file-path "/home/jason/Src/lisp/powerball-numbers.txt"
   "Path to the modified Powerball winning numbers text file."
-  :type 'file :group 'my-lotto)
+  :type 'file :group 'my-lotto :require 'lotto)
 (defcustom megamillions-csv-url
   "https://www.texaslottery.com/export/sites/lottery/Games/Mega_Millions/Winning_Numbers/megamillions.csv"
   "URL to download the MegaMillions winning numbers CSV file."
-  :type 'string :group 'my-lotto)
+  :type 'string :group 'my-lotto :require 'lotto)
 (defcustom megamillions-csv-file-path "/home/jason/Src/lisp/megamillions.csv"
   "Path to the downloaded MegaMillions winning numbers CSV file."
-  :type 'file :group 'my-lotto)
+  :type 'file :group 'my-lotto :require 'lotto)
 (defcustom megamillions-numbers-file-path "/home/jason/Src/lisp/megamillions-numbers.txt"
   "Path to the modified MegaMillions winning numbers text file."
-  :type 'file :group 'my-lotto)
+  :type 'file :group 'my-lotto :require 'lotto)
 
 ;; For after tax winnings estimation
 (defcustom us-tax-rate 3.7e-1
   "Highest US marginal tax rate."
-  :type 'float :group 'my-lotto)
+  :type 'float :group 'my-lotto :require 'lotto)
 (defcustom state-tax-rate 5.0e-2
   "Higest state marginal tax rate."
-  :type 'float :group 'my-lotto)
+  :type 'float :group 'my-lotto :require 'lotto)
 (defcustom state-surtax-rate 4.0e-2
   "State surtax on high income, if any."
-  :type 'float :group 'my-lotto)
+  :type 'float :group 'my-lotto :require 'lotto)
 (defcustom state-surtax-floor 1.10775e6
   "Amount where the state surtax kicks in, if any."
-  :type 'float :group 'my-lotto)
+  :type 'float :group 'my-lotto :require 'lotto)
 
 (defun munge-lottery-csv (lotto-name)
   "Clean up the lottery CSV files downloaded from the Texas
