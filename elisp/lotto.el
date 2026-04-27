@@ -24,13 +24,18 @@
 (defcustom powerball-csv-file-path "/home/jason/Src/lisp/powerball.csv"
   "Path to the downloaded Powerball winning numbers CSV file."
   :type 'file :group 'my-lotto)
-
+(defcustom powerball-numbers-file-path "/home/jason/Src/lisp/powerball-numbers.txt"
+  "Path to the modified Powerball winning numbers text file."
+  :type 'file :group 'my-lotto)
 (defcustom megamillions-csv-url
   "https://www.texaslottery.com/export/sites/lottery/Games/Mega_Millions/Winning_Numbers/megamillions.csv"
   "URL to download the MegaMillions winning numbers CSV file."
   :type 'string :group 'my-lotto)
 (defcustom megamillions-csv-file-path "/home/jason/Src/lisp/megamillions.csv"
   "Path to the downloaded MegaMillions winning numbers CSV file."
+  :type 'file :group 'my-lotto)
+(defcustom megamillions-numbers-file-path "/home/jason/Src/lisp/megamillions-numbers.txt"
+  "Path to the modified MegaMillions winning numbers text file."
   :type 'file :group 'my-lotto)
 
 ;; For after tax winnings estimation
