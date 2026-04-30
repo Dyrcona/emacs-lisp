@@ -116,7 +116,7 @@ It is useful for phone numbers, US Social Security Numbers, and
 other numbers that have arbitrary punctuation.  It can also be
 used with serial numbers or sequences that include digits and
 letters."
-  (cl-labels
+  (cl-flet
       ((get-size (str w)
          (let ((s (/ (length str) w))
                (m (mod (length str) w)))

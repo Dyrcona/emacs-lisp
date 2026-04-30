@@ -103,7 +103,7 @@ random name beginning with the same letter as the initial."
   "Run git cherry on UPSTREAM and HEAD to get commit log entries
 for the commits in HEAD that are not in UPSTREAM."
   (interactive
-   (cl-labels
+   (cl-flet
        ((get-branch-list (&optional remote)
          (let ((command (format "git branch %s" (if remote "-r" "")))
                (branches '()))
