@@ -54,6 +54,28 @@
   "Amount where the state surtax kicks in, if any."
   :type 'float :group 'my-lotto :require 'lotto)
 
+;; Constants for line positions of the current series.
+(defconst powerball-csv-offset-bytes 17593
+  "Byte offset of the current series in the Powerball CSV file.
+
+The current Powerball series began October 7, 2015.")
+(defconst powerball-csv-offset-lines 594
+  "Line offset of the current series in the Powerball CSV file.")
+(defconst megamillions-csv-offset-bytes 66761
+  "Byte offset of the current series in the MegaMillions CSV file.
+
+The current MegaMillions series began April 8, 2025.")
+(defconst megamillions-csv-offset-lines 2229
+  "Line offset of the current series in the MegaMillions CSV file.")
+(defconst powerball-numbers-offset-bytes 70583
+  "Byte offset of the current series in the Powerball text file.")
+(defconst powerball-numbers-offset-lines 1873
+  "Line offset of the current series in the Powerball text file.")
+(defconst megamillions-numbers-offset-bytes 84664
+  "Byte offset of the current series in the MegaMillions text file.")
+(defconst megamillions-numbers-offset-lines 2229
+  "Line offset of the current series in the MegaMillions text file.")
+
 (defun munge-lottery-csv (lotto-name)
   "Clean up the lottery CSV files downloaded from the Texas
 Lottery Commission website."
