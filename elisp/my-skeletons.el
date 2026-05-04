@@ -67,13 +67,9 @@
   "Insert skeleton code for an Emacs batch script to be run from
  the command line."
   nil
-  ":;exec emacs --no-site-file --batch \"$@\" -l \"$0\" -f main\n"
-  @ ?\n
-  > "(defun main ()\n"
-  > @ - ")\n"
-  '(progn
-     (save-buffer)
-     (set-file-modes (buffer-file-name) #o755)))
+  "#!/bin/sh\n"
+  ":;exec emacs --no-site-file -l \"$0\" --batch -- \"$@\"\n"
+  @ ?\n)
 
 (defalias 'ebs 'emacs-batch-script)
 
