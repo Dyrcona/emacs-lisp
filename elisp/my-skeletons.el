@@ -68,7 +68,7 @@
  the command line."
   nil
   "#!/bin/sh\n"
-  ":;exec emacs --no-site-file -l \"$0\" --batch \"$@\" # -*- mode: emacs-lisp; lexical-binding: t; -*-\n"
+  ":;exec emacs --no-site-file -l \"$0\" --batch -- \"$@\" # -*- mode: emacs-lisp; lexical-binding: t; -*-\n"
   @ ?\n)
 
 (defalias 'ebs 'emacs-batch-script)
