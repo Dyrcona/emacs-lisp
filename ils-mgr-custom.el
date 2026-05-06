@@ -32,7 +32,9 @@
 
 ;; Set up for CW MARS
 (require 'cwmars)
-
+(require 'sqlup-mode)
+(add-hook 'sql-mode-hook 'sqlup-mode)
+(add-hook 'sql-interactive-mode-hook 'sqlup-mode)
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 (custom-set-variables
@@ -70,7 +72,8 @@
       . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
    '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
-               php-mode rust-mode typescript-mode xml-rpc yaml-mode))
+               php-mode rust-mode sqlup-mode typescript-mode xml-rpc
+               yaml-mode))
  '(powerball-csv-file-path "/media/jstephenson/Stuff/Src/lisp/powerball.csv")
  '(powerball-numbers-file-path "/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt")
  '(require-final-newline t)
