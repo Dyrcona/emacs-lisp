@@ -32,9 +32,6 @@
 
 ;; Set up for CW MARS
 (require 'cwmars)
-(require 'sqlup-mode)
-(add-hook 'sql-mode-hook 'sqlup-mode)
-(add-hook 'sql-interactive-mode-hook 'sqlup-mode)
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 (custom-set-variables
@@ -105,9 +102,12 @@
       (sql-port 5432))
      ("trixie" (sql-product 'postgres) (sql-user "evergreen")
       (sql-server "trixie") (sql-database "evergreen") (sql-port 5432))))
+ '(sql-interactive-mode-hook '(sql-indent-enable sqlup-mode))
+ '(sql-mode-hook '(sql-indent-enable sqlup-mode))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
+ '(sqlup-blacklist '("name" "id"))
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(user-mail-address "jstephenson@cwmars.org"))
