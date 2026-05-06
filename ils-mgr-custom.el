@@ -63,9 +63,9 @@
  '(kill-whole-line t)
  '(major-mode 'text-mode)
  '(make-backup-files nil)
- '(megamillions-csv-file-path "/media/jstephenson/Stuff/Src/lisp/megamillions.csv")
+ '(megamillions-csv-file-path "/media/jstephenson/Stuff/Src/lisp/megamillions.csv" nil (lotto))
  '(megamillions-numbers-file-path
-   "/media/jstephenson/Stuff/Src/lisp/megamillions-numbers.txt")
+   "/media/jstephenson/Stuff/Src/lisp/megamillions-numbers.txt" nil (lotto))
  '(my-dotfile-backup-dir "/home/jstephenson/Documents")
  '(my-vms-list
    '(("# C/W MARS VMs"
@@ -74,8 +74,8 @@
    '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
                php-mode rust-mode sqlup-mode typescript-mode xml-rpc
                yaml-mode))
- '(powerball-csv-file-path "/media/jstephenson/Stuff/Src/lisp/powerball.csv")
- '(powerball-numbers-file-path "/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt")
+ '(powerball-csv-file-path "/media/jstephenson/Stuff/Src/lisp/powerball.csv" nil (lotto))
+ '(powerball-numbers-file-path "/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt" nil (lotto))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
