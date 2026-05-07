@@ -22,7 +22,7 @@
 ;; Setup load path for finding my files:
 (add-to-list 'load-path "~/.emacs.d/elisp")
 ;; Byte-recompile the libraries, if needed:
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+(byte-recompile-directory (expand-file-name "~/.emacs.d"))
 
 ;; Load my libraries that I want all the time.
 (require 'buffer-advice)
