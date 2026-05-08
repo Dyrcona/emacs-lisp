@@ -68,11 +68,13 @@
    '(("# C/W MARS VMs"
       . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   '(adoc-mode bbcode-mode cargo csv csv-mode dokuwiki-mode markdown-mode
-               php-mode rust-mode sqlup-mode typescript-mode xml-rpc
-               yaml-mode))
+   '(adoc-mode bbcode-mode cargo cargo-mode csv csv-mode dokuwiki-mode
+               flymake flyspell-correct markdown-mode php-mode
+               python-mode rust-mode sql-indent sqlup-mode
+               typescript-mode xml-rpc yaml-mode))
  '(powerball-csv-file-path "/run/media/jstephenson/Stuff/Src/lisp/powerball.csv" nil (lotto))
- '(powerball-numbers-file-path "/run/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt" nil (lotto))
+ '(powerball-numbers-file-path
+   "/run/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt" nil (lotto))
  '(require-final-newline t)
  '(safe-local-variable-values '((nxml-child-indent . 4) (indent-tab-mode)))
  '(set-mark-command-repeat-pop t)
@@ -116,5 +118,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Sans Mono" :foundry "DAMA" :slant normal :weight regular :height 120 :width normal))))
- '(region ((t (:background "light gray" :distant-foreground "gtk_selection_fg_color")))))
+ '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :height 143 :width normal)))))
