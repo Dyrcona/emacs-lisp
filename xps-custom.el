@@ -84,8 +84,8 @@
  '(package-selected-packages
    '(ac-slime adoc-mode bbcode-mode cargo cmake-mode csv-mode
               dokuwiki-mode flyspell-correct geiser geiser-guile
-              markdown-mode pg rust-mode sqlup-mode typescript-mode
-              yaml-mode))
+              markdown-mode pg php-mode rust-mode sqlup-mode
+              typescript-mode yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values
    '((make-backup-file-name-function . my-dotfile-backup-name)
