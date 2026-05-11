@@ -83,8 +83,10 @@
  '(make-backup-files nil)
  '(package-selected-packages
    '(ac-slime adoc-mode bbcode-mode cargo cmake-mode csv-mode
-              dokuwiki-mode flyspell-correct geiser geiser-guile
-              markdown-mode pg rust-mode sqlup-mode typescript-mode
+              dokuwiki-mode flymake flymake-php
+              flymake-python-pyflakes flyspell-correct geiser
+              geiser-guile lua-mode markdown-mode pg php-mode
+              python-mode rust-mode slime sqlup-mode typescript-mode
               yaml-mode))
  '(require-final-newline t)
  '(safe-local-variable-values
