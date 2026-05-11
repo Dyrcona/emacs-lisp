@@ -235,7 +235,9 @@
 (require 'sql)
 (add-to-list 'auto-mode-alist '("\\.pg\\'" . sql-mode))
 (push
- (sql-font-lock-keywords-builder 'font-lock-builtin-face nil "refresh" "materialized")
+ (sql-font-lock-keywords-builder
+  'font-lock-builtin-face
+  nil "conflict" "refresh" "materialized")
  sql-mode-postgres-font-lock-keywords)
 
 ;; Do initialization for HTML Mode.
