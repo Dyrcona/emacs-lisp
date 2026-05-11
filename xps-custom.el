@@ -106,8 +106,8 @@
       (sql-port 35434))
      ("jasontest" (sql-product 'postgres) (sql-user "evergreen")
       (sql-server "dumbo") (sql-database "jasontest") (sql-port 5432))))
- '(sql-interactive-mode-hook '(sqlup-mode sql-indent-enable))
- '(sql-mode-hook '(sqlup-mode sql-indent-enable))
+ '(sql-interactive-mode-hook '(sqlup-mode))
+ '(sql-mode-hook '(sqlup-mode))
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
