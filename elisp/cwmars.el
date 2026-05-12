@@ -469,12 +469,13 @@ database."
   :doc "Super-k prefix for database connection bindings."
   "1" (lambda () (interactive) (sql-connect "db1"))
   "2" (lambda () (interactive) (sql-connect "db2"))
+  "4" (lambda () (interactive) (sql-connect "dev")) ;Four: the port number
   "b" (lambda () (interactive) (sql-connect "bookworm"))
-  "B" (lambda () (interactive) (sql-connect "bullseye"))
-  "d" (lambda () (interactive) (sql-connect "dev"))
+  "d" (lambda () (interactive) (sql-connect "dumbo"))
+  "e" (lambda () (interacitve) (sql-connect "egtest"))
   "j" (lambda () (interactive) (sql-connect "jasontest"))
-  "J" (lambda () (interactive) (sql-connect "jammy"))
   "n" (lambda () (interactive) (sql-connect "noble"))
+  "r" (lambda () (interactive) (sql-connect "resolute"))
   "t" (lambda () (interactive) (sql-connect "trixie"))
   "s" 'sql-set-sqli-buffer)
 
