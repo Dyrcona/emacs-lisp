@@ -109,7 +109,7 @@
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
- '(sqlup-blacklist '("data" "id" "label" "name" "state"))
+ '(sqlup-blacklist '("data" "id" "label" "name" "path" "state"))
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(user-mail-address "jstephenson@cwmars.org"))
