@@ -80,6 +80,14 @@ the pattern of filename.[0-9]+."
      (interactive)
      (find-file ,arg)))
 
+;; Ediff frames are oddly sized on Emacs 29.4+ on Arch with
+;; Gnome/Wayland.
+(defun my-resize-frame (frame)
+  "Make Ediff frames legible on Wayland."
+  (let ((title (frame-parameter frame 'title)))
+    (if (and title (string-equal-ignore-case title "ediff"))
+        (set-frame-size frame 18 3)))) ; 18x3 picked after experimentation
+
 ;; Numerical functions
 
 (defun randint (start end)
