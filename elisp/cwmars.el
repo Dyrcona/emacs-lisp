@@ -255,11 +255,11 @@ email checkout receipts by default."
 directory.
 
 The command iterates a regular expression search over a file containing
-lists of filename relative to th src directory.  Any filenames match the
-patterns of Evergreen templates or Bootstrap OPAC templates are modified
-into shell code to copy them from src directory to dst directory.  The
-paths in dst directory are modified for the way that MOBIUS
-repositories expect custom templates to be named.
+lists of filename paths relative to the src directory.  Any filenames
+that match the patterns of Evergreen templates or Bootstrap OPAC
+templates are modified into shell code to copy them from src directory
+to dst directory.  The paths in dst directory are modified for the way
+that MOBIUS repositories expect custom templates to be named.
 
 Non-matching lines are skipped, but they are best omitted from the
 source file since their presence will interfere with the output's
