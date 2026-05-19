@@ -499,7 +499,7 @@ database."
   "4" (lambda () (interactive) (sql-connect "dev")) ;Four: the port number
   "b" (lambda () (interactive) (sql-connect "bookworm"))
   "d" (lambda () (interactive) (sql-connect "dumbo"))
-  "e" (lambda () (interacitve) (sql-connect "egtest"))
+  "e" (lambda () (interactive) (sql-connect "egtest"))
   "j" (lambda () (interactive) (sql-connect "jasontest"))
   "n" (lambda () (interactive) (sql-connect "noble"))
   "r" (lambda () (interactive) (sql-connect "resolute"))
