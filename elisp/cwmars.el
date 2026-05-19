@@ -250,6 +250,33 @@ email checkout receipts by default."
   (while (re-search-forward "^\\([0-9]+\\)$" nil t)
     (replace-match cwmars-cko-receipt-settings-replacement-str t)))
 
+(defun cwmars-make-templates-copy-script (src dst)
+  "Write Bash code to copy custom templates from src directory to dst
+directory.
+
+The command iterates a regular expression search over a file containing
+lists of filename relative to th src directory.  Any filenames match the
+patterns of Evergreen templates or Bootstrap OPAC templates are modified
+into shell code to copy them from src directory to dst directory.  The
+paths in dst directory are modified for the way that MOBIUS
+repositories expect custom templates to be named.
+
+Non-matching lines are skipped, but they are best omitted from the
+source file since there presence will interfere with the output's
+ability to run as a bash script."
+  (interactive "*DSource directory: \nDDestination directory: ")
+  (while (re-search-forward "^\\(Open-ILS/src/\\)\\(templates[^/]*\\)\\(/.*\\)\\(/.+\\)$" nil t)
+    (let* ((from (concat src "/" (match-string 0)))
+           (to-dir (concat dst "/templates/" (match-string 2) "_cons" (match-string 3)))
+           (to (concat to-dir (match-string 4)))
+           (text
+            (concat
+             "if [[ ! -d " to-dir " ]]; then\n"
+             "    mkdir -p " to-dir "\n"
+             "fi\n"
+             "cp " from " " to)))
+      (replace-match text))))
+
 (defconst cwmars-regions '("146" "2" "324")
   "List of CW MARS region ids as strings to use in read-string for skeletons.")
 
