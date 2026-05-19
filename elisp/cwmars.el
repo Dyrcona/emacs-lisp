@@ -262,7 +262,7 @@ paths in dst directory are modified for the way that MOBIUS
 repositories expect custom templates to be named.
 
 Non-matching lines are skipped, but they are best omitted from the
-source file since there presence will interfere with the output's
+source file since their presence will interfere with the output's
 ability to run as a bash script."
   (interactive "*DSource directory: \nDDestination directory: ")
   (while (re-search-forward "^\\(Open-ILS/src/\\)\\(templates[^/]*\\)\\(/.*\\)\\(/.+\\)$" nil t)
