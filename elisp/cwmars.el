@@ -172,42 +172,6 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
     (insert (format "\ncd /mnt/evergreen/circ_notices/%s\n" lib))
     (insert "./create-index.sh\n")))
 
-;; Because of scan errors caused by the long string when used in a let
-;; block, I put this in a global constant outside of the function.
-;; This is the substitution pattern to use when generating the SQL to
-;; insert asset.stat_cat_entry_copy_map entries for a new member's
-;; copies in cwmars-make-aris-inserts.
-(defconst cwmars-aris-replacement-str
-  "INSERT INTO asset.stat_cat_entry_copy_map
-(stat_cat, stat_cat_entry, owning_copy)
-SELECT stat_cat, \\2, \\1
-FROM asset.stat_cat_entry
-WHERE id = \\2
-ON CONFLICT ON CONSTRAINT sce_once_per_copy
-DO UPDATE
-SET stat_cat_entry = \\2
-WHERE stat_cat_entry_copy_map.owning_copy = \\1
-AND stat_cat_entry_copy_map.stat_cat = (SELECT stat_cat FROM asset.stat_cat_entry WHERE id = \\2);
-INSERT INTO asset.stat_cat_entry_copy_map
-(stat_cat, stat_cat_entry, owning_copy)
-SELECT stat_cat, \\3, \\1
-FROM asset.stat_cat_entry
-WHERE id = \\3
-ON CONFLICT ON CONSTRAINT sce_once_per_copy
-DO UPDATE
-SET stat_cat_entry = \\3
-WHERE stat_cat_entry_copy_map.owning_copy = \\1
-AND stat_cat_entry_copy_map.stat_cat = (SELECT stat_cat FROM asset.stat_cat_entry WHERE id = \\3);")
-
-(defun cwmars-make-aris-inserts ()
-  "Take a 3-column CSV where columns are 1. a copy id, 2. a stat
-cat entry id, and 3. a stat cat entry id, and turn that into a
-series of SQL insert statements."
-  (interactive)
-  (goto-char (point-min))
-  (while (re-search-forward "^\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\)$" nil t)
-    (replace-match cwmars-aris-replacement-str)))
-
 (defconst cwmars-replace-labels-str
   "SELECT * INTO acn
 FROM asset.call_number
@@ -469,7 +433,6 @@ database."
   "U" (make-find-file-command cwmars-utilities-local-path)
   "V" (make-find-file-command (expand-file-name "overdue" cwmars-utilities-local-path))
   "Z" (make-find-file-command cwmars-one-offs-path)
-  "a" 'cwmars-make-aris-inserts
   "b" 'cwmars-drop-backstage
   "c" 'cwmars-copy-rows
   "d" 'cwmars-db-update
