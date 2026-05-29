@@ -352,17 +352,6 @@ ability to run as a bash script."
   @ _ ?\n
   "\nCOMMIT;\n")
 
-(define-skeleton cwmars-activate-hold-notifications
-  "Create SQL to activate hold notifications for a member library."
-  "Enter org. unit id: "
-  "\\qecho SP " (skeleton-read "Enter Ticket Number: ")
-  ": Activate Hold Notifications for " (skeleton-read "Enter library name: ") ?\n
-  "BEGIN;\n"
-  "SELECT cwmars.clone_action_trigger_event_def_for_org(5, " str ");\n"
-  "SELECT cwmars.clone_action_trigger_event_def_for_org(101, " str ");\n"
-  "SELECT cwmars.clone_action_trigger_event_def_for_org(7, " str ");\n"
-  "COMMIT;")
-
 (define-skeleton cwmars-default-phone-upsert
   "Write SQL to update the default phone notify usr setting for a
  library's patrons."
