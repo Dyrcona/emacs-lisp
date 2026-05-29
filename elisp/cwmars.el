@@ -177,6 +177,7 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
 FROM asset.call_number
 WHERE id = \\1;
 acn.label := '\\2';
+acn.edit_date := NOW();
 PERFORM cwmars.update_acn(acn);
 ")
 
