@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;; ---------------------------------------------------------------
-;; Copyright © 2022 Jason J.A. Stephenson <jason@sigio.com>
+;; Copyright © 2022, 2026 Jason J.A. Stephenson <jason@sigio.com>
 ;;
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -26,7 +26,7 @@ with the output of the function."
     (let ((text (delete-and-extract-region start end)))
       (insert (funcall func text)))))
 
-(defmacro make-funcall-region-command (cmd func-symbol &optional docstring)
+(defmacro make-funcall-region-command (cmd func-symbol docstring)
   "Make a command, named cmd, using funcall-region to call
 func-symbol over region.  func-symbol is a function that takes a
 string argument."
