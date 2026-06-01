@@ -45,4 +45,9 @@ string argument."
  'url-unhex-string
  "De-URLencode the region between START and END in current buffer.")
 
+(make-funcall-region-command
+ "md5-region"
+ 'md5
+ "Insert MD5 hash of region.")
+
 (provide 'funcall-region)

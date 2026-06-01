@@ -91,6 +91,7 @@
 ;; C-c custom bindings.
 (keymap-set mode-specific-map "0" 'close-and-kill-this-pane)
 (keymap-set mode-specific-map "1" 'close-and-kill-next-pane)
+(keymap-set mode-specific-map "5" 'md5-region)
 (keymap-set mode-specific-map "!" 'erase-buffer)
 (keymap-set mode-specific-map "@" 'squash-duplicate-lines)
 (keymap-set mode-specific-map "$" 'urldecode-region)
