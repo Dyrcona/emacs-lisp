@@ -117,7 +117,7 @@
  '(sql-postgres-options
    '("-P" "pager=off" "-v" "PROMPT1=%/> " "-v" "PROMPT2" "-v" "PROMPT3"))
  '(sql-product 'postgres)
- '(sqlup-blacklist '("csv" "data" "id" "label" "name" "path" "state"))
+ '(sqlup-blacklist '("csv" "data" "id" "label" "name" "path" "sql" "state"))
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(tramp-auto-save-directory "~/.emacs.d/tramp-autosave")
