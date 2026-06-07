@@ -166,7 +166,7 @@ letters."
   "A macro that implements named let from Scheme.
 
 See: https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref/Iteration.html"
-  (let ((gs (cl-loop for i in letargs collect (gensym)))
+  (let ((gs (cl-loop for _ in letargs collect (gensym)))
         (b (gensym))
         (tag (gensym)))
     `(cl-macrolet
