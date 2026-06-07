@@ -13,7 +13,7 @@
 ;; General Public License for more details.
 ;; ---------------------------------------------------------------
 
-;; A collection of useful functions.
+;; A collection of useful functions and macros.
 
 (defcustom my-vms-list
   '(("# My VMs" . "/home/jason/Src/other/hosts-vms.sedscr")
@@ -161,6 +161,33 @@ letters."
               (concat padstr string)
             (concat string padstr)))
       string)))
+
+(cl-defmacro named-let (n letargs &rest body)
+  "A macro that implements named let from Scheme.
+
+See: https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref/Iteration.html"
+  (let ((gs (cl-loop for i in letargs collect (gensym)))
+        (b (gensym))
+        (tag (gensym)))
+    `(cl-macrolet
+         ((,n ,gs
+            `(progn
+               (cl-psetq
+                ,@(apply #'nconc
+                         (cl-mapcar
+                          #'list
+                          ',(cl-mapcar #'car letargs)
+                          (list ,@gs))))
+               (go ,',tag))))
+       (cl-block ,b
+         (let ,letargs
+           (cl-tagbody ,tag
+                       (cl-return-from ,b (progn ,@body))))))))
+
+(defalias 'letn 'named-let
+    "A macro that implements named let from Scheme.
+
+See: https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref/Iteration.html")
 
 ;; Conversion Functions
 (defun f->c (f)
