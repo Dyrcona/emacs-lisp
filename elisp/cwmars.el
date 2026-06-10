@@ -149,7 +149,7 @@ current buffer and prepend \\i cwmars-db-updates-remote-path."
     (if varsym
         (let ((bufname (format "cwdeploy-%s" what))
               (command (format "cd %s && git pull" (symbol-value varsym))))
-          (start-process bufname bufname "ssh" "mossdb" command)
+          (start-process bufname bufname "ssh" "cwmars-db1" command)
           (switch-to-buffer-other-window bufname))
       (message "No remote path variable for %s." what))))
 
