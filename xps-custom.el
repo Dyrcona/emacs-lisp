@@ -66,6 +66,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(current-language-environment "UTF-8")
+ '(custom-enabled-themes '(adwaita-dark))
+ '(custom-safe-themes
+   '("a2cecf3271a538513b03051a351fd83450791507a0169f66c4ad3cd75325ca81"
+     default))
  '(indent-tabs-mode nil)
  '(inferior-lisp-program "/usr/bin/sbcl --noinform" t)
  '(inhibit-startup-screen t)
@@ -74,8 +78,8 @@
  '(major-mode 'text-mode)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(ac-slime adoc-mode bbcode-mode cargo cmake-mode csv-mode
-              dokuwiki-mode flymake flymake-php
+   '(ac-slime adoc-mode adwaita-dark-theme bbcode-mode cargo cmake-mode
+              csv-mode dokuwiki-mode flymake flymake-php
               flymake-python-pyflakes flyspell-correct geiser
               geiser-guile lua-mode markdown-mode pg php-mode
               python-mode rust-mode slime sqlup-mode typescript-mode
