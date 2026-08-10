@@ -31,6 +31,10 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-default t)
  '(current-language-environment "UTF-8")
+ '(custom-enabled-themes '(adwaita-dark))
+ '(custom-safe-themes
+   '("a2cecf3271a538513b03051a351fd83450791507a0169f66c4ad3cd75325ca81"
+     default))
  '(cwmars-apps-dev-local-path "~/src/apps_dev/" nil (cwmars))
  '(cwmars-apps-local-path "~/src/apps/" nil (cwmars))
  '(cwmars-db-updates-local-path "~/src/db-updates/" nil (cwmars))
@@ -58,10 +62,10 @@
    '(("# C/W MARS VMs"
       . "/home/jstephenson/src/patches/hosts-cwmars.sedscr")))
  '(package-selected-packages
-   '(adoc-mode bbcode-mode cargo cargo-mode csv csv-mode dokuwiki-mode
-               flymake flyspell-correct markdown-mode php-mode
-               python-mode rust-mode sql-indent sqlup-mode
-               typescript-mode xml-rpc yaml-mode))
+   '(adoc-mode adwaita-dark-theme bbcode-mode cargo cargo-mode csv
+               csv-mode dokuwiki-mode flymake flyspell-correct
+               markdown-mode php-mode python-mode rust-mode sql-indent
+               sqlup-mode typescript-mode xml-rpc yaml-mode))
  '(powerball-csv-file-path "/run/media/jstephenson/Stuff/Src/lisp/powerball.csv" nil (lotto))
  '(powerball-numbers-file-path
    "/run/media/jstephenson/Stuff/Src/lisp/powerball-numbers.txt" nil (lotto))
