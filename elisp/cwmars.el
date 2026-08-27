@@ -327,7 +327,7 @@ ability to run as a bash script."
   "('" str "', '" (upcase (skeleton-read "System shortname: "))
   "', 3, " (read-string "Region: " nil 'cwmars-regions "146") ", FALSE)\n"
   "RETURNING id INTO parent_id;\n\n"
-  ("Branch name: " ""
+  ("Branch name: "
   "INSERT INTO actor.org_unit\n"
   "(name, shortname, ou_type, parent_ou, phone)\n"
   "VALUES\n"
