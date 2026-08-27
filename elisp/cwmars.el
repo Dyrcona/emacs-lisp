@@ -309,6 +309,81 @@ ability to run as a bash script."
   "('" shortname "-jstephenson', ou_id);\n\n"
   "END\n$$;\n")
 
+(define-skeleton cwmars-new-multibranch-library
+  "Write SQL to create a new CW MARS multibranch member library."
+  "Library name: "
+  "\\qecho Add " str "\n"
+  "DO\n"
+  "$$\n"
+  "DECLARE\n"
+  "    parent_id INTEGER;\n"
+  "    ou_id INTEGER;\n"
+  "    addr_id INTEGER;\n"
+  "    org_tree_id INTEGER;\n"
+  "BEGIN\n\n"
+  "INSERT INTO actor.org_unit\n"
+  "(name, shortname, ou_type, parent_ou, opac_visible)\n"
+  "VALUES\n"
+  "('" str "', '" (upcase (skeleton-read "System shortname: "))
+  "', 3, " (read-string "Region: " nil 'cwmars-regions "146") ", FALSE)\n"
+  "RETURNING id INTO parent_id;\n\n"
+  ("Branch name: " ""
+  "INSERT INTO actor.org_unit\n"
+  "(name, shortname, ou_type, parent_ou, phone)\n"
+  "VALUES\n"
+  "('" str "', '" (setq shortname (upcase (skeleton-read "Library shortname: ")))
+  "', 4, parent_id, '" (skeleton-read "Library phone: ") "')\n"
+  "RETURNING id INTO ou_id;\n\n"
+  '(let ((street1 (upcase (read-string "Library street1: ")))
+         (street2 (upcase (read-string "Library street2: ")))
+         (town (upcase (read-string "Library town: ")))
+         (county (upcase (read-string "Library county: ")))
+         (zip (read-string "Library zip code: ")))
+     (dolist (e '(("PHYSICAL ADDRESS" . "billing_address")
+                  ("HOLDS ADDRESS" . "holds_address")
+                  ("MAILING ADDRESS" . "mailing_address")
+                  ("ILL ADDRESS" . "ill_address")))
+       (insert "INSERT INTO actor.org_address\n")
+       (insert "(valid,address_type,org_unit,street1,street2,city,county,state,country,post_code)\n")
+       (insert "VALUES\n")
+       (insert (format "('t','%s',ou_id,'%s'," (car e) street1))
+       (insert (if (string= street2 "") "NULL" (format "'%s'" street2)))
+       (insert (format ",'%s','%s','MA','US','%s')\n" town county zip))
+       (insert "RETURNING id INTO addr_id;\n\n")
+       (insert (format "UPDATE actor.org_unit\nSET %s = addr_id\nWHERE id = ou_id;\n\n" (cdr e))))))
+  '(setq bcprefix (skeleton-read "Barcode prefix: "))
+  "INSERT INTO cwmars_dashboard.barcode_prefix (org_unit, prefix, prefix_stub)\n"
+  "VALUES\n"
+  "(parent_id, '2" bcprefix "', '2" bcprefix "'),\n"
+  "(parent_id, '5" bcprefix "', '5" bcprefix "');\n\n"
+  "INSERT INTO actor.org_unit_setting\n(org_unit, name, value)\nVALUES\n"
+  "(parent_id, 'lib.ecard_barcode_prefix', '\"5" bcprefix "\"');\n\n"
+  '(setq siblingord (skeleton-read "Sibling order: "))
+  "UPDATE actor.org_unit_custom_tree_node\n"
+  "SET sibling_order = sibling_order + 1\n"
+  "WHERE parent_node = 10722\n"
+  "AND sibling_order >= " siblingord ";\n\n"
+  "INSERT INTO actor.org_unit_custom_tree_node\n"
+  "(tree, org_unit, parent_node, sibling_order)\nVALUES\n"
+  "(1, parent_id, 10722, " siblingord ")\n"
+  "RETURNING id INTO org_tree_id;\n"
+  "INSERT INTO actor.org_unit_custom_tree_node\n"
+  "(tree, org_unit, parent_node, sibling_order)\n"
+  "SELECT 1, org_unit.id, org_tree_id, (ROW_NUMBER() OVER () - 1)\n"
+  "FROM actor.org_unit WHERE parent_ou = parent_id\n"
+  "ORDER BY org_unit.name;\n\n"
+  "INSERT INTO permission.usr_work_ou_map (usr, work_ou)\n"
+  "SELECT usr.id, org_unit.id\n"
+  "FROM actor.usr, actor.org_unit\n"
+  "WHERE (usr.usrname = 'jstephenson' OR usr.usrname = 'cwdeleter')\n"
+  "AND org_unit.parent_ou = parent_id;\n"
+  "INSERT INTO actor.workstation (name, owning_lib)\n"
+  "SELECT org_unit.shortname || '-' || usr.usrname, org_unit.id\n"
+  "FROM actor.org_unit, actor.usr\n"
+  "WHERE org_unit.parent_ou = parent_id\n"
+  "AND (usr.usrname = 'jstephenson' OR usr.usrname = 'cwdeleter');\n\n"
+  "END\n$$;\n")
+
 (define-skeleton cwmars-db-update
   "Wrapper for a PostgreSQL database update script."
   nil
