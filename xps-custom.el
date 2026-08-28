@@ -20,9 +20,6 @@
  (lambda (frame)
    (run-with-timer 0.05 nil 'my-resize-frame frame)))
 
-;; Add my local INFOPATH for texinfo documentation
-(add-to-list 'Info-directory-list (expand-file-name "~/share/info"))
-
 ;; SLIME Setup
 (require 'auto-complete)
 (require 'slime)
