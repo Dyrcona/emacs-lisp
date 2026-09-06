@@ -56,6 +56,9 @@
 ;; Set up for wesnoth-mode
 (require 'my-wesnoth)
 
+;; So I can load some local libraries as needed.
+(push "~/Src/lisp" load-path)
+
 ;; Mostly managed by custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
