@@ -59,6 +59,10 @@
 ;; So I can load some local libraries as needed.
 (push "~/Src/lisp" load-path)
 
+;; Open my ~/Src/lisp directory with a simple stroke.
+(keymap-set mode-specific-map "L" (make-find-file-command
+                                   (expand-file-name "~/Src/lisp")))
+
 ;; Mostly managed by custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

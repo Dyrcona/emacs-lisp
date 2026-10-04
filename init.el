@@ -108,6 +108,7 @@
 (keymap-set mode-specific-map "i" 'insert-buffer)
 (keymap-set mode-specific-map "k" 'save-and-kill-current-buffer)
 ;; "l" is used in elisp/lotto.el
+;; "L" is set in machine-specific init files.
 (keymap-set mode-specific-map "m" 'emerge-files)
 (keymap-set mode-specific-map "r" 'ispell-region)
 (keymap-set mode-specific-map "s" 'signed-off-by)

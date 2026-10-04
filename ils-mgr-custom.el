@@ -24,6 +24,10 @@
 (require 'cwmars)
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
+;; Open my personal Lisp source directory with a simple stroke.
+(keymap-set mode-specific-map "L" (make-find-file-command
+                                   (concat (getenv "STUFF") "/Src/lisp")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
