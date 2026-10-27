@@ -136,6 +136,9 @@
 ;; Set diff-mode for reverse patch (.rpatch) files.
 (add-to-list 'auto-mode-alist '("\\.rpatch\\'" . diff-mode))
 
+;; Set javascript-mode for .mjs (ES6+) files.
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . javascript-mode))
+
 ;; Use cperl-mode by default
 (defalias 'perl-mode 'cperl-mode)
 (require 'cperl-mode)
