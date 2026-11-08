@@ -97,7 +97,7 @@ and modify it for my own use.  Write the results to
 /home/jason/Src/lisp/powerball.csv."
   (interactive)
   (with-current-buffer
-      (url-retrieve-synchronously powerball-csv-url)
+      (url-retrieve-synchronously powerball-csv-url nil nil 5.0)
     (munge-lottery-csv "Powerball")
     (write-file powerball-csv-file-path)))
 
@@ -107,7 +107,7 @@ and modify it for my own use.  Write the results to
 /home/jason/Src/lisp/megamillions.csv."
   (interactive)
   (with-current-buffer
-      (url-retrieve-synchronously megamillions-csv-url)
+      (url-retrieve-synchronously megamillions-csv-url nil nil 5.0)
     (munge-lottery-csv "Mega Millions")
     (write-file megamillions-csv-file-path)))
 
